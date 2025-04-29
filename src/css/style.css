@@ -593,30 +593,36 @@ footer>p {
 
 @media (max-width: 900px) {
   .main-nav {
-    gap: 1.8em !important;
-    padding-top: 0.7em !important;
-    padding-bottom: 0.7em !important;
-    align-items: flex-start !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column !important;
+    gap: 0.5em !important; /* 上下間距 */
+    position: relative !important;
+    left: -2vw !important; /* 左邊距 */
+    padding: 0.5em 8px !important;
+    box-sizing: border-box !important;
   }
   .main-nav .logo-link {
-    margin-right: 2.2em !important;
+    margin: 0 auto 0.5em auto !important;
+    display: flex !important;
+    justify-content: center !important;
   }
   .main-nav .logo-link img {
-    height: 36px !important;
-    width: 36px !important;
-    border-radius: 50% !important;
-    box-shadow: 0 0 12px #6EC1E455;
+    display: block !important;
+    margin: 0 auto !important;
+    height: 64px !important;
+    width: 64px !important;
   }
   .main-nav a {
-    font-size: 1.13em !important;
-    padding: 1.1em 0.7em !important;
-    margin-bottom: 0.5em !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     display: block !important;
-    color: #6EC1E4 !important;
-    text-align: left !important;
+    font-size: 1.08em !important;
+    padding: 0.7em 0 !important;
   }
   .main-nav a:not(:last-child) {
-    margin-bottom: 1em !important;
+    margin-bottom: 0.3em !important;
   }
   html, body {
     width: 100vw !important;
@@ -799,17 +805,27 @@ textarea,
 }
 
 .logo-link {
-  margin-right: 1.5em;
   display: inline-block;
+  margin-right: 1.5em;
   vertical-align: middle;
+  padding: 0 !important;
+  width: auto !important;
+  height: auto !important;
 }
 
 .logo-link img {
+  display: block;
   height: 60px;
-  width: auto;
+  width: 60px;
   border-radius: 50%;
-  vertical-align: middle;
-  margin-right: 0.5em;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .logo-link img {
+    height: 32px !important;
+    width: 32px !important;
+  }
 }
 
 .logo-link img:hover,
