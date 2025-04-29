@@ -7,8 +7,15 @@
     ],
     "routes": [
       {
-        "src": "/",
-        "dest": "/index.html"  
+        "handle": "filesystem"
+      },
+      {
+        "src": "/assets/(.*)",
+        "dest": "/assets/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
       }
     ],
     "rewrites": [
