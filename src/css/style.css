@@ -610,7 +610,7 @@ footer>p {
     z-index: 1 !important;
     box-shadow: none !important;
     background: #23272A !important;
-    padding: 1em 1.5em 1em 0.7em !important;
+    padding: 1em 3em 1em 0.7em !important;
   }
   .filters {
     flex-direction: row !important;
