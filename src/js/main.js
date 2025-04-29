@@ -345,8 +345,10 @@ if (homeBtn) {
       window.dispatchEvent(new Event('resize'));
       // nav 顯示
       const nav = document.querySelector('.main-nav');
-      nav.offsetHeight;
-      nav.style.display = 'flex';
+      if (nav) {
+        nav.offsetHeight;
+        nav.style.display = 'flex';
+      }
     }, 700); // 0.7s動畫
   });
 }
@@ -396,8 +398,10 @@ if (document.querySelectorAll('.main-nav a').length) {
             });
             // nav 顯示/隱藏
             const nav = document.querySelector('.main-nav');
-            nav.offsetHeight;
-            nav.style.display = 'flex';
+            if (nav) {
+              nav.offsetHeight;
+              nav.style.display = 'flex';
+            }
             renderWorks();
             const grid = document.querySelector('.works-grid');
             if (grid) grid.offsetHeight;
