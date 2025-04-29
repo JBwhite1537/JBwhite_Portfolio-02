@@ -434,10 +434,13 @@ window.addEventListener('DOMContentLoaded', function() {
   }
   document.querySelectorAll('.skill-card').forEach(card => {
     card.addEventListener('click', function(e) {
-      // 關閉其他
+      const isActive = this.classList.contains('show-desc');
+      // 關閉所有
       document.querySelectorAll('.skill-card').forEach(c => c.classList.remove('show-desc'));
-      // 切換自己
-      this.classList.toggle('show-desc');
+      // 只在原本沒開啟時才開啟
+      if (!isActive) {
+        this.classList.add('show-desc');
+      }
       e.stopPropagation();
     });
   });
