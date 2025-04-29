@@ -1,4 +1,5 @@
 {
+    "version": 2,
     "builds": [
       {
         "src": "**/*",
@@ -7,7 +8,12 @@
     ],
     "routes": [
       {
-        "handle": "filesystem"
+        "src": "/src/(.*)",
+        "dest": "/src/$1"
+      },
+      {
+        "src": "/public/(.*)",
+        "dest": "/public/$1"
       },
       {
         "src": "/assets/(.*)",
@@ -15,7 +21,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "/index.html"
+        "dest": "/$1"
       }
     ],
     "rewrites": [
