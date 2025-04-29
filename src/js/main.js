@@ -405,7 +405,7 @@ if (document.querySelectorAll('.main-nav a').length) {
             setTimeout(() => {
               gsap.to(transition, { y: '-100%', duration: 0.5, ease: "power2.out" });
               // 粒子設定切換
-              loadParticles('public/particles.json');
+              particlesJS.load('particles-js', 'public/particles.json', function(){});
             }, 400);
           }});
         } else {

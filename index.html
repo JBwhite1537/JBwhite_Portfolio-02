@@ -142,6 +142,48 @@
     </section>
     <section class="contact section-page" data-section="contact" id="contact">
       <h2>聯絡我</h2>
+      <section class="quote-section" id="quote">
+        <h2>🎬 剪輯委託報價</h2>
+        <div class="quote-card">
+          <h3>📌 長影音剪輯 <span class="price">$3500 - $9000</span></h3>
+          <div class="quote-desc">
+            <div>適合：Vtuber精華、Vlog、遊戲實況、深度內容影片</div>
+            <div>影片長度：8 - 15 分鐘</div>
+            <div>交付時間：3 - 7 天</div>
+            <ul>
+              <li>✔ 資料蒐集 & 素材整理</li>
+              <li>✔ 劇情架構設計 & 節奏編排</li>
+              <li>✔ 順剪 & 節奏優化</li>
+              <li>✔ 調色 & 畫面細節優化（含修膚處理）</li>
+              <li>✔ 字幕校正 & 動態字幕特效</li>
+              <li>✔ 精華片段高速快剪（約1.5分鐘高潮段落）</li>
+              <li>✔ BGM卡點剪輯 & 音效</li>
+              <li>✔ 特效 & 字卡設計</li>
+            </ul>
+          </div>
+        </div>
+        <div class="quote-card">
+          <h3>📌 短影音剪輯 <span class="price">$500 - $850</span></h3>
+          <div class="quote-desc">
+            <div>適合：YouTube Shorts、TikTok、Instagram Reels</div>
+            <div>影片長度：60 秒以內</div>
+            <div>交付時間：1 天</div>
+            <ul>
+              <li>✔ 節奏快剪 & 高吸引力編排</li>
+              <li>✔ 逐字字幕 & 動態特效</li>
+              <li>✔ 迷因素材</li>
+              <li>✔ BGM卡點剪輯 & 音效</li>
+            </ul>
+          </div>
+        </div>
+        <div class="quote-note">
+          <p>🔷 <b>其他說明</b></p>
+          <ul>
+            <li>接案時會依素材情況、需求難易度調整正式報價</li>
+            <li>📩 歡迎私訊洽談，期待與你一同成長、打造更棒的作品！</li>
+          </ul>
+        </div>
+      </section>
       <form id="my-form" action="https://formspree.io/f/xnndngvz" method="POST" class="contact-form">
         <label for="name">您的稱呼：</label>
         <input type="text" name="name" id="name" required />
@@ -152,7 +194,6 @@
         <button id="my-form-button" type="submit">送出</button>
         <p id="my-form-status"></p>
       </form>
-      <button class="quote-btn home-btn" style="margin:2.2em auto 0 auto;display:block;max-width:320px;">剪輯委託報價</button>
       <div class="clibo-embed">
         <div class="clibo-skeleton"></div>
         <iframe
@@ -187,36 +228,36 @@
 </html>
 
 <style>
-  .img-preview-lightbox {
-    position: fixed;
+.img-preview-lightbox {
+  position: fixed;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
     background: rgba(24, 26, 27, 0.92);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s;
+}
 
-  .img-preview-lightbox.show {
-    opacity: 1;
-    pointer-events: auto;
-  }
+.img-preview-lightbox.show {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-  .img-preview-lightbox img {
-    max-width: 60vw;
-    max-height: 70vh;
-    border-radius: 18px;
-    box-shadow: 0 8px 48px #6EC1E4cc, 0 2px 12px #000a;
+.img-preview-lightbox img {
+  max-width: 60vw;
+  max-height: 70vh;
+  border-radius: 18px;
+  box-shadow: 0 8px 48px #6EC1E4cc, 0 2px 12px #000a;
     animation: imgPopIn 0.5s cubic-bezier(.77, 0, .18, 1);
-  }
+}
 
-  @keyframes imgPopIn {
+@keyframes imgPopIn {
     0% {
       opacity: 0;
       transform: scale(0.7) rotate(-3deg);
@@ -231,32 +272,32 @@
       opacity: 1;
       transform: scale(1) rotate(0);
     }
-  }
+}
 </style>
 
 <script>
   window.addEventListener('DOMContentLoaded', function () {
-    const previewBox = document.getElementById('img-preview-lightbox');
-    const previewImg = previewBox.querySelector('img');
-    document.querySelectorAll('.skill-icon').forEach(img => {
+  const previewBox = document.getElementById('img-preview-lightbox');
+  const previewImg = previewBox.querySelector('img');
+  document.querySelectorAll('.skill-icon').forEach(img => {
       img.addEventListener('click', function (e) {
-        previewImg.src = this.src;
-        previewBox.classList.add('show');
-        previewBox.classList.remove('hidden');
-        e.stopPropagation();
-      });
-    });
-    previewBox.addEventListener('click', function () {
-      previewBox.classList.remove('show');
-      setTimeout(() => previewBox.classList.add('hidden'), 350);
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && previewBox.classList.contains('show')) {
-        previewBox.classList.remove('show');
-        setTimeout(() => previewBox.classList.add('hidden'), 350);
-      }
+      previewImg.src = this.src;
+      previewBox.classList.add('show');
+      previewBox.classList.remove('hidden');
+      e.stopPropagation();
     });
   });
+    previewBox.addEventListener('click', function () {
+    previewBox.classList.remove('show');
+    setTimeout(() => previewBox.classList.add('hidden'), 350);
+  });
+    document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && previewBox.classList.contains('show')) {
+      previewBox.classList.remove('show');
+      setTimeout(() => previewBox.classList.add('hidden'), 350);
+    }
+  });
+});
 
   var form = document.getElementById("my-form");
   if (form) {
@@ -294,4 +335,4 @@
   if (window.ScrollReveal) {
     ScrollReveal().reveal('.brand-card', { delay: 200, duration: 1200, origin: 'bottom', distance: '40px', interval: 120 });
   }
-</script>
+</script> 
