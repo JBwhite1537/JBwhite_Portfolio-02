@@ -1,0 +1,31 @@
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+.glitch img, .glitch-text {
+  animation: glitch 2.5s infinite linear alternate-reverse;
+}
+@keyframes glitch {
+  0% { filter: none; text-shadow: none; }
+  10% { filter: none; text-shadow: 1px 0 #00f, -1px 0 #f0f; transform: translate(1px, -0.5px) skewX(1deg); }
+  20% { filter: none; text-shadow: -1px 0 #0ff, 1px 0 #f00; transform: translate(-1px, 0.5px) skewY(-1deg); }
+  30% { filter: none; text-shadow: 1px 1px #0ff, -1px -1px #f00; transform: translate(1px, 1px) skewX(-1deg); }
+  40% { filter: none; text-shadow: -1px 1px #00f, 1px -1px #f0f; transform: translate(-1px, 1px) skewY(1deg); }
+  50% { filter: none; text-shadow: 1.5px 0 #f00, -1.5px 0 #0ff; transform: translate(1.5px, 0) skewX(1deg); }
+  60% { filter: none; text-shadow: none; transform: none; }
+  70% { filter: none; text-shadow: 1px 0 #0ff, -1px 0 #f00; transform: translate(-1px, -1px) skewY(-1deg); }
+  80% { filter: none; text-shadow: -1px 0 #f0f, 1px 0 #00f; transform: translate(1px, -1px) skewX(1deg); }
+  90% { filter: none; text-shadow: 1px 1px #f00, -1px -1px #0ff; transform: translate(-1px, 1px) skewY(1deg); }
+  100% { filter: none; text-shadow: none; transform: none; }
+}
+@keyframes glitch-out {
+  0% { filter: none; opacity: 1; }
+  15% { filter: contrast(1.2) brightness(1.2) hue-rotate(10deg) blur(1px); transform: translate(2px, -2px) skewX(2deg);}
+  35% { filter: contrast(1.5) brightness(0.8); transform: translate(-2px, 2px) skewY(-2deg);}
+  55% { filter: brightness(1.1) hue-rotate(-10deg) blur(2px);}
+  75% { filter: none; }
+  100% { opacity: 0; filter: blur(12px); }
+}
+.glitch-transition {
+  animation: glitch-out 0.7s cubic-bezier(.77,0,.18,1) forwards;
+}

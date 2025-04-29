@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>剪輯師作品集 | JBwhite</title>
+  <meta name="description" content="JBwhite 剪輯師作品集，專業影像剪輯、MV、廣告、短片、合作創作者與聯絡表單。">
+  <link rel="icon" href="public/images/avatar.png" type="image/png">
+  <link rel="stylesheet" href="src/css/style.css" />
+  <link rel="stylesheet" href="src/css/glitch.css" />
+  <link rel="preload" href="public/fonts/HONORSANSTC-REGULAR.TTF" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="public/fonts/SOURCEHANSERIFTC-REGULAR.OTF" as="font" type="font/otf" crossorigin>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="src/js/main.js" defer></script>
+  <script src="particles.js"></script>
+</head>
+
+<body>
+  <div id="particles-js" style="position:fixed;z-index:0;width:100vw;height:100vh;top:0;left:0;"></div>
+  <nav class="main-nav">
+    <a href="#intro" class="logo-link" data-section="intro" aria-label="回到首頁" tabindex="0"><img
+        src="public/images/avatar.png" alt="JBwhite LOGO頭像"></a>
+    <a href="#portfolio" data-section="portfolio" aria-label="作品展示" tabindex="0">作品</a>
+    <a href="#skills" data-section="skills" aria-label="技能" tabindex="0">技能</a>
+    <a href="#brands" data-section="brands" aria-label="合作的創作者" tabindex="0">合作の創作者</a>
+    <a href="#contact" data-section="contact" aria-label="聯絡我" tabindex="0">聯絡我</a>
+  </nav>
+  <main>
+    <header class="intro section-page" data-section="intro" id="intro">
+      <div class="intro-bg-thumb">
+        <img src="public/images/JBwhite_thumbnail.png" alt="" aria-hidden="true" />
+      </div>
+      <div class="avatar glitch">
+        <img src="public/images/avatar.png" alt="JBwhite 剪輯師個人頭像">
+      </div>
+      <h1 class="glitch-text">Hi, 我是 JBwhite</h1>
+      <p class="typewriter">自媒體剪輯師，熱愛分享並紀錄當下的故事</p>
+      <button class="home-btn" style="margin-top:2em;" tabindex="0">進入作品集</button>
+    </header>
+    <section class="portfolio section-page" data-section="portfolio" id="portfolio">
+      <h2>精選作品展示（會定期更新）</h2>
+      <div class="filters">
+        <button data-filter="all" class="active">全部</button>
+        <button data-filter="game clip">遊戲精華</button>
+        <button data-filter="PV">PV</button>
+        <button data-filter="ad">工商影片</button>
+        <button data-filter="game tutorial">遊戲教學/說書</button>
+        <button data-filter="daily">日常</button>
+        <button data-filter="VLOG">VLOG</button>
+        <button data-filter="shorts">短影音</button>
+        <button data-filter="fan art">二創影片</button>
+      </div>
+      <div class="yt-more-btns" style="display:flex;justify-content:center;gap:2em;margin-bottom:2em;">
+        <a href="https://www.youtube.com/playlist?list=PLmwmvx5FxDqUxj__Rs6hJMC92Ju9ihixb" target="_blank"
+          class="yt-btn long" aria-label="更多長影音" tabindex="0">
+          <span class="yt-icon">
+            <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="12" fill="#181A1B" />
+              <path
+                d="M39.5 15.5c-.4-1.5-1.6-2.7-3.1-3.1C33.1 12 24 12 24 12s-9.1 0-12.4.4c-1.5.4-2.7 1.6-3.1 3.1C8 18.9 8 24 8 24s0 5.1.4 8.4c.4 1.5 1.6 2.7 3.1 3.1C14.9 36 24 36 24 36s9.1 0 12.4-.4c1.5-.4 2.7-1.6 3.1-3.1.4-3.3.4-8.4.4-8.4s0-5.1-.4-8.4z"
+                fill="#FF0000" />
+              <path d="M21 29l9-5-9-5v10z" fill="#fff" />
+            </svg>
+          </span>
+          更多長影音
+        </a>
+        <a href="https://www.youtube.com/playlist?list=PLmwmvx5FxDqUrD3DJ-8-5_-foz4C2fPeV" target="_blank"
+          class="yt-btn short" aria-label="更多短影音" tabindex="0">
+          <span class="yt-icon">
+            <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="12" fill="#181A1B" />
+              <path
+                d="M39.5 15.5c-.4-1.5-1.6-2.7-3.1-3.1C33.1 12 24 12 24 12s-9.1 0-12.4.4c-1.5.4-2.7 1.6-3.1 3.1C8 18.9 8 24 8 24s0 5.1.4 8.4c.4 1.5 1.6 2.7 3.1 3.1C14.9 36 24 36 24 36s9.1 0 12.4-.4c1.5-.4 2.7-1.6 3.1-3.1.4-3.3.4-8.4.4-8.4s0-5.1-.4-8.4z"
+                fill="#FF0000" />
+              <path d="M21 29l9-5-9-5v10z" fill="#fff" />
+            </svg>
+          </span>
+          更多短影音
+        </a>
+      </div>
+      <div class="works-grid">
+        <!-- 作品縮圖由JS動態產生 -->
+      </div>
+    </section>
+    <section class="skills section-page" data-section="skills" id="skills">
+      <h2>技能</h2>
+      <div class="skills-list">
+        <div class="skill-card">
+          <img src="public/images/skill-filmora.png" alt="Filmora 剪輯軟體圖示" class="skill-icon">
+          <div class="skill-info">
+            <span>Filmora</span>
+            <div class="bar">
+              <div class="fill" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-desc-text">我主要使用這款剪輯軟體，擅長以敘事手法串聯每一個片段，將情感與故事深植其中。
+            透過具有張力的畫面編排，引導觀眾的視線，讓每一個瞬間都充滿吸引力與節奏感。</div>
+        </div>
+        <div class="skill-card">
+          <img src="public/images/skill-plan.png" alt="企劃腳本發想圖示" class="skill-icon">
+          <div class="skill-info">
+            <span>企劃腳本發想</span>
+            <div class="bar">
+              <div class="fill" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-desc-text">這支腳本是為 SurfShark 的工商影片所撰寫，主打一個絲滑的鬼轉銜接，由我與實況主小薰共同發想與企劃。</div>
+        </div>
+        <div class="skill-card">
+          <img src="public/images/skill-thumb.jpg" alt="新北寶可夢路跑封面設計圖示" class="skill-icon">
+          <div class="skill-info">
+            <span>thumbnail Design</span>
+            <div class="bar">
+              <div class="fill" style="width: 70%"></div>
+            </div>
+          </div>
+          <div class="skill-desc-text">這張封面則是我為「新北寶可夢路跑」活動拍攝專案所設計的。每支影片的小薰都會與我一同討論封面的發想與構圖，確保視覺與內容完美契合。</div>
+        </div>
+      </div>
+    </section>
+    <section class="brands section-page" data-section="brands" id="brands">
+      <h1>合作の創作者</h1>
+      <div class="brands-list">
+        <a href="https://www.youtube.com/@MGLTVKaoruAoi0224/featured" class="brand-card" target="_blank" aria-label="創作者1 YouTube 頻道"
+          tabindex="0">
+          <img src="public/images/電次COS02.jpg" alt="創作者1 YouTube 頭貼" class="brand-avatar">
+          <span class="brand-name">蒼井薰</span>
+        </a>
+        <a href="https://www.youtube.com/@birbirds" class="brand-card" target="_blank" aria-label="創作者2 YouTube 頻道"
+          tabindex="0">
+          <img src="public/images/鳥鳥.png" alt="創作者2 YouTube 頭貼" class="brand-avatar">
+          <span class="brand-name">鳥鳥</span>
+        </a>
+        <a href="https://www.youtube.com/@Shirogane_momo" class="brand-card" target="_blank" aria-label="創作者3 YouTube 頻道"
+          tabindex="0">
+          <img src="public/images/白銀茉茉01.jpg" alt="創作者3 YouTube 頭貼" class="brand-avatar silver-avatar">
+          <span class="brand-name">白銀茉茉</span>
+        </a>
+      </div>
+    </section>
+    <section class="contact section-page" data-section="contact" id="contact">
+      <h2>聯絡我</h2>
+      <form id="my-form" action="https://formspree.io/f/xnndngvz" method="POST" class="contact-form">
+        <label for="name">您的稱呼：</label>
+        <input type="text" name="name" id="name" required />
+        <label for="email">您的 Email：</label>
+        <input type="email" name="email" id="email" required />
+        <label for="message">訊息內容：</label>
+        <textarea name="message" id="message" rows="5" required style="resize:vertical;"></textarea>
+        <button id="my-form-button" type="submit">送出</button>
+        <p id="my-form-status"></p>
+      </form>
+      <button class="quote-btn home-btn" style="margin:2.2em auto 0 auto;display:block;max-width:320px;">剪輯委託報價</button>
+      <div class="clibo-embed">
+        <div class="clibo-skeleton"></div>
+        <iframe
+          src="https://clibo.tw/commissions/Jzu7dy"
+          class="clibo-iframe"
+          allowfullscreen
+          loading="lazy"
+          title="剪輯報價 Clibo"
+          aria-label="剪輯委託報價表單"></iframe>
+      </div>
+    </section>
+  </main>
+  <!-- 燈箱 -->
+  <div id="lightbox" class="lightbox hidden">
+    <div class="lightbox-content">
+      <span class="close">&times;</span>
+      <div class="video-container"></div>
+    </div>
+  </div>
+  <!-- 轉場遮罩 -->
+  <div id="page-transition"
+    style="pointer-events:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:#181A1B; z-index:9999; transform:translateY(-100%);">
+  </div>
+  <div id="img-preview-lightbox" class="img-preview-lightbox hidden">
+    <img src="" alt="技能圖示大圖">
+  </div>
+  <footer>
+    <p>© 2025 JBwhite. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
+
+<style>
+  .img-preview-lightbox {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(24, 26, 27, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s;
+  }
+
+  .img-preview-lightbox.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .img-preview-lightbox img {
+    max-width: 60vw;
+    max-height: 70vh;
+    border-radius: 18px;
+    box-shadow: 0 8px 48px #6EC1E4cc, 0 2px 12px #000a;
+    animation: imgPopIn 0.5s cubic-bezier(.77, 0, .18, 1);
+  }
+
+  @keyframes imgPopIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.7) rotate(-3deg);
+    }
+
+    60% {
+      opacity: 1;
+      transform: scale(1.08) rotate(2deg);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+  }
+</style>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    const previewBox = document.getElementById('img-preview-lightbox');
+    const previewImg = previewBox.querySelector('img');
+    document.querySelectorAll('.skill-icon').forEach(img => {
+      img.addEventListener('click', function (e) {
+        previewImg.src = this.src;
+        previewBox.classList.add('show');
+        previewBox.classList.remove('hidden');
+        e.stopPropagation();
+      });
+    });
+    previewBox.addEventListener('click', function () {
+      previewBox.classList.remove('show');
+      setTimeout(() => previewBox.classList.add('hidden'), 350);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && previewBox.classList.contains('show')) {
+        previewBox.classList.remove('show');
+        setTimeout(() => previewBox.classList.add('hidden'), 350);
+      }
+    });
+  });
+
+  var form = document.getElementById("my-form");
+  if (form) {
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("my-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          status.innerHTML = "感謝您的留言！我們已收到您的訊息。";
+          form.reset();
+          setTimeout(() => { status.innerHTML = ""; }, 3000);
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            } else {
+              status.innerHTML = "送出失敗，請稍後再試。"
+            }
+          })
+        }
+      }).catch(error => {
+        status.innerHTML = "送出失敗，請稍後再試。"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+  }
+
+  if (window.ScrollReveal) {
+    ScrollReveal().reveal('.brand-card', { delay: 200, duration: 1200, origin: 'bottom', distance: '40px', interval: 120 });
+  }
+</script>
