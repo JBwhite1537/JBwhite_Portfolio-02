@@ -142,6 +142,26 @@
     </section>
     <section class="contact section-page" data-section="contact" id="contact">
       <h2>聯絡我</h2>
+      <form id="my-form" action="https://formspree.io/f/xnndngvz" method="POST" class="contact-form">
+        <label for="name">您的稱呼：</label>
+        <input type="text" name="name" id="name" required />
+        <label for="email">您的 Email：</label>
+        <input type="email" name="email" id="email" required />
+        <label for="message">訊息內容：</label>
+        <textarea name="message" id="message" rows="5" required style="resize:vertical;"></textarea>
+        <button id="my-form-button" type="submit">送出</button>
+        <p id="my-form-status"></p>
+      </form>
+      <div class="clibo-embed">
+        <div class="clibo-skeleton"></div>
+        <iframe
+          src="https://clibo.tw/commissions/Jzu7dy"
+          class="clibo-iframe"
+          allowfullscreen
+          loading="lazy"
+          title="剪輯報價 Clibo"
+          aria-label="剪輯委託報價表單"></iframe>
+      </div>
       <section class="quote-section" id="quote">
         <h2>🎬 剪輯委託報價</h2>
         <div class="quote-card">
@@ -184,26 +204,6 @@
           </ul>
         </div>
       </section>
-      <form id="my-form" action="https://formspree.io/f/xnndngvz" method="POST" class="contact-form">
-        <label for="name">您的稱呼：</label>
-        <input type="text" name="name" id="name" required />
-        <label for="email">您的 Email：</label>
-        <input type="email" name="email" id="email" required />
-        <label for="message">訊息內容：</label>
-        <textarea name="message" id="message" rows="5" required style="resize:vertical;"></textarea>
-        <button id="my-form-button" type="submit">送出</button>
-        <p id="my-form-status"></p>
-      </form>
-      <div class="clibo-embed">
-        <div class="clibo-skeleton"></div>
-        <iframe
-          src="https://clibo.tw/commissions/Jzu7dy"
-          class="clibo-iframe"
-          allowfullscreen
-          loading="lazy"
-          title="剪輯報價 Clibo"
-          aria-label="剪輯委託報價表單"></iframe>
-      </div>
     </section>
   </main>
   <!-- 燈箱 -->

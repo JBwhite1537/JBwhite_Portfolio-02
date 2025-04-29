@@ -493,8 +493,10 @@ footer>p {
     font-size: 1.1em;
   }
   .main-nav a {
-    padding: 0.5em 0;
-    display: block;
+    padding: 1em 0;
+    font-size: 1.2em;
+    min-width: 100%;
+    text-align: left;
   }
   .intro .avatar img,
   .intro-bg-thumb img {
