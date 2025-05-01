@@ -17,6 +17,30 @@ const works = [
     video: "https://www.youtube.com/watch?v=9WfLA5YfGQU"
   },
   {
+    // JBwhite
+    title: "遊戲精華",
+    type: "game clip",
+    video: "https://youtu.be/3ulbOsmoN2Y"
+  },
+  {
+    // JBwhite
+    title: "遊戲精華",
+    type: "game clip",
+    video: "https://youtu.be/jGydqjonqHQ"
+  },
+  {
+    // JBwhite
+    title: "遊戲精華",
+    type: "game clip",
+    video: "https://youtu.be/Fw4QBGg5KdY"
+  },
+  {
+    // JBwhite
+    title: "遊戲精華",
+    type: "game clip",
+    video: "https://youtu.be/e1un30SaLiI?si=0kyaYUyApmXr73FT"
+  },
+  {
     title: "PV",
     type: "PV",
     video: "https://www.youtube.com/watch?v=mcYxWT44KXk"
@@ -561,6 +585,16 @@ window.addEventListener('DOMContentLoaded', function() {
       // 點擊時隱藏 tooltip
       const tooltip = document.querySelector('.avatar-tooltip');
       if (tooltip) tooltip.style.display = 'none';
+      
+      // 在手機版時自動滾動到座右銘位置
+      if (window.innerWidth <= 700) {
+        setTimeout(() => {
+          quoteCard.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }, 300);
+      }
       
       setTimeout(() => {
         quoteCard.classList.remove('show-quote-anim');
