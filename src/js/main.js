@@ -385,13 +385,35 @@ if (document.querySelectorAll('.main-nav a').length) {
       if (this.classList.contains('logo-link')) return;
       const section = this.getAttribute('data-section');
       if (section) {
+        // 移除 body.show-about 控制，統一用 display 控制顯示
         if (section !== 'intro') {
           e.preventDefault();
           const transition = document.getElementById('page-transition');
           gsap.to(transition, { y: 0, duration: 0.4, ease: "power2.in", onComplete: () => {
             document.querySelectorAll('.section-page').forEach(page => {
               if (page.getAttribute('data-section') === section) {
-                page.style.display = 'block';
+                // about 區塊用 flex，其他用 block
+                if (section === 'about') {
+                  page.style.display = 'flex';
+                  // 重新綁定 about-more-btn 互動
+                  const moreBtn = document.querySelector('.about-more-btn');
+                  const qaBox = document.querySelector('.about-qa');
+                  if (moreBtn && qaBox) {
+                    moreBtn.onclick = null;
+                    moreBtn.addEventListener('click', function() {
+                      if (qaBox.style.display === 'none' || qaBox.style.display === '') {
+                        qaBox.style.display = 'block';
+                        setTimeout(() => { qaBox.scrollIntoView({behavior:'smooth', block:'center'}); }, 200);
+                        moreBtn.textContent = '收合';
+                      } else {
+                        qaBox.style.display = 'none';
+                        moreBtn.textContent = '更多關於我';
+                      }
+                    });
+                  }
+                } else {
+                  page.style.display = 'block';
+                }
               } else {
                 page.style.display = 'none';
               }
@@ -479,5 +501,103 @@ window.addEventListener('DOMContentLoaded', function() {
     cliboIframe.addEventListener('load', function() {
       cliboEmbed.classList.add('loaded');
     });
+  }
+
+  // 2. 技能條動畫
+  document.querySelectorAll('.skill-bar').forEach(bar => {
+    const percent = bar.getAttribute('data-percent') || '80';
+    const fill = bar.querySelector('.bar-fill');
+    setTimeout(() => {
+      fill.style.width = percent + '%';
+    }, 600);
+  });
+
+  // 3. 更多關於我 Q&A 展開（主動綁定，確保任何情況都能互動）
+  const moreBtn = document.querySelector('.about-more-btn');
+  const qaBox = document.querySelector('.about-qa');
+  if (moreBtn && qaBox) {
+    moreBtn.onclick = null;
+    moreBtn.addEventListener('click', function() {
+      if (qaBox.style.display === 'none' || qaBox.style.display === '') {
+        qaBox.style.display = 'block';
+        setTimeout(() => { qaBox.scrollIntoView({behavior:'smooth', block:'center'}); }, 200);
+        moreBtn.textContent = '收合';
+      } else {
+        qaBox.style.display = 'none';
+        moreBtn.textContent = '更多關於我';
+      }
+    });
+  }
+
+  // 4. 頭像點擊抖動+座右銘
+  const avatar = document.getElementById('about-avatar');
+  const quoteCard = document.getElementById('about-quote-card');
+  const quote = document.getElementById('about-quote');
+  const quotes = [
+    '剪輯，是讓故事發光的魔法。',
+    '得到良好的反饋，是持續創作的動力',
+    '用畫面說故事，讓觀眾感動。',
+    '創作，是與世界對話的方式。',
+    '讓每個瞬間都值得被記錄。',
+    '剪輯，是節奏與情感的藝術。'
+  ];
+  let isAvatarAnimating = false;
+  if (avatar && quote && quoteCard) {
+    avatar.addEventListener('click', function() {
+      if (isAvatarAnimating) return;
+      isAvatarAnimating = true;
+      
+      // 暫停 hover 效果
+      avatar.classList.add('no-hover');
+      
+      avatar.classList.remove('active');
+      void avatar.offsetWidth; // 觸發 reflow
+      avatar.classList.add('active');
+      const q = quotes[Math.floor(Math.random()*quotes.length)];
+      quote.textContent = q;
+      quoteCard.style.display = 'block';
+      quoteCard.classList.add('show-quote-anim');
+      
+      // 點擊時隱藏 tooltip
+      const tooltip = document.querySelector('.avatar-tooltip');
+      if (tooltip) tooltip.style.display = 'none';
+      
+      setTimeout(() => {
+        quoteCard.classList.remove('show-quote-anim');
+        quoteCard.style.display = 'none';
+        
+        // 等待動畫完全結束後再恢復 hover 效果
+        setTimeout(() => {
+          avatar.classList.remove('no-hover');
+          isAvatarAnimating = false;
+        }, 300);
+      }, 3200);
+    });
+    
+    avatar.addEventListener('animationend', function() {
+      avatar.classList.remove('active');
+    });
+  }
+
+  // 頭像 hover 顯示說明
+  const avatarWrap = document.querySelector('.avatar-hover-wrap');
+  if (avatarWrap) {
+    const tooltip = avatarWrap.querySelector('.avatar-tooltip');
+    const avatarImg = avatarWrap.querySelector('.about-avatar');
+    if (tooltip && avatarImg) {
+      avatarImg.addEventListener('mouseenter', () => {
+        tooltip.style.display = 'block';
+      });
+      avatarImg.addEventListener('mouseleave', () => {
+        tooltip.style.display = 'none';
+      });
+      // 也支援鍵盤 focus
+      avatarImg.addEventListener('focus', () => {
+        tooltip.style.display = 'block';
+      });
+      avatarImg.addEventListener('blur', () => {
+        tooltip.style.display = 'none';
+      });
+    }
   }
 });
