@@ -183,7 +183,11 @@ function renderWorks(filter = "all") {
             if (url.hostname.includes('youtu.be')) {
               ytId = url.pathname.slice(1, 12);
             } else if (url.hostname.includes('youtube.com')) {
-              ytId = url.searchParams.get('v');
+              if (url.pathname.includes('/shorts/')) {
+                ytId = url.pathname.split('/shorts/')[1].slice(0, 11);
+              } else {
+                ytId = url.searchParams.get('v');
+              }
             }
           } catch {}
           let thumbUrl = ytId ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg` : 'public/images/default-thumb.jpg';
@@ -217,7 +221,11 @@ function renderWorks(filter = "all") {
         if (url.hostname.includes('youtu.be')) {
           ytId = url.pathname.slice(1, 12);
         } else if (url.hostname.includes('youtube.com')) {
-          ytId = url.searchParams.get('v');
+          if (url.pathname.includes('/shorts/')) {
+            ytId = url.pathname.split('/shorts/')[1].slice(0, 11);
+          } else {
+            ytId = url.searchParams.get('v');
+          }
         }
       } catch {}
       let thumbUrl = ytId ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg` : 'public/images/default-thumb.jpg';
@@ -245,7 +253,7 @@ function addWorkEvents() {
       const content = lightbox.querySelector('.lightbox-content');
       const container = lightbox.querySelector('.video-container');
       // 取得 YouTube 影片 ID
-      const ytMatch = videoSrc.match(/(?:youtube\.com.*[?&]v=|youtu\.be\/)([\w-]+)/);
+      const ytMatch = videoSrc.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([\w-]+)/);
       // 判斷是否短影音
       let isShorts = false;
       const worksArr = Array.from(document.querySelectorAll('.works-grid .work'));
