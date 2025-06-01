@@ -113,7 +113,7 @@ const works = [
   {
     title: "短影音",
     type: "shorts",
-    video: "https://youtube.com/shorts/mL9wyiPDpts?si=INrwAEBhU_L-Z0zH"
+    video: "https://youtube.com/shorts/mL9wyiPDpts"
   },
   {
     title: "短影音",
