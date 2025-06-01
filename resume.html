@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>JBwhite 履歷 | 自媒體剪輯師</title>
+  <meta name="description" content="專業剪輯師 JBwhite 履歷 - 專注於自媒體內容創作，擅長影片剪輯、企劃發想與視覺設計。">
+  <link rel="icon" href="public/images/avatar.png" type="image/png">
+  <link rel="stylesheet" href="src/css/style.css" />
+  <link rel="stylesheet" href="src/css/glitch.css" />
+  <link rel="preload" href="public/fonts/HONORSANSTC-REGULAR.TTF" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="public/fonts/SOURCEHANSERIFTC-REGULAR.OTF" as="font" type="font/otf" crossorigin>
+  <style>
+    body {
+      background: #181A1B;
+      color: #fff;
+      font-family: 'Source Han Serif TC', serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .resume-section {
+      padding: 2em;
+      margin: 2em 0;
+      background: #1E2021;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .resume-header {
+      text-align: center;
+      margin-bottom: 2em;
+      position: relative;
+    }
+
+    .resume-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 1em;
+      border: 3px solid #6EC1E4;
+      box-shadow: 0 0 20px rgba(110, 193, 228, 0.3);
+    }
+
+    .highlight-box {
+      background: #232526;
+      border: 1px solid #6EC1E4;
+      padding: 1.5em;
+      border-radius: 8px;
+      margin: 1em 0;
+    }
+
+    .highlight-box h3 {
+      color: #6EC1E4;
+      margin-bottom: 0.5em;
+      font-size: 1.2em;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1em;
+      margin: 1.5em 0;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1em;
+      background: #232526;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-number {
+      font-size: 2em;
+      color: #6EC1E4;
+      font-weight: bold;
+      margin-bottom: 0.2em;
+    }
+
+    .stat-label {
+      color: #888;
+      font-size: 0.9em;
+    }
+
+    .experience-card {
+      background: #232526;
+      padding: 1.5em;
+      margin: 1em 0;
+      border-radius: 8px;
+      border-left: 4px solid #6EC1E4;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .experience-card h3 {
+      color: #6EC1E4;
+      margin-bottom: 0.5em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .experience-card .date {
+      color: #888;
+      font-size: 0.9em;
+    }
+
+    .achievement-tag {
+      display: inline-block;
+      background: rgba(110, 193, 228, 0.2);
+      color: #6EC1E4;
+      padding: 0.3em 0.8em;
+      border-radius: 20px;
+      font-size: 0.9em;
+      margin: 0.3em;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5em;
+      margin-top: 2em;
+    }
+
+    .skill-item {
+      background: #232526;
+      padding: 1.5em;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-item h4 {
+      color: #6EC1E4;
+      margin-bottom: 0.5em;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1em;
+      margin-top: 2em;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      color: #6EC1E4;
+      text-decoration: none;
+      padding: 0.8em 1.2em;
+      background: #232526;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      font-size: 0.95em;
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+
+      .resume-section {
+        background: white;
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+
+      .highlight-box,
+      .experience-card,
+      .skill-item,
+      .stat-item {
+        background: white;
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+
+      .stat-number,
+      .experience-card h3,
+      .skill-item h4,
+      .highlight-box h3 {
+        color: #333;
+      }
+
+      .achievement-tag {
+        background: #f5f5f5;
+        color: #333;
+      }
+
+      .contact-item {
+        background: white;
+        color: #333;
+        border: 1px solid #ddd;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .resume-section {
+        padding: 1em;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="resume-section" id="about">
+      <div class="resume-header">
+        <img src="public/images/avatar.png" alt="JBwhite 剪輯師頭像" class="resume-avatar">
+        <h1>JBwhite</h1>
+        <p>自媒體剪輯師 / 內容創作者</p>
+      </div>
+      <div class="highlight-box">
+        <h3>✨ 核心優勢</h3>
+        <p>擅長以敘事手法串聯畫面，透過強烈的視覺渲染與節奏掌控，讓每個作品都能吸引觀眾目光、留下深刻印象。專注於自媒體內容創作，為創作者打造獨特的視覺風格。</p>
+        <div style="margin-top: 1em; text-align: center;">
+          <a href="https://j-bwhite-portfolio-02.vercel.app/" target="_blank" class="contact-item" style="display: inline-flex; align-items: center; gap: 0.5em; background: #6EC1E4; color: #181A1B; font-weight: bold;">
+            <span>🎬 查看作品集網站 (j-bwhite-portfolio-02.vercel.app)</span>
+          </a>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">4+</div>
+          <div class="stat-label">年專業剪輯經驗</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">合作創作者</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">作品產出</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-section" id="experience">
+      <h2>工作經驗</h2>
+      <div class="experience-card">
+        <h3>
+          自媒體剪輯師
+          <span class="date">2022 - 至今</span>
+        </h3>
+        <div class="achievement-tags">
+          <span class="achievement-tag">Vtuber 精華</span>
+          <span class="achievement-tag">工商影片</span>
+          <span class="achievement-tag">PV 製作</span>
+        </div>
+        <ul>
+          <li>為多位 Vtuber 和 YouTuber 製作精華影片，平均觀看時長提升 30%</li>
+          <li>負責影片企劃、腳本發想、拍攝和後期製作，確保內容品質與時效性</li>
+          <li>製作工商影片、PV、遊戲實況精華等內容，創作者滿意度達 95%</li>
+          <li>擅長運用 Filmora 進行高品質剪輯，一週平均產出 2-4 支 Shorts，每月產出 2 部長片</li>
+        </ul>
+      </div>
+      <div class="experience-card">
+        <h3>
+          自媒體剪輯師 / 內容創作者
+          <span class="date">2015 - 2016</span>
+        </h3>
+        <div class="achievement-tags">
+          <span class="achievement-tag">遊戲精華</span>
+          <span class="achievement-tag">內容創作</span>
+          <span class="achievement-tag">幕前幕後</span>
+        </div>
+        <ul>
+          <li>加入已有基礎的遊戲實況團隊，擔任剪輯師與幕前角色，協助頻道成長</li>
+          <li>負責製作遊戲精華影片，單支影片最高觀看次數達 120 萬，為頻道帶來顯著流量</li>
+          <li>專注於遊戲漏洞與彩蛋內容的剪輯，建立獨特的內容風格</li>
+          <li>參與幕前演出，與主創者共同經營社群，累積寶貴的內容創作經驗</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="resume-section" id="skills">
+      <h2>專業技能</h2>
+      <div class="skill-grid">
+        <div class="skill-item">
+          <h4>影片剪輯</h4>
+          <div class="bar">
+            <div class="fill" style="width: 90%"></div>
+          </div>
+          <p>Filmora</p>
+          <ul style="text-align: left; margin-top: 1em;">
+            <li>注重剪輯細節</li>
+            <li>節奏掌控</li>
+            <li>特效製作</li>
+          </ul>
+        </div>
+        <div class="skill-item">
+          <h4>企劃發想</h4>
+          <div class="bar">
+            <div class="fill" style="width: 85%"></div>
+          </div>
+          <p>腳本撰寫、內容規劃</p>
+          <ul style="text-align: left; margin-top: 1em;">
+            <li>內容企劃</li>   
+            <li>腳本撰寫</li>
+            <li>創意發想</li>
+          </ul>
+        </div>
+        <div class="skill-item">
+          <h4>視覺設計</h4>
+          <div class="bar">
+            <div class="fill" style="width: 75%"></div>
+          </div>
+          <p>Filmora</p>
+          <ul style="text-align: left; margin-top: 1em;">
+            <li>封面設計</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-section" id="contact">
+      <h2>聯絡方式</h2>
+      <div class="contact-info">
+        <a href="https://j-bwhite-portfolio-02.vercel.app/" target="_blank" class="contact-item">
+          <span>🎬 作品集網站</span>
+          <span style="color: #888; font-size: 0.9em;">(j-bwhite-portfolio-02.vercel.app)</span>
+        </a>
+        <a href="mailto:a0903380975@gmail.com" class="contact-item">
+          <span>📧 Email</span>
+          <span style="color: #888; font-size: 0.9em;">(a0903380975@gmail.com)</span>
+        </a>
+        <a href="https://www.youtube.com/@JBwhite1537" target="_blank" class="contact-item">
+          <span>📺 YouTube</span>
+          <span style="color: #888; font-size: 0.9em;">(@JBwhite1537)</span>
+        </a>
+        <a href="discord://users/jbwhite1537" class="contact-item">
+          <span>💬 Discord</span>
+          <span style="color: #888; font-size: 0.9em;">(jbwhite1537)</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html> 

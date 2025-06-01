@@ -3,6 +3,11 @@ const works = [
   {
     title: "遊戲精華",
     type: "game clip",
+    video: "https://youtu.be/S-ERW0v1V3o?si=CUDxJ2NtcsauvYM-"
+  },
+  {
+    title: "遊戲精華",
+    type: "game clip",
     video: "https://www.youtube.com/watch?v=KK8jmO-_7Wk"
   },
   {
@@ -104,6 +109,11 @@ const works = [
     title: "短影音",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=iyAL3j9F2B4"
+  },
+  {
+    title: "短影音",
+    type: "shorts",
+    video: "https://youtube.com/shorts/mL9wyiPDpts?si=e8rKQMYvLQ8dwPD2"
   },
   {
     title: "短影音",
