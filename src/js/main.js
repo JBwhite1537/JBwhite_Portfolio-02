@@ -106,46 +106,46 @@ const works = [
     video: "https://www.youtube.com/watch?v=Wi11SPpYlgo"
   },
   {
-    title: "短影音",
+    title: "日常",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=iyAL3j9F2B4"
   },
   {
-    title: "短影音",
+    title: "VLOG",
     type: "shorts",
     video: "https://youtube.com/shorts/mL9wyiPDpts"
   },
   {
-    title: "短影音",
+    title: "日常",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=vEIBt6b1zlo"
   },
   {
-    title: "短影音",
+    title: "VLOG",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=Nrzfs8fkpkM"
   },
   {
     //茉茉
-    title: "短影音",
+    title: "VTuber",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=87j0_bLR8Uc"
   },
   {
     //茉茉
-    title: "短影音",
+    title: "VTuber",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=K0btja-xNAk"
   },
   {
     //茉茉
-    title: "短影音",
+    title: "VTuber",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=ZJy6sdwU7nE"
   },
   {
     //茉茉
-    title: "短影音",
+    title: "VTuber",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=YN2ejvDgBDE"
   },
@@ -283,6 +283,12 @@ function addWorkEvents() {
 
 // 濾鏡按鈕互動
 if (document.querySelectorAll('.filters button').length) {
+  // 確保"全部"按鈕預設被選中
+  const allButton = document.querySelector('.filters button[data-filter="all"]');
+  if (allButton) {
+    allButton.classList.add('active');
+  }
+
   document.querySelectorAll('.filters button').forEach(btn => {
     btn.addEventListener('click', () => {
       if (btn.classList.contains('active')) return;
@@ -381,6 +387,10 @@ if (homeBtn) {
         portfolio.style.transition = 'opacity 0.5s cubic-bezier(.77,0,.18,1)';
         portfolio.style.opacity = '1';
       }, 10);
+      // 進入作品集時預設高亮「全部」
+      document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
+      const allButton = document.querySelector('.filters button[data-filter="all"]');
+      if (allButton) allButton.classList.add('active');
       renderWorks();
       const grid = document.querySelector('.works-grid');
       if (grid) grid.offsetHeight;
@@ -390,6 +400,14 @@ if (homeBtn) {
       if (nav) {
         nav.offsetHeight;
         nav.style.display = 'flex';
+        // 導覽列按鈕動畫（只在首頁進入作品集時觸發）
+        nav.querySelectorAll('a').forEach(a => {
+          a.classList.add('nav-animate');
+          a.addEventListener('animationend', function handler() {
+            a.classList.remove('nav-animate');
+            a.removeEventListener('animationend', handler);
+          });
+        });
       }
     }, 700); // 0.7s動畫
   });
@@ -408,7 +426,7 @@ if (logoLink) {
       });
       const intro = document.querySelector('header.intro.section-page');
       const nav = document.querySelector('.main-nav');
-      nav.style.display = 'none';
+      nav.style.display = 'none'; // 隱藏導覽列
       gsap.to(transition, { y: '-100%', duration: 0.5, ease: "power2.out",
         onStart: () => {
           intro.style.opacity = 1;
@@ -465,6 +483,12 @@ if (document.querySelectorAll('.main-nav a').length) {
             if (nav) {
               nav.offsetHeight;
               nav.style.display = 'flex';
+            }
+            // 進入作品集時預設高亮「全部」
+            if (section === 'portfolio') {
+              document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
+              const allButton = document.querySelector('.filters button[data-filter="all"]');
+              if (allButton) allButton.classList.add('active');
             }
             renderWorks();
             const grid = document.querySelector('.works-grid');
