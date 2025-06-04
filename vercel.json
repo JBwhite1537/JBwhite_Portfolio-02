@@ -9,6 +9,9 @@
   "routes": [
     { "src": "/robots.txt", "dest": "/public/robots.txt" },
     { "src": "/sitemap.xml", "dest": "/public/sitemap.xml" },
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/[^/]+\\.html$", "dest": "/index.html" },
+    { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
