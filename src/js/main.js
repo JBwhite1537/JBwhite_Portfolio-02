@@ -150,10 +150,163 @@ const works = [
     type: "VLOG",
     video: "https://www.youtube.com/watch?v=Wi11SPpYlgo"
   },
+  // 2026 加班台環島企劃
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/7LUdRD8zhdQ"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/zSEu_D4CnSc"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/v_idkiEAnPA"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/VzEY-KGK5C8"
+  },
+  // ---
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/mYmo6Py5KY8"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/Ed30oHkKt3Q"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/bn8MHuwla8Y"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/3qIiCV0S430"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/Bgw7Pl920fI"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/AA5LrthTwjs"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/f7UHLE_gnoY"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/jQGWBSSlM7c"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/QOovLK-KpP8"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/XYy-Gh39al0"
+  },
+  // ---
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/CWJNs4RQeuA"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/C8yNEPSfEgo"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/0GV-5LTrQvE"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/kWwPwOOrV24"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/GX3JRORr8Qc"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/YKqdhxwafD4"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/E_QEApZaSgA"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/fsPBNyYC1Bc"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/YTgCpXtiSEU"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/WIOTeMhK-lU"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/gS8JHEIMpHc"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/kw6wdeKRPjI"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/GSXm3VIHM8s"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/3vd4h7gA9-o"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/8eFvm6aG_n0"
+  },
   {
     title: "2026 加班台環島企劃",
     type: "shorts",
     video: "https://www.youtube.com/shorts/dESCp6OYJjw"
+  },
+  {
+    title: "遊戲冷知識",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/7FflMgthsSo"
   },
   {
     title: "日常",
