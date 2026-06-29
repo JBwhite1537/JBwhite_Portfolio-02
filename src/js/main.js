@@ -3,6 +3,41 @@ const works = [
   {
     title: "遊戲精華",
     type: "game clip",
+    video: "https://youtu.be/2kCyOfCdqpE?si=9RgUjSeR_EyvqN6z"
+  },
+  {
+    title: "遊戲精華",
+    type: "game clip",
+    video: "https://youtu.be/Jw4GWfe-Z0g?si=3dPPXfTPWQAfqOJ5"
+  },
+  {
+    title: "遊戲精華",
+    type: "game clip",
+    video: "https://youtu.be/tenM8oQgjws?si=dssyfsIyK5H0C9L_"
+  },
+  {
+    title: "遊戲精華",
+    type: "game clip",
+    video: "https://youtu.be/csdTDl4d9Yg?si=CEcnkRdIc1-EMkD_"
+  },
+  {
+    title: "遊戲精華",
+    type: "game clip",
+    video: "https://youtu.be/hWbcUfx75Y4?si=BnNIR9QtvaJuMqrA"
+  },
+  {
+    title: "遊戲精華",
+    type: "game clip",
+    video: "https://youtu.be/fmAI5NDf_kE?si=UKoKt1NDPYfPGruf"
+  },
+  {
+    title: "遊戲精華",
+    type: "game clip",
+    video: "https://youtu.be/fmAI5NDf_kE?si=UKoKt1NDPYfPGruf"
+  },
+  {
+    title: "遊戲精華",
+    type: "game clip",
     video: "https://youtu.be/S-ERW0v1V3o?si=CUDxJ2NtcsauvYM-"
   },
   {
@@ -51,6 +86,11 @@ const works = [
     video: "https://www.youtube.com/watch?v=mcYxWT44KXk"
   },
   {
+    title: "緋紅之心 工商",
+    type: "ad",
+    video: "https://youtu.be/mBV0bVURXYU?si=r6FgZyJ8EEXfe2Cb"
+  },
+  {
     title: "SurfShark 工商",
     type: "ad",
     video: "https://youtu.be/aGefWu5xptg?si=-Ffgdpz2lHyfS16I"
@@ -74,6 +114,11 @@ const works = [
     title: "遊戲教學/說書",
     type: "game tutorial",
     video: "https://youtu.be/1oM8SEM0Pog?si=09Lf5K3h9mmk8SCv"
+  },
+  {
+    title: "日常",
+    type: "daily",
+    video: "https://youtu.be/MHfAz1EPZZ4?si=11CGfv2XTKINJ2-B"
   },
   {
     title: "日常",
@@ -104,6 +149,11 @@ const works = [
     title: "VLOG",
     type: "VLOG",
     video: "https://www.youtube.com/watch?v=Wi11SPpYlgo"
+  },
+  {
+    title: "2026 加班台環島企劃",
+    type: "shorts",
+    video: "https://www.youtube.com/shorts/dESCp6OYJjw"
   },
   {
     title: "日常",
