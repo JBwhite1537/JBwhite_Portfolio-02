@@ -208,6 +208,12 @@ const works = [
     //茉茉
     title: "VTuber",
     type: "shorts",
+    video: "https://drive.google.com/file/d/1cFY96dPIjuHJbsEYbzidzg28tSwajXHx/view?usp=drive_link"
+  },
+  {
+    //茉茉
+    title: "VTuber",
+    type: "shorts",
     video: "https://www.youtube.com/watch?v=87j0_bLR8Uc"
   },
   {
