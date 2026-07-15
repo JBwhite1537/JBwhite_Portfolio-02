@@ -1,6 +1,12 @@
 // 作品資料（可自行擴充）
 const works = [
   {
+    // 鳥鳥
+    title: "遊戲精華",
+    type: "game clip",
+    video: "https://youtu.be/NSIlAAM77fU?si=QP7rwTI72_aqc9F4"
+  },
+  {
     title: "遊戲精華",
     type: "game clip",
     video: "https://youtu.be/2kCyOfCdqpE?si=9RgUjSeR_EyvqN6z"
@@ -150,7 +156,7 @@ const works = [
     type: "VLOG",
     video: "https://www.youtube.com/watch?v=Wi11SPpYlgo"
   },
-  // 2026 加班台環島企劃
+  // 2026 加班台環島企劃 
   {
     title: "2026 加班台環島企劃",
     type: "shorts",
