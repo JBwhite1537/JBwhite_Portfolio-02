@@ -208,7 +208,7 @@ const works = [
     //茉茉
     title: "VTuber",
     type: "shorts",
-    video: "https://drive.google.com/file/d/1cFY96dPIjuHJbsEYbzidzg28tSwajXHx/view?usp=drive_link"
+    video: "https://youtube.com/shorts/dhOUNMoysvw?feature=share"
   },
   {
     //茉茉
