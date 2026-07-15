@@ -1,6 +1,12 @@
 // 作品資料（可自行擴充）
 const works = [
   {
+    // 茉茉
+    title: "遊戲精華",
+    type: "game clip",
+    video: "https://youtu.be/oImiKDPyX-I?si=lelfddHaaE6UI4uj"
+  },
+  {
     // 鳥鳥
     title: "遊戲精華",
     type: "game clip",
