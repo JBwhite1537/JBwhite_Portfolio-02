@@ -100,6 +100,11 @@ const works = [
   {
     title: "日常",
     type: "daily",
+    video: "https://youtu.be/uvOvOteMv_0?si=NeLJBNhzzrDzLjCC"
+  },
+  {
+    title: "日常",
+    type: "daily",
     video: "https://youtu.be/MHfAz1EPZZ4?si=11CGfv2XTKINJ2-B"
   },
   {
@@ -121,11 +126,6 @@ const works = [
     title: "VLOG",
     type: "VLOG",
     video: "https://youtu.be/lgTRdQt9St4?si=TlOq4ObqJjZrwpJb"
-  },
-  {
-    title: "VLOG",
-    type: "VLOG",
-    video: ""
   },
   //
   {
@@ -174,11 +174,6 @@ const works = [
     title: "遊戲冷知識",
     type: "shorts",
     video: "https://www.youtube.com/shorts/7FflMgthsSo"
-  },
-  {
-    title: "日常",
-    type: "shorts",
-    video: "https://youtu.be/uvOvOteMv_0?si=NeLJBNhzzrDzLjCC"
   },
   {
     title: "日常",
