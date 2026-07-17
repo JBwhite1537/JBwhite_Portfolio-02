@@ -125,6 +125,12 @@ const works = [
   {
     title: "VLOG",
     type: "VLOG",
+    video: ""
+  },
+  //
+  {
+    title: "VLOG",
+    type: "VLOG",
     video: "https://www.youtube.com/watch?v=PgZMgh9h-BE"
   },
   {
@@ -168,6 +174,11 @@ const works = [
     title: "遊戲冷知識",
     type: "shorts",
     video: "https://www.youtube.com/shorts/7FflMgthsSo"
+  },
+  {
+    title: "日常",
+    type: "shorts",
+    video: "https://youtu.be/uvOvOteMv_0?si=NeLJBNhzzrDzLjCC"
   },
   {
     title: "日常",
