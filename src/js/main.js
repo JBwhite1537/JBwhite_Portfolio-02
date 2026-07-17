@@ -136,54 +136,33 @@ const works = [
   {
     title: "2026 加班台環島企劃",
     type: "shorts",
-    video: "https://www.youtube.com/shorts/zSEu_D4CnSc"
+    video: "https://youtube.com/shorts/xPlt7_n7a34?si=Y-6hXK4ClfzQmCwM"
   },
   {
     title: "2026 加班台環島企劃",
     type: "shorts",
-    video: "https://www.youtube.com/shorts/v_idkiEAnPA"
-  },
-  // ---
-  {
-    title: "2026 加班台環島企劃",
-    type: "shorts",
-    video: "https://www.youtube.com/shorts/Bgw7Pl920fI"
+    video: "https://youtube.com/shorts/hTejI8NhTrY?si=WeoSJSXBF_wXLd37"
   },
   {
     title: "2026 加班台環島企劃",
     type: "shorts",
-    video: "https://www.youtube.com/shorts/AA5LrthTwjs"
+    video: "https://youtube.com/shorts/8eFvm6aG_n0?si=f2U0r1Zt6ceUFrR4"
   },
   {
     title: "2026 加班台環島企劃",
     type: "shorts",
-    video: "https://www.youtube.com/shorts/jQGWBSSlM7c"
-  },
-  {
-    title: "2026 加班台環島企劃",
-    type: "shorts",
-    video: "https://www.youtube.com/shorts/QOovLK-KpP8"
+    video: "https://youtube.com/shorts/GX3JRORr8Qc?si=M4bCcjHZ_3bUJkW1"
   },
   // ---
   {
     title: "2026 加班台環島企劃",
     type: "shorts",
-    video: "https://www.youtube.com/shorts/CWJNs4RQeuA"
+    video: "https://youtube.com/shorts/CWJNs4RQeuA?si=-gB8VQZ423B89qok"
   },
   {
     title: "2026 加班台環島企劃",
     type: "shorts",
-    video: "https://www.youtube.com/shorts/GX3JRORr8Qc"
-  },
-  {
-    title: "2026 加班台環島企劃",
-    type: "shorts",
-    video: "https://www.youtube.com/shorts/fsPBNyYC1Bc"
-  },
-  {
-    title: "2026 加班台環島企劃",
-    type: "shorts",
-    video: "https://www.youtube.com/shorts/8eFvm6aG_n0"
+    video: "https://youtube.com/shorts/Bgw7Pl920fI?si=t5ZSdUZXDagMp23Q"
   },
   {
     title: "遊戲冷知識",
