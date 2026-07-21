@@ -13,63 +13,63 @@ const works = [
   },
   {
     // 茉茉
-    title: "遊戲精華",
+    title: "Vtuber遊戲精華",
     type: "game clip",
     video: "https://youtu.be/oImiKDPyX-I?si=lelfddHaaE6UI4uj"
   },
   {
     // 鳥鳥
-    title: "遊戲精華",
+    title: "【鳥鳥】遊戲精華",
     type: "game clip",
     video: "https://youtu.be/NSIlAAM77fU?si=QP7rwTI72_aqc9F4"
   },
   {
-    title: "遊戲精華",
+    title: "【小薰】遊戲精華",
     type: "game clip",
     video: "https://youtu.be/tenM8oQgjws?si=dssyfsIyK5H0C9L_"
   },
   {
-    title: "遊戲精華",
+    title: "【小薰】遊戲精華",
     type: "game clip",
     video: "https://youtu.be/S-ERW0v1V3o?si=CUDxJ2NtcsauvYM-"
   },
   {
-    title: "遊戲精華",
+    title: "【小薰】遊戲精華",
     type: "game clip",
     video: "https://www.youtube.com/watch?v=KK8jmO-_7Wk"
   },
   {
-    title: "遊戲精華",
+    title: "【小薰】遊戲精華",
     type: "game clip",
     video: "https://www.youtube.com/watch?v=X0opK-UPz_M"
   },
   {
     // 鳥鳥
-    title: "遊戲精華",
+    title: "【鳥鳥】遊戲精華",
     type: "game clip",
     video: "https://www.youtube.com/watch?v=9WfLA5YfGQU"
   },
   {
     // JBwhite
-    title: "遊戲精華",
+    title: "【JBwhite】遊戲精華",
     type: "game clip",
     video: "https://youtu.be/3ulbOsmoN2Y"
   },
   {
     // JBwhite
-    title: "遊戲精華",
+    title: "【JBwhite】遊戲精華",
     type: "game clip",
     video: "https://youtu.be/jGydqjonqHQ"
   },
   {
     // JBwhite
-    title: "遊戲精華",
+    title: "【JBwhite】遊戲精華",
     type: "game clip",
     video: "https://youtu.be/Fw4QBGg5KdY"
   },
   {
     // JBwhite
-    title: "遊戲精華",
+    title: "【JBwhite】遊戲精華",
     type: "game clip",
     video: "https://youtu.be/e1un30SaLiI?si=0kyaYUyApmXr73FT"
   },
@@ -79,130 +79,130 @@ const works = [
     video: "https://www.youtube.com/watch?v=mcYxWT44KXk"
   },
   {
-    title: "緋紅之心 工商",
+    title: "【小薰】緋紅之心 工商",
     type: "ad",
     video: "https://youtu.be/mBV0bVURXYU?si=r6FgZyJ8EEXfe2Cb"
   },
   {
-    title: "SurfShark 工商",
+    title: "【小薰】SurfShark 工商",
     type: "ad",
     video: "https://youtu.be/aGefWu5xptg?si=-Ffgdpz2lHyfS16I"
   },
   {
-    title: "工商",
+    title: "【小薰】工商",
     type: "ad",
     video: "https://www.youtube.com/watch?v=DBtyK4-nEA4"
   },
   {
-    title: "工商",
+    title: "【小薰】工商",
     type: "ad",
     video: "https://youtu.be/J7VZype94NM?si=W2ctSuiuskobzxLy"
   },
   {
-    title: "遊戲教學/說書",
+    title: "【小薰】遊戲教學/說書",
     type: "game tutorial",
     video: "https://youtu.be/1ha60NATVUw?si=IkZJCBf73jcrxIVb"
   },
   {
-    title: "遊戲教學/說書",
+    title: "【小薰】遊戲教學/說書",
     type: "game tutorial",
     video: "https://youtu.be/1oM8SEM0Pog?si=09Lf5K3h9mmk8SCv"
   },
   {
-    title: "日常",
+    title: "【小薰】日常",
     type: "daily",
     video: "https://youtu.be/uvOvOteMv_0?si=NeLJBNhzzrDzLjCC"
   },
   {
-    title: "日常",
+    title: "【小薰】日常",
     type: "daily",
     video: "https://youtu.be/MHfAz1EPZZ4?si=11CGfv2XTKINJ2-B"
   },
   {
-    title: "日常",
+    title: "【小薰】日常",
     type: "daily",
     video: "https://youtu.be/cAGsGPFqJHU?si=aHdGmnktCmgHkPDF"
   },
   {
-    title: "日常",
+    title: "【小薰】日常",
     type: "daily",
     video: "https://youtu.be/_M2psR1h96A?si=-s6k--H6jIKFXdN1"
   },
   {
-    title: "日常",
+    title: "【小薰】日常",
     type: "daily",
     video: "https://youtu.be/eJC9GhnIYUI?si=mQXy0ew4QWPsjVxt"
   },
   {
-    title: "VLOG",
+    title: "【小薰】VLOG",
     type: "VLOG",
     video: "https://youtu.be/lgTRdQt9St4?si=TlOq4ObqJjZrwpJb"
   },
   //
   {
-    title: "VLOG",
+    title: "【小薰】VLOG",
     type: "VLOG",
     video: "https://www.youtube.com/watch?v=PgZMgh9h-BE"
   },
   {
-    title: "VLOG",
+    title: "【小薰】VLOG",
     type: "VLOG",
     video: "https://www.youtube.com/watch?v=Wi11SPpYlgo"
   },
   // 2026 加班台環島企劃 
   {
-    title: "2026 加班台環島企劃",
+    title: "【小薰】2026 加班台環島企劃",
     type: "shorts",
     video: "https://youtube.com/shorts/xPlt7_n7a34?si=Y-6hXK4ClfzQmCwM"
   },
   {
-    title: "2026 加班台環島企劃",
+    title: "【小薰】2026 加班台環島企劃",
     type: "shorts",
     video: "https://youtube.com/shorts/hTejI8NhTrY?si=WeoSJSXBF_wXLd37"
   },
   {
-    title: "2026 加班台環島企劃",
+    title: "【小薰】2026 加班台環島企劃",
     type: "shorts",
     video: "https://youtube.com/shorts/8eFvm6aG_n0?si=f2U0r1Zt6ceUFrR4"
   },
   {
-    title: "2026 加班台環島企劃",
+    title: "【小薰】2026 加班台環島企劃",
     type: "shorts",
     video: "https://youtube.com/shorts/GX3JRORr8Qc?si=M4bCcjHZ_3bUJkW1"
   },
   // ---
   {
-    title: "2026 加班台環島企劃",
+    title: "【小薰】2026 加班台環島企劃",
     type: "shorts",
     video: "https://youtube.com/shorts/CWJNs4RQeuA?si=-gB8VQZ423B89qok"
   },
   {
-    title: "2026 加班台環島企劃",
+    title: "【小薰】2026 加班台環島企劃",
     type: "shorts",
     video: "https://youtube.com/shorts/Bgw7Pl920fI?si=t5ZSdUZXDagMp23Q"
   },
   {
-    title: "遊戲冷知識",
+    title: "【小薰】遊戲冷知識",
     type: "shorts",
     video: "https://www.youtube.com/shorts/7FflMgthsSo"
   },
   {
-    title: "日常",
+    title: "【小薰】日常",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=iyAL3j9F2B4"
   },
   {
-    title: "VLOG",
+    title: "【小薰】VLOG",
     type: "shorts",
     video: "https://youtube.com/shorts/mL9wyiPDpts"
   },
   {
-    title: "日常",
+    title: "【小薰】日常",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=vEIBt6b1zlo"
   },
   {
-    title: "VLOG",
+    title: "【小薰】VLOG",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=Nrzfs8fkpkM"
   },
