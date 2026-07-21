@@ -1,14 +1,13 @@
 // 作品資料（可自行擴充）
 const works = [
   {
-    // 專題太魯閣紀錄片
-    title: "紀錄片",
+    // 專題紀錄片
+    title: "太魯閣生態紀錄片",
     type: "documentary",
     video: "https://youtu.be/KmQ8KaXMz1k"
   },
   {
-    // 專題綠島紀錄片
-    title: "紀錄片",
+    title: "綠島生態紀錄片",
     type: "documentary",
     video: "https://youtu.be/trn-TVT_S2g"
   },
