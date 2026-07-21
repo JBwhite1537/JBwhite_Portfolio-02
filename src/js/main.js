@@ -1,6 +1,18 @@
 // 作品資料（可自行擴充）
 const works = [
   {
+    // 專題太魯閣紀錄片
+    title: "紀錄片",
+    type: "documentary",
+    video: "https://youtu.be/KmQ8KaXMz1k"
+  },
+  {
+    // 專題綠島紀錄片
+    title: "紀錄片",
+    type: "documentary",
+    video: "https://youtu.be/trn-TVT_S2g"
+  },
+  {
     // 茉茉
     title: "遊戲精華",
     type: "game clip",
