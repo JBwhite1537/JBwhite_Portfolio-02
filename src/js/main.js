@@ -237,12 +237,12 @@ const works = [
     video: "https://www.youtube.com/watch?v=YN2ejvDgBDE"
   },
   {
-    title: "二創剪輯",
+    title: "【二創剪輯】Annin Miru 杏仁ミル 實況精華",
     type: "fan art",
     video: "https://youtu.be/SmZvl_R8fHI"
   },
   {
-    title: "二創剪輯",
+    title: "【二創剪輯】Annin Miru 杏仁ミル 實況精華",
     type: "fan art",
     video: "https://youtu.be/cfStM6di-eo"
   },
