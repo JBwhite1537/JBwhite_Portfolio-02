@@ -1,6 +1,27 @@
 // 作品資料（可自行擴充）
 const works = [
   {
+    title: "【MV】大學表演藝術期末",
+    type: "MV",
+    video: "https://youtu.be/aphzTy3eWuY"
+  },
+  {
+    title: "【教育單位合作】明新科大企業訂單式教學精華",
+    type: "education",
+    video: "https://youtu.be/dkUi44ap3rc"
+  },
+  {
+    title: "【政府單位合作】芎林113花啦嗶啵踩街",
+    type: "VLOG",
+    video: "https://youtu.be/aSjO7ZXCDo8"
+  },
+  {
+    // 信託有愛徵影活動
+    title: "【微電影】信託有愛徵影活動",
+    type: "short film",
+    video: "https://youtu.be/1-jj6QtlC6s"
+  },
+  {
     // 專題紀錄片
     title: "太魯閣生態紀錄片",
     type: "documentary",
