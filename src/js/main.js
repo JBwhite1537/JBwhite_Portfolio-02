@@ -1,11 +1,6 @@
 // 作品資料（可自行擴充）
 const works = [
   {
-    title: "【MV】大學表演藝術期末",
-    type: "MV",
-    video: "https://youtu.be/aphzTy3eWuY"
-  },
-  {
     title: "【教育單位合作】明新科大企業訂單式教學精華",
     type: "education",
     video: "https://youtu.be/dkUi44ap3rc"
