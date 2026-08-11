@@ -1,6 +1,11 @@
 // 作品資料（可自行擴充）
 const works = [
   {
+    title: "Vtuber新衣裝精華",
+    type: "game clip",
+    video: "https://youtu.be/fYsgIFCZYG8?si=Tf6-l9Zfl_q0XzLZ"
+  },
+  {
     title: "【教育單位合作】明新科大企業訂單式教學精華",
     type: "education",
     video: "https://youtu.be/dkUi44ap3rc"
