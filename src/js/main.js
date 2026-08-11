@@ -89,12 +89,6 @@ const works = [
     video: "https://youtu.be/Fw4QBGg5KdY"
   },
   {
-    // JBwhite
-    title: "【JBwhite】遊戲精華",
-    type: "game clip",
-    video: "https://youtu.be/e1un30SaLiI?si=0kyaYUyApmXr73FT"
-  },
-  {
     title: "PV",
     type: "PV",
     video: "https://www.youtube.com/watch?v=mcYxWT44KXk"
