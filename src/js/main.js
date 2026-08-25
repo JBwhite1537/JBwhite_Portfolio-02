@@ -346,7 +346,7 @@ function renderWorks(filter = "all") {
       badgeClass = "badge-teal";
       badgeText = "生活風格紀錄";
     }
-    else if (w.type === "daily" || w.title.includes("日常")) {
+    else if (w.type === "daily") {
       // 日常 (質感灰)
       badgeClass = "badge-gray";
       badgeText = "輕鬆日常剪輯";
