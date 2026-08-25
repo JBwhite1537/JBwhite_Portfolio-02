@@ -6,18 +6,18 @@ const works = [
     video: "https://youtu.be/fYsgIFCZYG8?si=Tf6-l9Zfl_q0XzLZ"
   },
   {
-    title: "【教育單位合作】明新科大企業訂單式教學精華",
+    title: "明新科大企業訂單式教學精華",
     type: "education",
     video: "https://youtu.be/dkUi44ap3rc"
   },
   {
-    title: "【政府單位合作】芎林113花啦嗶啵踩街",
+    title: "芎林113花啦嗶啵踩街",
     type: "VLOG",
     video: "https://youtu.be/aSjO7ZXCDo8"
   },
   {
     // 信託有愛徵影活動
-    title: "【微電影】信託有愛徵影活動",
+    title: "信託有愛徵影活動",
     type: "short film",
     video: "https://youtu.be/1-jj6QtlC6s"
   },
@@ -168,12 +168,12 @@ const works = [
   {
     title: "【小薰】2026 加班台環島企劃",
     type: "shorts",
-    video: "https://youtube.com/shorts/xPlt7_n7a34?si=Y-6hXK4ClfzQmCwM"
+    video: "https://youtube.com/shorts/ea92NvlMLPs?si=0sSmS65f72_hRSVy"
   },
   {
     title: "【小薰】2026 加班台環島企劃",
     type: "shorts",
-    video: "https://youtube.com/shorts/hTejI8NhTrY?si=WeoSJSXBF_wXLd37"
+    video: "https://youtube.com/shorts/VLcXHIPyauM?si=EDuJTdSm2xnoEpsZ"
   },
   {
     title: "【小薰】2026 加班台環島企劃",
@@ -252,12 +252,12 @@ const works = [
     video: "https://www.youtube.com/watch?v=YN2ejvDgBDE"
   },
   {
-    title: "【二創剪輯】Annin Miru 杏仁ミル 實況精華",
+    title: "Annin Miru 杏仁ミル 實況精華",
     type: "fan art",
     video: "https://youtu.be/SmZvl_R8fHI"
   },
   {
-    title: "【二創剪輯】Annin Miru 杏仁ミル 實況精華",
+    title: "Annin Miru 杏仁ミル 實況精華",
     type: "fan art",
     video: "https://youtu.be/cfStM6di-eo"
   },
@@ -266,8 +266,60 @@ window.works = works;
 
 
 // 動態產生作品縮圖
+// 動態產生作品縮圖
 function renderWorks(filter = "all") {
   const grid = document.querySelector('.works-grid');
+
+  // 定義一個產生單一作品 HTML 的輔助函數，確保兩次渲染的結構完全一樣
+  function createWorkElement(w) {
+    const div = document.createElement('div');
+    div.className = 'work';
+    div.setAttribute('data-video', w.video);
+
+    // 取得 YouTube ID
+    let ytId = '';
+    try {
+      const url = new URL(w.video);
+      if (url.hostname.includes('youtu.be')) {
+        ytId = url.pathname.slice(1, 12);
+      } else if (url.hostname.includes('youtube.com')) {
+        if (url.pathname.includes('/shorts/')) {
+          ytId = url.pathname.split('/shorts/')[1].slice(0, 11);
+        } else {
+          ytId = url.searchParams.get('v');
+        }
+      }
+    } catch {}
+
+    let thumbUrl = ytId ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg` : 'public/images/default-thumb.jpg';
+    
+    // 根據不同的分類給予不同的 #標籤說明
+    let tags = "";
+    if (w.type === "game clip") tags = "#長影音 #遊戲精華 #節奏掌控";
+    else if (w.type === "shorts") tags = "#短影音 #網感快剪";
+    else if (w.type === "documentary") tags = "#長影音 #生態紀錄片";
+    else if (w.type === "ad") tags = "#工商 #企劃腳本";
+    else if (w.type === "VLOG") tags = "#VLOG #生活紀錄";
+    else tags = "#影片剪輯";
+
+    // 戰績 Badge 判斷
+    let badgeHtml = "";
+    if (w.title.includes("環島")) {
+      badgeHtml = `<span class="badge">16天產出 41支短片</span>`;
+    }
+
+    // 組裝 HTML 結構
+    div.innerHTML = `
+      <img src="${thumbUrl}" alt="${w.title}">
+      ${badgeHtml}
+      <div class="overlay">
+          <h3>${w.title}</h3>
+          <p>${tags}</p>
+      </div>
+    `;
+    return div;
+  }
+
   // 先讓舊內容做向右伸展淡出動畫
   if (grid.children.length > 0) {
     grid.classList.add('works-transition-out');
@@ -275,29 +327,7 @@ function renderWorks(filter = "all") {
       grid.innerHTML = '';
       works.filter(w => filter === "all" || w.type === filter)
         .forEach(w => {
-          const div = document.createElement('div');
-          div.className = 'work';
-          div.setAttribute('data-video', w.video);
-          // 取得 YouTube ID（用 URL 物件解析，支援各種參數格式）
-          let ytId = '';
-          try {
-            const url = new URL(w.video);
-            if (url.hostname.includes('youtu.be')) {
-              ytId = url.pathname.slice(1, 12);
-            } else if (url.hostname.includes('youtube.com')) {
-              if (url.pathname.includes('/shorts/')) {
-                ytId = url.pathname.split('/shorts/')[1].slice(0, 11);
-              } else {
-                ytId = url.searchParams.get('v');
-              }
-            }
-          } catch {}
-          let thumbUrl = ytId ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg` : 'public/images/default-thumb.jpg';
-          div.innerHTML = `
-            <img src="${thumbUrl}" alt="${w.title}">
-            <div class="work-title">${w.title}</div>
-          `;
-          grid.appendChild(div);
+          grid.appendChild(createWorkElement(w));
         });
       addWorkEvents();
       // 新內容向右伸展淡入動畫
@@ -309,33 +339,12 @@ function renderWorks(filter = "all") {
     }, 400);
     return;
   }
+
   // 首次渲染直接顯示
   grid.innerHTML = '';
   works.filter(w => filter === "all" || w.type === filter)
     .forEach(w => {
-      const div = document.createElement('div');
-      div.className = 'work';
-      div.setAttribute('data-video', w.video);
-      // 取得 YouTube ID（用 URL 物件解析，支援各種參數格式）
-      let ytId = '';
-      try {
-        const url = new URL(w.video);
-        if (url.hostname.includes('youtu.be')) {
-          ytId = url.pathname.slice(1, 12);
-        } else if (url.hostname.includes('youtube.com')) {
-          if (url.pathname.includes('/shorts/')) {
-            ytId = url.pathname.split('/shorts/')[1].slice(0, 11);
-          } else {
-            ytId = url.searchParams.get('v');
-          }
-        }
-      } catch {}
-      let thumbUrl = ytId ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg` : 'public/images/default-thumb.jpg';
-      div.innerHTML = `
-        <img src="${thumbUrl}" alt="${w.title}">
-        <div class="work-title">${w.title}</div>
-      `;
-      grid.appendChild(div);
+      grid.appendChild(createWorkElement(w));
     });
   addWorkEvents();
 }
@@ -552,6 +561,7 @@ if (document.querySelectorAll('.main-nav a').length) {
           e.preventDefault();
           const transition = document.getElementById('page-transition');
           gsap.to(transition, { y: 0, duration: 0.4, ease: "power2.in", onComplete: () => {
+            window.scrollTo({ top: 0, behavior: 'auto' }); // 加入這行重置滾動條
             document.querySelectorAll('.section-page').forEach(page => {
               if (page.getAttribute('data-section') === section) {
                 // about 區塊用 flex，其他用 block
@@ -777,5 +787,13 @@ window.addEventListener('DOMContentLoaded', function() {
         tooltip.style.display = 'none';
       });
     }
+  }
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash.substring(1);
+  if (hash && hash !== 'intro') {
+    const targetBtn = document.querySelector(`.main-nav a[data-section="${hash}"]`);
+    if (targetBtn) targetBtn.click();
   }
 });

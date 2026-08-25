@@ -5,21 +5,27 @@
   <meta name="google-site-verification" content="x-dWU1nd6pZHYJQe_gpcJN-ocVQ26d4TSPXsbuWdeQ4" />
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
   <title>JBwhite 剪輯師作品集｜Storytelling Through Editing</title>
   <meta name="description" content="JBwhite 剪輯師，專業自媒體影片剪輯、遊戲精華、VLOG、PV、工商影片等作品展示與服務介紹。">
   <meta name="keywords" content="剪輯, 作品集, 遊戲精華, VLOG, PV, 工商影片, 自媒體, 影片剪輯, JBwhite">
   <meta name="author" content="JBwhite">
+  
   <link rel="icon" href="public/images/avatar.png" type="image/png">
   <link rel="stylesheet" href="src/css/style.css" />
   <link rel="stylesheet" href="src/css/glitch.css" />
+  
+  <!-- 預先載入字型 -->
   <link rel="preload" href="public/fonts/HONORSANSTC-REGULAR.TTF" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="public/fonts/SOURCEHANSERIFTC-REGULAR.OTF" as="font" type="font/otf" crossorigin>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://unpkg.com/scrollreveal"></script>
+  
+  <!-- 外部腳本統一使用 defer 不阻塞渲染，並調整相依順序 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://unpkg.com/scrollreveal" defer></script>
+  <script src="particles.js" defer></script>
   <script src="src/js/main.js" defer></script>
-  <script src="particles.js"></script>
+
+  <!-- SEO / Open Graph 設定 -->
   <meta property="og:title" content="JBwhite 剪輯師作品集｜Storytelling Through Editing">
   <meta property="og:description" content="JBwhite 剪輯師，專業自媒體影片剪輯、遊戲精華、VLOG、PV、工商影片等作品展示與服務介紹。">
   <meta property="og:image" content="public/images/avatar.png">
@@ -34,11 +40,14 @@
 </head>
 
 <body>
-  <div id="particles-js" style="position:fixed;z-index:0;width:100vw;height:100vh;top:0;left:0;"></div>
+  <!-- 背景粒子特效 (改為 100dvh 解決手機網址列跳動問題) -->
+  <div id="particles-js" style="position:fixed;z-index:0;width:100vw;height:100dvh;top:0;left:0;"></div>
+
+  <!-- 頂部導覽列 -->
   <nav class="main-nav">
     <a href="#intro" class="logo-link" data-section="intro" aria-label="回到首頁" tabindex="0">
       <img src="public/images/avatar.png" alt="JBwhite LOGO頭像">
-      <span class="logo-text">JBwhite　自媒體剪輯師</span>
+      <span class="logo-text">JBwhite 自媒體剪輯師</span>
     </a>
     <div class="nav-links">
       <a href="#portfolio" data-section="portfolio" aria-label="作品展示" tabindex="0">作品</a>
@@ -48,7 +57,9 @@
       <a href="#contact" data-section="contact" aria-label="聯絡我" tabindex="0">聯絡我</a>
     </div>
   </nav>
+
   <main>
+    <!-- 首頁 -->
     <header class="intro section-page" data-section="intro" id="intro" aria-label="網站首頁介紹">
       <div class="intro-bg-thumb">
         <img src="public/images/JBwhite_thumbnail.png" alt="JBwhite 作品集背景圖" aria-hidden="true" />
@@ -60,6 +71,8 @@
       <p class="typewriter">自媒體剪輯師，熱愛分享並紀錄當下的故事</p>
       <button class="home-btn" style="margin-top:2em;" tabindex="0">進入作品集</button>
     </header>
+
+    <!-- 作品區塊 -->
     <section class="portfolio section-page" data-section="portfolio" id="portfolio" aria-label="精選作品展示">
       <h2>精選作品展示（定期更新）</h2>
       <div class="filters">
@@ -76,26 +89,26 @@
         <button data-filter="ad">工商影片</button>
         <button data-filter="fan art">二創影片</button>
       </div>
-      <div class="works-grid">
-        <!-- 作品縮圖由JS動態產生 -->
-      </div>
+      <!-- 作品網格，內容由 main.js 動態生成 -->
+      <div class="works-grid"></div>
     </section>
+
+    <!-- 技能區塊 -->
     <section class="skills section-page" data-section="skills" id="skills" aria-label="技能介紹">
       <h2>技能</h2>
       <div class="skills-list">
         <div class="skill-card">
-          <img src="public/images/skill-filmora.png" alt="Filmora 剪輯軟體圖示，代表剪輯技能" class="skill-icon">
+          <img src="public/images/skill-filmora.png" alt="Filmora 剪輯軟體圖示" class="skill-icon" loading="lazy">
           <div class="skill-info">
             <h3>Filmora</h3>
             <div class="bar">
               <div class="fill" style="width: 90%"></div>
             </div>
           </div>
-          <div class="skill-desc-text">我主要使用這款剪輯軟體，擅長以敘事手法串聯每一個片段，將情感與故事深植其中。
-            透過具有張力的畫面編排，引導觀眾的視線，讓每一個瞬間都充滿吸引力與節奏感。</div>
+          <div class="skill-desc-text">我主要使用這款剪輯軟體，擅長以敘事手法串聯每一個片段，將情感與故事深植其中。透過具有張力的畫面編排，引導觀眾的視線，讓每一個瞬間都充滿吸引力與節奏感。</div>
         </div>
         <div class="skill-card">
-          <img src="public/images/skill-plan.png" alt="企劃腳本發想圖示，代表企劃能力" class="skill-icon">
+          <img src="public/images/skill-plan.png" alt="企劃腳本發想圖示" class="skill-icon" loading="lazy">
           <div class="skill-info">
             <h3>企劃腳本發想</h3>
             <div class="bar">
@@ -105,89 +118,86 @@
           <div class="skill-desc-text">這支腳本是為 SurfShark 的工商影片所撰寫，主打一個絲滑的鬼轉銜接，由我與實況主小薰共同發想與企劃。</div>
         </div>
         <div class="skill-card">
-          <img src="public/images/skill-thumb.jpg" alt="新北寶可夢路跑封面設計圖示，代表設計能力" class="skill-icon">
+          <img src="public/images/skill-thumb.jpg" alt="新北寶可夢路跑封面設計圖示" class="skill-icon" loading="lazy">
           <div class="skill-info">
-            <h3>thumbnail Design</h3>
+            <h3>Thumbnail Design</h3>
             <div class="bar">
               <div class="fill" style="width: 70%"></div>
             </div>
           </div>
-          <div class="skill-desc-text">這張封面則是我為「新北寶可夢路跑」活動拍攝專案所設計的。每支影片小薰都會與我一同討論封面的發想與構圖，確保視覺與內容完美契合。</div>
+          <div class="skill-desc-text">這張封面則是我為「新北寶可夢路跑」活動拍攝專案所設計的。每支影片都會討論封面的發想與構圖，確保視覺與內容完美契合。</div>
         </div>
       </div>
     </section>
+
+    <!-- 創作者區塊 -->
     <section class="brands section-page" data-section="brands" id="brands" aria-label="合作的創作者">
       <h2>合作の創作者</h2>
       <div class="brands-list">
-        <a href="https://www.youtube.com/@MGLTVKaoruAoi0224/featured" class="brand-card" target="_blank"
-          aria-label="創作者1 YouTube 頻道" tabindex="0">
-          <img src="public/images/電次COS02.jpg" alt="創作者1 YouTube 頭貼：蒼井薰" class="brand-avatar">
+        <a href="https://www.youtube.com/@MGLTVKaoruAoi0224/featured" class="brand-card" target="_blank" aria-label="創作者1 YouTube 頻道" tabindex="0">
+          <img src="public/images/電次COS02.jpg" alt="蒼井薰" class="brand-avatar" loading="lazy">
           <h3 class="brand-name">蒼井薰</h3>
         </a>
-        <a href="https://www.youtube.com/@birbirds" class="brand-card" target="_blank" aria-label="創作者2 YouTube 頻道"
-          tabindex="0">
-          <img src="public/images/鳥鳥.png" alt="創作者2 YouTube 頭貼：鳥鳥" class="brand-avatar">
+        <a href="https://www.youtube.com/@birbirds" class="brand-card" target="_blank" aria-label="創作者2 YouTube 頻道" tabindex="0">
+          <img src="public/images/鳥鳥.png" alt="鳥鳥" class="brand-avatar" loading="lazy">
           <h3 class="brand-name">鳥鳥</h3>
         </a>
-        <a href="https://www.youtube.com/@Shirogane_momo" class="brand-card" target="_blank"
-          aria-label="創作者3 YouTube 頻道" tabindex="0">
-          <img src="public/images/白銀茉茉01.jpg" alt="創作者3 YouTube 頭貼：白銀茉茉" class="brand-avatar silver-avatar">
+        <a href="https://www.youtube.com/@Shirogane_momo" class="brand-card" target="_blank" aria-label="創作者3 YouTube 頻道" tabindex="0">
+          <img src="public/images/白銀茉茉01.jpg" alt="白銀茉茉" class="brand-avatar silver-avatar" loading="lazy">
           <h3 class="brand-name">白銀茉茉</h3>
         </a>
       </div>
     </section>
+
+    <!-- 關於我區塊 -->
     <section class="about section-page" data-section="about" id="about" aria-label="關於我">
       <div class="about-content">
         <div class="avatar-hover-wrap" style="position:relative;display:inline-block;">
-          <div class="avatar-tooltip"
-            style="display:none;position:absolute;left:50%;top:0;transform:translateX(-50%) translateY(-110%);background:rgba(24,26,27,0.96);color:#6EC1E4;font-size:1.08em;padding:0.5em 1.2em;border-radius:8px;box-shadow:0 2px 12px #6EC1E4aa;white-space:nowrap;z-index:20;">
-            看板娘形象(´-ω-`)</div>
-          <img src="public/images/rat2.0_.png" alt="JBwhite 剪輯師頭像" class="about-avatar" id="about-avatar">
+          <div class="avatar-tooltip" style="display:none;position:absolute;left:50%;top:0;transform:translateX(-50%) translateY(-110%);background:rgba(24,26,27,0.96);color:#6EC1E4;font-size:1.08em;padding:0.5em 1.2em;border-radius:8px;box-shadow:0 2px 12px #6EC1E4aa;white-space:nowrap;z-index:20;">
+            看板娘形象(´-ω-`)
+          </div>
+          <img src="public/images/rat2.0_.png" alt="JBwhite 剪輯師頭像" class="about-avatar" id="about-avatar" loading="lazy">
         </div>
         <div class="about-text">
           <h3>JBwhite｜自媒體剪輯師</h3>
-          <p>嗨，我是 JBwhite，一位熱愛分享與紀錄當下的剪輯師，同時也是影像創作者。擁有兩年專業剪輯經驗，我喜歡用畫面說故事，讓觀眾沉浸其中。透過強烈的視覺渲染與節奏掌控，讓每一個瞬間都能吸引觀眾目光、留下深刻印象。
-          </p>
-          <p>過去我也有一年的自媒體經營經驗（2015-2016），那時和國中同學一起經營 Twitch，專注於遊戲直播，並將精華片段上傳至
-            YouTube。當時我們主打國外市場，頻道因遊戲漏洞與彩蛋內容而爆紅，累積了大量流量與寶貴經驗。</p>
+          <p>嗨，我是 JBwhite，一位熱愛分享與紀錄當下的剪輯師，同時也是影像創作者。擁有兩年專業剪輯經驗，我喜歡用畫面說故事，讓觀眾沉浸其中。透過強烈的視覺渲染與節奏掌控，讓每一個瞬間都能吸引觀眾目光、留下深刻印象。</p>
+          <p>過去我也有一年的自媒體經營經驗（2015-2016），那時和國中同學一起經營 Twitch，專注於遊戲直播，並將精華片段上傳至 YouTube。當時我們主打國外市場，頻道因遊戲漏洞與彩蛋內容而爆紅，累積了大量流量與寶貴經驗。</p>
           <ul>
-            <li>專業剪輯軟體：Filmora
-              <div class="skill-bar" data-skill="Filmora" data-percent="90">
-                <div class="bar-bg">
-                  <div class="bar-fill"></div>
-                </div>
-                <span class="skill-tip">主力剪輯軟體，熟練度高</span>
+            <div class="about-stats-grid">
+              <div class="stat-box">
+                <h4 class="stat-num">2<span>+</span></h4>
+                <p>年專業剪輯經驗</p>
               </div>
-            </li>
-            <li>服務內容：長短影音剪輯、影片拍攝、輔助構想腳本企劃</li>
-            <li>合作經驗：多位 Vtuber、YouTuber</li>
-            <li>理念：<span class="typewriter-idea">Storytelling Through Editing —— 用剪輯說故事，讓每個瞬間都值得被記錄</span></li>
+              <div class="stat-box">
+                <h4 class="stat-num">120<span>W+</span></h4>
+                <p>單支最高觀看次數</p>
+              </div>
+              <div class="stat-box">
+                <h4 class="stat-num">300<span>+</span></h4>
+                <p>商業與精華作品產出</p>
+              </div>
+            </div>
+
+            <ul class="about-service-list">
+              <li><span class="icon">🛠️</span> <b>專業軟體：</b>Filmora (極度熟練)</li>
+              <li><span class="icon">🎬</span> <b>服務內容：</b>長短影音剪輯、影片拍攝、腳本企劃協助發想</li>
+              <li><span class="icon">🤝</span> <b>合作經驗：</b>多位 VTuber、YouTuber 及品牌工商</li>
+            </ul>
+
+            <!-- 將理念獨立成引言區塊 -->
+            <blockquote class="about-quote-block">
+              "Storytelling Through Editing —— 用剪輯說故事，讓每個瞬間都值得被記錄"
+            </blockquote>
           </ul>
-          <div id="about-quote-card" style="display:none;"><span id="about-quote"
-              style="color:#6EC1E4;font-weight:bold;"></span></div>
         </div>
       </div>
     </section>
-    <section class="contact section-page" data-section="contact" id="contact" aria-label="聯絡表單">
-      <h2>聯絡我</h2>
-      <form id="my-form" action="https://formspree.io/f/xnndngvz" method="POST" class="contact-form">
-        <label for="name">您的稱呼：</label>
-        <input type="text" name="name" id="name" required />
-        <label for="email">您的 Email：</label>
-        <input type="email" name="email" id="email" required />
-        <label for="message">訊息內容：</label>
-        <textarea name="message" id="message" rows="5" required style="resize:vertical;"></textarea>
-        <button id="my-form-button" type="submit">送出</button>
-        <p id="my-form-status"></p>
-      </form>
-      <div class="clibo-embed">
-        <div class="clibo-skeleton"></div>
-        <iframe src="https://clibo.tw/commissions/Jzu7dy" class="clibo-iframe" allowfullscreen loading="lazy"
-          title="剪輯報價 Clibo" aria-label="剪輯委託報價表單"></iframe>
-      </div>
-      <section class="quote-section" id="quote" aria-label="剪輯委託報價">
-        <h2>🎬 剪輯委託報價</h2>
 
+    <!-- 報價與聯絡區塊 -->
+    <section class="contact section-page" data-section="contact" id="contact" aria-label="聯絡表單">
+      <!-- 剪輯委託報價 -->
+      <div class="quote-section" id="quote" aria-label="剪輯委託報價">
+        <h2>🎬 剪輯委託報價</h2>
         <div class="quote-card">
           <h3>📌 長影音剪輯 <span class="price">$5000+</span></h3>
           <div class="quote-desc">
@@ -225,11 +235,37 @@
             <li><b>修改規範：</b>專案均包含 2 次免費大修（粗剪階段）與 1 次微調（精剪階段）。</li>
             <li><b>急件服務：</b>若需 短影音 24H 內 / 長影音 3-5 天內交付，將視檔期酌收 30% - 50% 急件費。</li>
             <li><b>請款流程：</b>一般委託預收 50% 訂金排入檔期；企業外包或長期合作，可另議請款與月結流程。</li>
-            <li>📩 歡迎私訊洽談，期待與您一同打造更棒的作品！</li>
           </ul>
         </div>
-      </section>
+      </div>
+
+      <!-- CTA 按鈕與表單 -->
+      <h2>聯絡我</h2>
+      <p style="text-align: center; color: #E3E6EB; margin-bottom: 1.5em;">歡迎填寫表單或透過社群平台私訊洽談，期待與您一同打造更棒的作品！</p>
+
+      <!-- 表單 -->
+      <form id="my-form" action="https://formspree.io/f/xnndngvz" method="POST" class="contact-form">
+        <label for="name" style="display:none;">您的稱呼：</label>
+        <input type="text" name="name" id="name" placeholder="您的稱呼" required />
+
+        <label for="email" style="display:none;">您的 Email：</label>
+        <input type="email" name="email" id="email" placeholder="您的 Email" required />
+
+        <label for="message" style="display:none;">訊息內容：</label>
+        <textarea name="message" id="message" rows="5" placeholder="請簡述您的專案需求..." required style="resize:vertical;"></textarea>
+
+        <button id="my-form-button" type="submit" class="cta-button">發送訊息 🚀</button>
+        <p id="my-form-status" style="text-align:center; color:#00d2d3; margin-top:10px;"></p>
+      </form>
+
+      <!-- Clibo 報價區塊 -->
+      <div class="clibo-embed">
+        <div class="clibo-skeleton"></div>
+        <iframe src="https://clibo.tw/commissions/Jzu7dy" class="clibo-iframe" allowfullscreen loading="lazy" title="剪輯報價 Clibo" aria-label="剪輯委託報價表單"></iframe>
+      </div>
+    </section>
   </main>
+
   <!-- 燈箱 -->
   <div id="lightbox" class="lightbox hidden">
     <div class="lightbox-content">
@@ -237,126 +273,119 @@
       <div class="video-container"></div>
     </div>
   </div>
+
   <!-- 轉場遮罩 -->
-  <div id="page-transition"
-    style="pointer-events:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:#181A1B; z-index:9999; transform:translateY(-100%);">
+  <div id="page-transition" style="pointer-events:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:#181A1B; z-index:9999; transform:translateY(-100%);">
   </div>
+
   <div id="img-preview-lightbox" class="img-preview-lightbox hidden">
     <img src="" alt="技能圖示大圖">
   </div>
+
   <footer>
     <p>© 2026 JBwhite. All rights reserved.</p>
   </footer>
+
+  <!-- 頁面底部專用內部樣式 (處理預覽燈箱) -->
+  <style>
+    .img-preview-lightbox {
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(24, 26, 27, 0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s;
+    }
+
+    .img-preview-lightbox.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .img-preview-lightbox img {
+      max-width: 60vw;
+      max-height: 70vh;
+      border-radius: 18px;
+      box-shadow: 0 8px 48px #6EC1E4cc, 0 2px 12px #000a;
+      animation: imgPopIn 0.5s cubic-bezier(.77, 0, .18, 1);
+    }
+
+    @keyframes imgPopIn {
+      0% { opacity: 0; transform: scale(0.7) rotate(-3deg); }
+      60% { opacity: 1; transform: scale(1.08) rotate(2deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0); }
+    }
+  </style>
+
+  <!-- 頁面底部專用內部腳本 (處理表單與預覽) -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      const previewBox = document.getElementById('img-preview-lightbox');
+      const previewImg = previewBox.querySelector('img');
+      document.querySelectorAll('.skill-icon').forEach(img => {
+        img.addEventListener('click', function (e) {
+          previewImg.src = this.src;
+          previewBox.classList.add('show');
+          previewBox.classList.remove('hidden');
+          e.stopPropagation();
+        });
+      });
+      previewBox.addEventListener('click', function () {
+        previewBox.classList.remove('show');
+        setTimeout(() => previewBox.classList.add('hidden'), 350);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && previewBox.classList.contains('show')) {
+          previewBox.classList.remove('show');
+          setTimeout(() => previewBox.classList.add('hidden'), 350);
+        }
+      });
+    });
+
+    var form = document.getElementById("my-form");
+    if (form) {
+      async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("my-form-status");
+        var data = new FormData(event.target);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            status.innerHTML = "感謝您的留言！我們已收到您的訊息。";
+            form.reset();
+            setTimeout(() => { status.innerHTML = ""; }, 3000);
+          } else {
+            response.json().then(data => {
+              if (Object.hasOwn(data, 'errors')) {
+                status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+              } else {
+                status.innerHTML = "送出失敗，請稍後再試。"
+              }
+            })
+          }
+        }).catch(error => {
+          status.innerHTML = "送出失敗，請稍後再試。"
+        });
+      }
+      form.addEventListener("submit", handleSubmit)
+    }
+
+    if (window.ScrollReveal) {
+      ScrollReveal().reveal('.brand-card', { delay: 200, duration: 1200, origin: 'bottom', distance: '40px', interval: 120 });
+    }
+  </script>
 </body>
 
 </html>
-
-<style>
-  .img-preview-lightbox {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(24, 26, 27, 0.92);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s;
-  }
-
-  .img-preview-lightbox.show {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .img-preview-lightbox img {
-    max-width: 60vw;
-    max-height: 70vh;
-    border-radius: 18px;
-    box-shadow: 0 8px 48px #6EC1E4cc, 0 2px 12px #000a;
-    animation: imgPopIn 0.5s cubic-bezier(.77, 0, .18, 1);
-  }
-
-  @keyframes imgPopIn {
-    0% {
-      opacity: 0;
-      transform: scale(0.7) rotate(-3deg);
-    }
-
-    60% {
-      opacity: 1;
-      transform: scale(1.08) rotate(2deg);
-    }
-
-    100% {
-      opacity: 1;
-      transform: scale(1) rotate(0);
-    }
-  }
-</style>
-
-<script>
-  window.addEventListener('DOMContentLoaded', function () {
-    const previewBox = document.getElementById('img-preview-lightbox');
-    const previewImg = previewBox.querySelector('img');
-    document.querySelectorAll('.skill-icon').forEach(img => {
-      img.addEventListener('click', function (e) {
-        previewImg.src = this.src;
-        previewBox.classList.add('show');
-        previewBox.classList.remove('hidden');
-        e.stopPropagation();
-      });
-    });
-    previewBox.addEventListener('click', function () {
-      previewBox.classList.remove('show');
-      setTimeout(() => previewBox.classList.add('hidden'), 350);
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && previewBox.classList.contains('show')) {
-        previewBox.classList.remove('show');
-        setTimeout(() => previewBox.classList.add('hidden'), 350);
-      }
-    });
-  });
-
-  var form = document.getElementById("my-form");
-  if (form) {
-    async function handleSubmit(event) {
-      event.preventDefault();
-      var status = document.getElementById("my-form-status");
-      var data = new FormData(event.target);
-      fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          status.innerHTML = "感謝您的留言！我們已收到您的訊息。";
-          form.reset();
-          setTimeout(() => { status.innerHTML = ""; }, 3000);
-        } else {
-          response.json().then(data => {
-            if (Object.hasOwn(data, 'errors')) {
-              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-            } else {
-              status.innerHTML = "送出失敗，請稍後再試。"
-            }
-          })
-        }
-      }).catch(error => {
-        status.innerHTML = "送出失敗，請稍後再試。"
-      });
-    }
-    form.addEventListener("submit", handleSubmit)
-  }
-
-  if (window.ScrollReveal) {
-    ScrollReveal().reveal('.brand-card', { delay: 200, duration: 1200, origin: 'bottom', distance: '40px', interval: 120 });
-  }
-</script>
