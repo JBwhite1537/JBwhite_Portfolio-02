@@ -499,82 +499,122 @@ if (document.querySelector('.lightbox .close')) {
   });
 }
 
-// 進場動畫
-if (window.ScrollReveal) {
-  ScrollReveal().reveal('.intro', { delay: 200, duration: 1200, origin: 'top', distance: '60px' });
-  ScrollReveal().reveal('.portfolio', { delay: 400, duration: 1200, origin: 'bottom', distance: '60px' });
-  ScrollReveal().reveal('.skills', { delay: 600, duration: 1200, origin: 'left', distance: '60px' });
-  ScrollReveal().reveal('.contact', { delay: 800, duration: 1200, origin: 'right', distance: '60px' });
-  ScrollReveal().reveal('.brands', { delay: 1000, duration: 1200, origin: 'bottom', distance: '60px' });
-}
+// 首頁電影級進場與打字機動畫
+// ==========================================
+window.addEventListener('DOMContentLoaded', () => {
+  const introSection = document.querySelector('.intro.section-page');
+  const typewriter = document.querySelector('.typewriter');
 
-// 打字機動畫
-const typewriter = document.querySelector('.typewriter');
-if (typewriter) {
-  const text = typewriter.textContent;
-  typewriter.textContent = '';
-  let i = 0;
-  function typing() {
-    if (i < text.length) {
-      typewriter.textContent += text.charAt(i);
-      i++;
-      setTimeout(typing, 60);
-    } else {
-      setTimeout(() => {
-        typewriter.textContent = '';
-        i = 0;
-        typing();
-      }, 1500); // 幾豪秒後重播
-    }
+  if (introSection && window.gsap) {
+    // 1. GSAP 錯落漸顯進場 (頭像先出 -> 標題浮現 -> 按鈕浮現)
+    const tl = gsap.timeline();
+    tl.fromTo('.intro .avatar', { y: 40, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: 'power3.out', delay: 0.2 })
+      .fromTo('.intro h1', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.8')
+      .fromTo('.home-btn', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.6');
   }
-  typing();
-}
+
+  // 2. 打字機質感優化 (配合進場節奏，只打一次並留著游標閃爍)
+  if (typewriter) {
+    const text = typewriter.textContent;
+    typewriter.textContent = '';
+    typewriter.classList.add('typing-cursor'); // 加上閃爍游標
+    let i = 0;
+    
+    function typing() {
+      if (i < text.length) {
+        typewriter.textContent += text.charAt(i);
+        i++;
+        setTimeout(typing, 90); // 稍微放慢打字速度，更有從容的自信感
+      } else {
+        // 打字結束後，5秒後將游標隱藏，讓畫面完全乾淨
+        setTimeout(() => {
+          typewriter.classList.remove('typing-cursor');
+        }, 5000);
+      }
+    }
+    
+    // 等待 GSAP 大標題進場差不多後 (約 1.2秒)，再開始打字
+    setTimeout(typing, 1200);
+  }
+});
 
 // 初始渲染
 if (document.querySelector('.works-grid')) {
   renderWorks();
 }
 
-// 首頁按鈕點擊進入作品集（glitch轉場+淡入）
+// 首頁按鈕點擊進入作品集
+// 首頁按鈕點擊進入作品集
 const homeBtn = document.querySelector('.home-btn');
 if (homeBtn) {
-  homeBtn.addEventListener('click', function () {
-    const intro = document.querySelector('header.intro.section-page');
-    intro.classList.add('glitch-transition');
-    setTimeout(() => {
-      intro.classList.remove('glitch-transition');
-      intro.style.display = 'none';
-      // 顯示作品集並淡入
-      const portfolio = document.querySelector('.portfolio.section-page');
-      portfolio.style.opacity = '0';
-      portfolio.style.display = 'block';
+  homeBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // 為了防止使用者狂點，點擊後先暫時禁用按鈕
+    this.style.pointerEvents = 'none';
+    
+    // 1. 移除首頁狀態，讓背後的粒子特效提早一拍開始浮現
+    document.body.classList.remove('show-intro');
+
+    // 2. 首頁元素：用 GSAP 讓元素錯落向上淡出
+    if (window.gsap) {
+      gsap.to(['.intro .avatar', '.intro h1', '.typewriter', '.home-btn'], {
+        y: -40,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1, // 每個元素間隔 0.1 秒離開
+        ease: 'power2.in'
+      });
+      gsap.to('.intro-bg-thumb img', {
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.inOut'
+      });
+
+      // 3. 過場黑幕：改用 GSAP 絲滑拉下
+      const transition = document.getElementById('page-transition');
       setTimeout(() => {
-        portfolio.style.transition = 'opacity 0.5s cubic-bezier(.77,0,.18,1)';
-        portfolio.style.opacity = '1';
-      }, 10);
-      // 進入作品集時預設高亮「全部」
-      document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
-      const allButton = document.querySelector('.filters button[data-filter="all"]');
-      if (allButton) allButton.classList.add('active');
-      renderWorks();
-      const grid = document.querySelector('.works-grid');
-      if (grid) grid.offsetHeight;
-      window.dispatchEvent(new Event('resize'));
-      // nav 顯示
-      const nav = document.querySelector('.main-nav');
-      if (nav) {
-        nav.offsetHeight;
-        nav.style.display = 'flex';
-        // 導覽列按鈕動畫（只在首頁進入作品集時觸發）
-        nav.querySelectorAll('a').forEach(a => {
-          a.classList.add('nav-animate');
-          a.addEventListener('animationend', function handler() {
-            a.classList.remove('nav-animate');
-            a.removeEventListener('animationend', handler);
-          });
+        gsap.to(transition, {
+          y: 0, 
+          duration: 0.6, 
+          ease: "power2.inOut",
+          onComplete: () => {
+            
+            // 4. 黑幕蓋滿時，在背後偷偷切換頁面
+            document.querySelectorAll('.section-page').forEach(page => {
+              page.style.display = 'none';
+            });
+            document.querySelector('.portfolio.section-page').style.display = 'block';
+            document.querySelector('.main-nav').style.display = 'flex';
+            
+            // 確保導覽列的「作品」按鈕呈現高亮
+            document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
+            const portfolioTab = document.querySelector('.main-nav a[data-section="portfolio"]');
+            if (portfolioTab) portfolioTab.classList.add('active');
+            
+            // 滾動回最上方
+            window.scrollTo(0, 0);
+            
+            // 5. 黑幕絲滑拉起，正式進入作品集
+            gsap.to(transition, {
+              y: '-100%', 
+              duration: 0.6, 
+              ease: "power2.inOut",
+              onComplete: () => {
+                homeBtn.style.pointerEvents = 'auto'; 
+                gsap.set(['.intro .avatar', '.intro h1', '.typewriter', '.home-btn'], { clearProps: 'all' });
+              }
+            });
+            
+            // 6. 補上失去的進場特效：作品集專屬的「錯落浮現動畫」
+            // 讓標題、按鈕、作品網格，在黑幕拉開時有層次地向上升起
+            gsap.fromTo('.portfolio h2', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.1 });
+            gsap.fromTo('.filters', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.2 });
+            gsap.fromTo('.works-grid', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.3 });
+          }
         });
-      }
-    }, 700); // 0.7s動畫
+      }, 500); // 配合首頁元素退場的時間，提早一點點拉下黑幕
+    }
   });
 }
 
@@ -583,21 +623,47 @@ const logoLink = document.querySelector('.logo-link');
 if (logoLink) {
   logoLink.addEventListener('click', function (e) {
     e.preventDefault();
+    document.body.classList.add('show-intro'); 
+    document.body.classList.remove('site-entered'); 
+    
+    // 【新增】回到首頁時，清除所有導覽列按鈕的高亮狀態
+    document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
+
     const transition = document.getElementById('page-transition');
+    
+    // 1. 黑幕絲滑拉下
     gsap.to(transition, {
-      y: 0, duration: 0.5, ease: "power2.in", onComplete: () => {
-        // 一律先全部隱藏
+      y: 0, duration: 0.6, ease: "power2.inOut", onComplete: () => {
+        
+        // 2. 隱藏所有內部區塊，準備顯示首頁
         document.querySelectorAll('.section-page').forEach(page => {
           page.style.display = 'none';
         });
         const intro = document.querySelector('header.intro.section-page');
         const nav = document.querySelector('.main-nav');
         nav.style.display = 'none'; // 隱藏導覽列
+        
+        // 3. 確保畫面回到最上方
+        window.scrollTo(0, 0);
+
+        // 4. 【關鍵修復】清除首頁所有元素的隱藏狀態 (包含剛才漏掉的背景圖 .intro-bg-thumb img)
+        if (window.gsap) {
+          gsap.set(['.intro .avatar', '.intro h1', '.typewriter', '.home-btn', '.intro-bg-thumb img'], { clearProps: 'all' });
+        }
+
+        // 5. 黑幕拉起，並讓首頁元素再次帥氣浮現
         gsap.to(transition, {
-          y: '-100%', duration: 0.5, ease: "power2.out",
+          y: '-100%', duration: 0.6, ease: "power2.inOut",
           onStart: () => {
-            intro.style.opacity = 1;
             intro.style.display = 'flex';
+            
+            // 重新播放首頁的漸次進場動畫
+            if (window.gsap) {
+              const tl = gsap.timeline();
+              tl.fromTo('.intro .avatar', { y: 40, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: 'power3.out', delay: 0.2 })
+                .fromTo('.intro h1', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.8')
+                .fromTo('.home-btn', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.6');
+            }
           }
         });
       }
@@ -613,8 +679,14 @@ if (document.querySelectorAll('.main-nav a').length) {
       if (this.classList.contains('logo-link')) return;
       const section = this.getAttribute('data-section');
       if (section) {
+        
+        // 【關鍵修復】點擊導覽列時，更新按鈕的高亮 (active) 狀態
+        document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+
         // 移除 body.show-about 控制，統一用 display 控制顯示
         if (section !== 'intro') {
+          document.body.classList.remove('show-intro'); // <== 補上這行，確保在其他頁面時都會顯示粒子
           e.preventDefault();
           const transition = document.getElementById('page-transition');
           gsap.to(transition, {

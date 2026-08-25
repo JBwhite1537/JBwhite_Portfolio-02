@@ -39,7 +39,7 @@
   <link rel="canonical" href="https://j-bwhite-portfolio-02.vercel.app/" />
 </head>
 
-<body>
+  <body class="show-intro">
   <!-- 背景粒子特效 (改為 100dvh 解決手機網址列跳動問題) -->
   <div id="particles-js" style="position:fixed;z-index:0;width:100vw;height:100dvh;top:0;left:0;"></div>
 
@@ -384,10 +384,6 @@
         });
       }
       form.addEventListener("submit", handleSubmit)
-    }
-
-    if (window.ScrollReveal) {
-      ScrollReveal().reveal('.brand-card', { delay: 200, duration: 1200, origin: 'bottom', distance: '40px', interval: 120 });
     }
   </script>
 </body>
