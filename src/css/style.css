@@ -335,27 +335,39 @@ button {
 }
 .work:hover img { transform: scale(1.05); }
 
-/* 1. 調整徽章樣式，加入消失動畫 */
 .badge {
   position: absolute;
   top: 8px; right: 8px;
-  background: linear-gradient(135deg, #ff4757, #ff6b81);
   color: #ffffff;
   padding: 4px 10px;
   font-size: 0.75rem;
   font-weight: 700;
   border-radius: 20px;
   z-index: 2;
-  box-shadow: 0 4px 10px rgba(255, 71, 87, 0.4);
-  white-space: nowrap; /* 確保文字不會折行 */
+  white-space: nowrap;
   pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease; /* 加入動畫 */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* 給個預設的質感灰底色，以防萬一 */
+  background: linear-gradient(135deg, #7f8c8d, #95a5a6);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-/* 新增：滑鼠移上卡片時，徽章向上浮出並透明消失 */
+
 .work:hover .badge {
   opacity: 0;
   transform: translateY(-5px);
 }
+
+/* 2. 新增：不同分類專屬的顏色與陰影 */
+.badge-pink   { background: linear-gradient(135deg, #ff4757, #ff6b81); box-shadow: 0 4px 10px rgba(255, 71, 87, 0.4); }
+.badge-gold   { background: linear-gradient(135deg, #f39c12, #f1c40f); box-shadow: 0 4px 10px rgba(243, 156, 18, 0.4); }
+.badge-purple { background: linear-gradient(135deg, #9b59b6, #8e44ad); box-shadow: 0 4px 10px rgba(155, 89, 182, 0.4); }
+.badge-green  { background: linear-gradient(135deg, #27ae60, #2ecc71); box-shadow: 0 4px 10px rgba(39, 174, 96, 0.4); }
+.badge-blue   { background: linear-gradient(135deg, #2980b9, #3498db); box-shadow: 0 4px 10px rgba(41, 128, 185, 0.4); }
+.badge-orange { background: linear-gradient(135deg, #e67e22, #d35400); box-shadow: 0 4px 10px rgba(230, 126, 34, 0.4); }
+.badge-red    { background: linear-gradient(135deg, #c0392b, #e74c3c); box-shadow: 0 4px 10px rgba(192, 57, 43, 0.4); }
+.badge-cyan   { background: linear-gradient(135deg, #16a085, #1abc9c); box-shadow: 0 4px 10px rgba(22, 160, 133, 0.4); }
+.badge-teal { background: linear-gradient(135deg, #00b894, #16a085); box-shadow: 0 4px 10px rgba(0, 184, 148, 0.4); }
+.badge-gray { background: linear-gradient(135deg, #95a5a6, #7f8c8d); box-shadow: 0 4px 10px rgba(149, 165, 166, 0.4); }
 /* 2. 修正遮罩層的排版，讓文字完美置中 */
 .overlay {
   position: absolute;
