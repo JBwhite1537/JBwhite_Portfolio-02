@@ -269,34 +269,45 @@ button {
 }
 .cta-button { border-radius: 50px; text-transform: uppercase; width: 100%; margin-top: 10px; }
 
-/* ========================================== */
 /* 作品區塊 (Portfolio) */
 /* ========================================== */
+
+/* 專門將作品區塊拉寬，讓大按鈕有足夠空間排成兩行 */
+section#portfolio {
+  max-width: 1100px; 
+}
+
 .filters {
   text-align: center;
   margin: 2em 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
+  gap: 0.8em; /* 1. 縮小按鈕間距 (原本 1em) */
   justify-content: center;
   background: rgba(35, 39, 42, 0.4);
   border-radius: 16px;
-  padding: 1.2em;
+  padding: 1.5em; /* 2. 稍微加大外框的內距，讓按鈕有呼吸空間 */
   border: 1px solid rgba(110, 193, 228, 0.1);
   transition: all 0.3s ease;
 }
+
 .filters button {
   background: rgba(24, 26, 27, 0.8);
   color: #6EC1E4;
   border: 1px solid rgba(110, 193, 228, 0.3);
   border-radius: 24px;
-  padding: 0.8em 1.8em;
-  font-size: 1.05em;
+  padding: 0.8em 1.8em; /* 放大內距，讓按鈕變飽滿 (上下 0.8em，左右 1.8em) */
+  font-size: 1.08em; /* 放大字級 */
   transition: all 0.3s ease;
   cursor: pointer;
+  font-weight: 600;
   position: relative;
   overflow: hidden;
+  opacity: 1;
+  letter-spacing: 0.03em;
+  box-shadow: 0 2px 12px rgba(110, 193, 228, 0.2);
 }
+
 .filters button.active, .filters button:hover {
   color: #fff;
   border-color: #6EC1E4;
@@ -608,21 +619,104 @@ section#brands h2 {
 .about-text h3 { color: #6EC1E4; font-size: 1.25em; margin-bottom: 0.7em; }
 .about-text ul { margin: 1em 0 1.2em 1.2em; list-style: disc; color: #E3E6EB; font-size: 1em; }
 
-.about-stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 25px; text-align: center; }
+/* 戰績數據區塊優化 */
+.about-stats-grid { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 15px; 
+  margin-top: 25px; 
+  text-align: center; 
+}
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.03); 
+  border: 1px solid rgba(110, 193, 228, 0.2);
+  border-radius: 12px; 
+  /* 縮小左右內距，讓文字有更多空間延伸 */
+  padding: 1.2em 0.5em; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(110, 193, 228, 0.15);
+  background: rgba(110, 193, 228, 0.05);
+}
+
+.stat-num { 
+  /* 數字稍微再放大一點，讓視覺焦點更強 */
+  font-size: 2.2rem; 
+  color: #6EC1E4; 
+  margin: 0 0 2px 0; 
+  font-weight: 800; 
+  line-height: 1;
+}
+
+.stat-num span { 
+  font-size: 1.2rem; 
+  color: #fff; 
+}
+
+/* 核心修正：讓下方的文字強制維持同一行 */
+.stat-box p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #E3E6EB;
+  white-space: nowrap; /* 絕對不允許換行 */
+  letter-spacing: 0.05em; /* 稍微拉開字距，增加質感 */
+}
 .stat-box {
   background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(110, 193, 228, 0.2);
   border-radius: 12px; padding: 15px 10px; transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .stat-num { font-size: 2rem; color: #6EC1E4; margin: 0 0 5px 0; font-weight: 800; }
 .stat-num span { font-size: 1.2rem; color: #fff; }
-.about-service-list { list-style: none !important; margin: 1.5em 0 !important; }
-.about-service-list li {
-  margin-bottom: 0.8em; font-size: 0.95rem; display: flex; align-items: center;
-  background: rgba(255, 255, 255, 0.03); padding: 8px 12px; border-radius: 6px; border-left: 3px solid #6EC1E4;
+
+/* 升級服務清單 UI - 修復手機版折行問題 */
+.about-service-list { 
+  list-style: none !important; 
+  margin: 1.5em 0 !important; 
+  padding: 0;
 }
+
+.about-service-list li {
+  margin-bottom: 0.8em; 
+  font-size: 0.95rem; 
+  display: flex; 
+  align-items: flex-start; /* 確保文字折成多行時，Emoji 保持在最上方 */
+  background: rgba(255, 255, 255, 0.03); 
+  padding: 12px 16px; /* 稍微加寬內距，讓閱讀體驗更舒服 */
+  border-radius: 6px; 
+  border-left: 3px solid #6EC1E4;
+  line-height: 1.6;
+}
+
+.about-service-list .icon {
+  flex-shrink: 0; /* 鎖死 Emoji 大小，絕對不允許被擠壓變形 */
+  margin-right: 12px;
+  font-size: 1.15rem;
+  margin-top: 2px; /* 稍微往下推 2px，跟右邊第一行文字的中心線完美對齊 */
+}
+
+/* 引言區塊視覺升級 */
 .about-quote-block {
-  margin: 2em 0 0 0; padding: 15px 20px; font-size: 1.05rem; font-style: italic; color: #6EC1E4;
-  text-align: center; background: rgba(110, 193, 228, 0.05); border-radius: 8px; border: 1px solid rgba(110, 193, 228, 0.2);
+  margin: 2.5em 0 0 0; 
+  padding: 1.5em 2em; 
+  font-size: 1.1rem; 
+  color: #fff; /* 讓文字變為純白，更亮眼 */
+  text-align: center; 
+  /* 改用精緻的漸層背景與陰影，做出卡片浮雕感 */
+  background: linear-gradient(120deg, rgba(24, 26, 27, 0.8), rgba(110, 193, 228, 0.15)); 
+  border-radius: 12px; 
+  border: 1px solid rgba(110, 193, 228, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  font-style: normal; /* 取消預設的中文斜體，讓字體顯得更乾淨俐落 */
 }
 
 /* ========================================== */
@@ -733,81 +827,99 @@ footer { background: #23272A; color: #6EC1E4; text-align: center; padding: 1em 0
 /* ========================================== */
 /* 響應式設計 (RWD) 統一管理區塊 */
 /* ========================================== */
+/* 0. 加入全局 Box-Sizing，徹底解決左右溢出、畫面亂晃的問題 */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 /* 針對 1000px 以下 (燈箱調整) */
-/* @media (max-width: 1000px), (max-height: 1000px) {
+@media (max-width: 1000px), (max-height: 1000px) {
   .lightbox .video-container.vertical-video { width: 56.25vw; height: 100vw; }
   .lightbox .video-container.horizontal-video { width: 90vw; height: 50.625vw; }
-} */
+}
 
 /* 針對 900px 以下 (平板與手機版主佈局) */
 @media (max-width: 900px) {
-  /* 1. 導覽列與 Logo 垂直置中 */
-  .main-nav { flex-direction: column; padding: 1em 0; gap: 0.8em; }
-  .main-nav .nav-links { flex-direction: column; width: 100%; gap: 0.5em; }
-  .main-nav a { display: block; text-align: center; width: 100%; }
+  /* 1. 確保全站寬度安全，防止水平溢出 */
+  /* 1. 確保全站寬度安全，並解除手機版的滾動鎖定 */
+  html, body { 
+    width: 100%; 
+    height: auto !important; /* 解除高度鎖定，允許網頁向下延伸 */
+    min-height: 100vh;
+    overflow-x: hidden; 
+    overflow-y: auto; /* 強制開啟垂直滾動 */
+    -webkit-overflow-scrolling: touch; /* 讓手機滑動有原生 APP 的順暢慣性 */
+  }
+
+  /* 避免粒子特效在手機上把手指滑動的事件吃掉 */
+  #particles-js {
+    pointer-events: none; 
+  }
+  section { padding: 0 1.2em; width: 100%; }
+
+  /* 2. 導覽列大瘦身：改為 APP 風格的「水平滑動選單」 */
+  .main-nav { flex-direction: column; padding: 1em 0 0 0; gap: 0.5em; }
   .main-nav .logo-link { margin: 0 auto; }
   .main-nav .logo-link img { height: 48px; width: 48px; }
+  .main-nav .nav-links { 
+    display: flex; 
+    flex-direction: row; 
+    width: 100%; 
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch; 
+    padding: 0.8em 1em; 
+    gap: 0.8em; 
+    justify-content: flex-start;
+    border-top: 1px solid rgba(110, 193, 228, 0.15); /* 加一條分隔線增加質感 */
+  }
+  .main-nav .nav-links::-webkit-scrollbar { display: none; }
+  .main-nav a { flex: 0 0 auto; padding: 0.5em 1em; font-size: 1.05em; width: auto; }
 
-  /* 2. 基礎全域設定 */
-  html, body { width: 100vw; overflow-x: hidden; }
-  .section-page { padding-left: 0; padding-right: 0; }
-  h1 { font-size: 1.38em; }
-  h2, section#brands h2, section#skills h2 { font-size: 1.6em; margin-bottom: 1.2em; }
-  h3 { font-size: 0.98em; }
+  /* 3. 標題字級統一縮小，避免折行難看 */
+  h1 { font-size: 1.6em; }
+  h2, section#brands h2, section#skills h2 { font-size: 1.4em; margin-bottom: 1.2em; }
+  h3 { font-size: 1.1em; }
 
-  /* 3. 作品分類按鈕：完美水平滑動 (Swipeable) */
+  /* 4. 分類按鈕維持完美水平滑動 */
   .filters {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch;
-    justify-content: flex-start !important;
-    padding: 0.5em 1em;
-    gap: 0.8em;
+    display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important;
+    overflow-x: auto !important; -webkit-overflow-scrolling: touch;
+    justify-content: flex-start !important; padding: 0.5em 0; gap: 0.6em;
   }
   .filters::-webkit-scrollbar { display: none; }
-  .filters button {
-    flex: 0 0 auto !important;
-    width: auto !important;
-    min-width: max-content;
-  }
+  .filters button { flex: 0 0 auto !important; width: auto !important; min-width: max-content; padding: 0.6em 1.2em; font-size: 0.95em;}
 
-  /* 4. 網格系統統一改為單欄 (技能 & 合作創作者) */
-  .skills-list, .brands-list {
-    grid-template-columns: 1fr !important;
-    gap: 1.5em;
+  /* 5. 所有網格統一改為單欄，卡片撐滿 */
+  .works-grid, .skills-list, .brands-list, .about-stats-grid { 
+    grid-template-columns: 1fr !important; gap: 1.5em; width: 100%;
   }
-  .brand-card { width: 100%; max-width: 100%; padding: 2em 1.2em; }
+  .work, .skill-card, .brand-card { width: 100%; max-width: 100%; margin: 0 auto; }
+  .brand-card { padding: 2em 1.2em; }
   .brand-avatar { width: 96px !important; height: 96px !important; }
 
-  /* 其他區塊的自適應 */
-  .works-grid { grid-template-columns: 1fr; padding: 0; margin: 0; }
+  /* 6. 關於我 & 報價單內距優化，避免文字太貼邊 */
+  .about.section-page, .quote-section { padding: 2em 1.2em; }
+  .about-content { flex-direction: column; align-items: center; text-align: center; gap: 1.5em; }
+  .about-avatar { width: 160px; height: 160px; margin: 0 auto; object-fit: cover; border-radius: 50%; } /* 手機版頭像改為精緻的圓形 */
+  .about-text ul { text-align: left; } /* 確保服務清單還是靠左易讀 */
+
+  /* 7. 報價單卡片優化 (處理價格互撞問題) */
+  .quote-card h3 { flex-direction: column; align-items: flex-start; gap: 0.8em; }
+  .quote-card .price { margin-left: 0; align-self: flex-start; font-size: 0.95em; }
+  
   .clibo-iframe { height: 520px; }
-  .yt-more-btns { flex-direction: column; }
 }
 
-/* 針對 700px 以下 (進階微調) */
-@media (max-width: 700px) {
-  /* .lightbox .video-container.vertical-video { width: 98vw; height: 170vw; }
-  .lightbox .video-container.horizontal-video { width: 98vw; height: 55vw; } */
-  .about-content { flex-direction: column; align-items: stretch; gap: 1.2em; padding: 0.5em 0.2em; }
-  .about-avatar { width: 150px; height: 150px; margin: 0 auto 1em auto !important; display: block; float: none; }
-  .about-text { text-align: center; }
-  .about-stats-grid { grid-template-columns: 1fr; }
-}
-
-/* 針對 600px 以下 (手機小螢幕細節) */
+/* 針對 600px 以下 (極小螢幕細節) */
 @media (max-width: 600px) {
-  body { font-size: 15px; padding: 0 8px; }
-  .intro .avatar img, .intro-bg-thumb img { width: 90px; height: 90px; }
-  .intro h1 { font-size: 1.5em; }
-  .typewriter { font-size: 1em; }
-  .home-btn, .cta-button, .filters button { font-size: 0.95em; padding: 0.7em 1em; }
+  body { font-size: 15px; }
+  /* 只讓大頭貼縮小，不要動到背景圖 */
+  .intro .avatar img { width: 90px; height: 90px; }
+  
+  /* 確保首頁容器可以正確鎖定背景圖範圍 */
+  header.intro { position: relative; overflow: hidden; }
+  .home-btn, .cta-button, .quote-btn { font-size: 1em; padding: 0.8em 1.5em; }
   .contact-form input, .contact-form textarea { font-size: 1em; width: 100%; }
-  .clibo-iframe { height: 340px; }
-  .quote-section { padding: 1.2em 0.5em 1em 0.5em; }
-  .quote-card { padding: 1em 0.5em; }
+  .clibo-iframe { height: 400px; }
   .brand-avatar { width: 80px !important; height: 80px !important; }
 }
