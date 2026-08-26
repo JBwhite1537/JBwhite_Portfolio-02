@@ -1,7 +1,7 @@
 // 作品資料（可自行擴充）
 const works = [
   {
-    title: "Vtuber新衣裝精華",
+    title: "【VTuber白銀茉茉】新衣裝精華",
     type: "game clip",
     video: "https://youtu.be/fYsgIFCZYG8?si=Tf6-l9Zfl_q0XzLZ"
   },
@@ -16,13 +16,11 @@ const works = [
     video: "https://youtu.be/aSjO7ZXCDo8"
   },
   {
-    // 信託有愛徵影活動
     title: "信託有愛徵影活動",
     type: "short film",
     video: "https://youtu.be/1-jj6QtlC6s"
   },
   {
-    // 專題紀錄片
     title: "太魯閣生態紀錄片",
     type: "documentary",
     video: "https://youtu.be/KmQ8KaXMz1k"
@@ -32,64 +30,83 @@ const works = [
     type: "documentary",
     video: "https://youtu.be/trn-TVT_S2g"
   },
+  // PEAK
   {
-    // 茉茉
-    title: "Vtuber遊戲精華",
+    title: "【VTuber白銀茉茉】遊戲精華",
     type: "game clip",
     video: "https://youtu.be/oImiKDPyX-I?si=lelfddHaaE6UI4uj"
   },
+  // 熱風競技場
   {
-    // 鳥鳥
     title: "【鳥鳥】遊戲精華",
     type: "game clip",
     video: "https://youtu.be/NSIlAAM77fU?si=QP7rwTI72_aqc9F4"
   },
+  // 【小薰精華】觀眾：「我要小優」，小薰：「不，你要水蓮」｜寶可夢大師EX
   {
     title: "【小薰】遊戲精華",
     type: "game clip",
     video: "https://youtu.be/tenM8oQgjws?si=dssyfsIyK5H0C9L_"
   },
+
+
+  //【小薰精華】麥塊！但是共用"血量"🤣剪輯師死掉我也會死掉👻觀眾還出任務搞我們
   {
     title: "【小薰】遊戲精華",
     type: "game clip",
     video: "https://youtu.be/S-ERW0v1V3o?si=CUDxJ2NtcsauvYM-"
   },
+
+  //【小薰精華】獻祭觀眾的生命🤣效果拔群！週年珠貝輕鬆到手❤️｜寶可夢大師EX
+  {
+    title: "【小薰】遊戲精華",
+    type: "game clip",
+    video: "https://youtu.be/hWbcUfx75Y4?si=PV2CH19o1yEbkYUk"
+  },
+  // 【小薰精華】隔壁狂開稀有卡，直接被觀眾NTR🫠...│PTCG Pocket
+  {
+    title: "【小薰】遊戲精華",
+    type: "game clip",
+    video: "https://youtu.be/fmAI5NDf_kE?si=eynEPfLrlR374faG"
+  },
+
+  // 【小薰精華】我抽一堆主角🔥就是抽不到密勒頓！？官方想逼我退坑吧😡｜寶可夢大師EX
   {
     title: "【小薰】遊戲精華",
     type: "game clip",
     video: "https://www.youtube.com/watch?v=KK8jmO-_7Wk"
   },
+  // 【小薰精華】又是保底😱故勒頓完全不給面子！這機率我一定告啦😡│寶可夢大師EX
   {
     title: "【小薰】遊戲精華",
     type: "game clip",
     video: "https://www.youtube.com/watch?v=X0opK-UPz_M"
   },
+  // 剛入坑開卡包 就有良好的開盒體驗 PTCG | 太晶慶典ex | 寶可夢集換式卡牌 | 鳥鳥 🐦 (by.JBwhite)
   {
-    // 鳥鳥
     title: "【鳥鳥】遊戲精華",
     type: "game clip",
     video: "https://www.youtube.com/watch?v=9WfLA5YfGQU"
   },
+
   {
-    // JBwhite
     title: "【JBwhite】遊戲精華",
     type: "game clip",
     video: "https://youtu.be/3ulbOsmoN2Y"
   },
   {
-    // JBwhite
     title: "【JBwhite】遊戲精華",
     type: "game clip",
     video: "https://youtu.be/jGydqjonqHQ"
   },
   {
-    // JBwhite
     title: "【JBwhite】遊戲精華",
     type: "game clip",
     video: "https://youtu.be/Fw4QBGg5KdY"
   },
+
   {
-    title: "PV",
+    title: "【小薰】2025加班台PV",
     type: "PV",
     video: "https://www.youtube.com/watch?v=mcYxWT44KXk"
   },
@@ -104,12 +121,12 @@ const works = [
     video: "https://youtu.be/aGefWu5xptg?si=-Ffgdpz2lHyfS16I"
   },
   {
-    title: "【小薰】工商",
+    title: "【小薰】未頌者之歌 工商",
     type: "ad",
     video: "https://www.youtube.com/watch?v=DBtyK4-nEA4"
   },
   {
-    title: "【小薰】工商",
+    title: "【小薰】女神異聞錄 工商",
     type: "ad",
     video: "https://youtu.be/J7VZype94NM?si=W2ctSuiuskobzxLy"
   },
@@ -123,134 +140,172 @@ const works = [
     type: "game tutorial",
     video: "https://youtu.be/1oM8SEM0Pog?si=09Lf5K3h9mmk8SCv"
   },
+  // 開箱寶可夢路跑大師訓練組物資！這個CP值太高了啦❤️路卡利歐背包真的超級好看🥵
   {
     title: "【小薰】日常",
     type: "daily",
     video: "https://youtu.be/uvOvOteMv_0?si=NeLJBNhzzrDzLjCC"
   },
+  // 【小薰精華】開箱觀眾送的生日禮物！居然有人送「猛1愛愛大禮包」🥵...
   {
     title: "【小薰】日常",
     type: "daily",
     video: "https://youtu.be/MHfAz1EPZZ4?si=11CGfv2XTKINJ2-B"
   },
+  // 【小薰精華】焦慮症後的兩年，謝謝你們！我想說的話，都在這部影片了
   {
     title: "【小薰】日常",
     type: "daily",
     video: "https://youtu.be/cAGsGPFqJHU?si=aHdGmnktCmgHkPDF"
   },
+  //【小薰精華】冰結+威士忌到底能多瘋🍺？岡山椅子王的誕生💥
   {
     title: "【小薰】日常",
     type: "daily",
     video: "https://youtu.be/_M2psR1h96A?si=-s6k--H6jIKFXdN1"
   },
+  // 【小薰精華】真的洗澡直播了🥵開箱岡山最屌Motel，居然入住到總統套房...│加班台精華
   {
     title: "【小薰】日常",
     type: "daily",
     video: "https://youtu.be/eJC9GhnIYUI?si=mQXy0ew4QWPsjVxt"
   },
+  // 【小薰】從健身房到斯巴達障礙賽：我挑戰了最艱難的挑戰😱！
   {
     title: "【小薰】VLOG",
     type: "VLOG",
     video: "https://youtu.be/lgTRdQt9St4?si=TlOq4ObqJjZrwpJb"
   },
-  //
+  // 帶著"皮卡丘(?)"參加寶可夢路跑🥇攝影師跑到差點鼠掉🤣
   {
     title: "【小薰】VLOG",
     type: "VLOG",
     video: "https://www.youtube.com/watch?v=PgZMgh9h-BE"
   },
+  // 觀眾在直播轉盤轉到"和我吃飯"…結果人在香港🤣直接飛過去找他！│香港之旅EP.1
   {
     title: "【小薰】VLOG",
     type: "VLOG",
     video: "https://www.youtube.com/watch?v=Wi11SPpYlgo"
   },
-  // 2026 加班台環島企劃 
+
+
+  // shorts
+  // 這是免費的嗎？ 流量擔當（數據最好的一支）
   {
     title: "【小薰】2026 加班台環島企劃",
     type: "shorts",
-    video: "https://youtube.com/shorts/ea92NvlMLPs?si=0sSmS65f72_hRSVy"
+    video: "https://www.youtube.com/shorts/8eFvm6aG_n0"
   },
+  // 跟阿啾一起超荒唐做任務，阿啾還幫我減班:)  節奏與視覺擔當（剪得最炫的一支）
   {
     title: "【小薰】2026 加班台環島企劃",
     type: "shorts",
-    video: "https://youtube.com/shorts/VLcXHIPyauM?si=EDuJTdSm2xnoEpsZ"
+    video: "https://youtube.com/shorts/AA5LrthTwjs?si=0SLhKRc0bMR69WCO"
   },
+  // 一輩子乒乓球 故事與互動擔當（企劃最有趣的一支）
   {
     title: "【小薰】2026 加班台環島企劃",
     type: "shorts",
-    video: "https://youtube.com/shorts/8eFvm6aG_n0?si=f2U0r1Zt6ceUFrR4"
+    video: "https://youtube.com/shorts/GSXm3VIHM8s?si=vyUE1uyzPM-_WLTJ"
   },
+  // Xpark的海豹會不會太可愛了🦭 節奏極快/鉤子最強的一支
   {
     title: "【小薰】2026 加班台環島企劃",
     type: "shorts",
-    video: "https://youtube.com/shorts/GX3JRORr8Qc?si=M4bCcjHZ_3bUJkW1"
+    video: "https://youtube.com/shorts/VLcXHIPyauM?si=eABKu1XIHJ5zzECm"
   },
-  // ---
+
+
+  // PTCG真的不考慮取消色違卡嗎？
   {
-    title: "【小薰】2026 加班台環島企劃",
+    title: "【小薰】高節奏迷因精華",
     type: "shorts",
-    video: "https://youtube.com/shorts/CWJNs4RQeuA?si=-gB8VQZ423B89qok"
+    video: "https://youtube.com/shorts/zz91sRLu-1I?si=1DnwuoRxueotcx5n"
   },
+  // 罵歸罵，但DeNA的狗還是要當
   {
-    title: "【小薰】2026 加班台環島企劃",
+    title: "【小薰】遊戲社群話題",
     type: "shorts",
-    video: "https://youtube.com/shorts/Bgw7Pl920fI?si=t5ZSdUZXDagMp23Q"
+    video: "https://youtube.com/shorts/MBWLsq7zUzs?si=DEhUHqbQ9qJi5o56"
   },
+  // 為什麼要在合池放這個啦!! 
+  {
+    title: "【小薰】情緒鋪陳與爆發",
+    type: "shorts",
+    video: "https://youtube.com/shorts/8K2sI4g7UmY?si=XHrKTobiImPmI8S_"
+  },
+  // 爆肌蚊的設計由來
+  {
+    title: "【小薰】實況迷因精華",
+    type: "shorts",
+    video: "https://youtube.com/shorts/6quoaJrWN8c?si=y8LiV6zNX-1zbGPh"
+  },
+  // 新楓之谷真的很好玩😊
+  {
+    title: "【小薰】話題熱潮遊戲",
+    type: "shorts",
+    video: "https://youtube.com/shorts/I8VMeDhysds?si=BEcKiY304tBeRMLy"
+  },
+  // 這就是NS2卡帶的味道嗎🤨? 
+  {
+    title: "【小薰】社群高互動話題",
+    type: "shorts",
+    video: "https://youtube.com/shorts/p2-hSWemuYI?si=pj1DN1NVJrjYaAYg"
+  },
+  // 這是第一個在寶可夢遊戲被配音的角色！
   {
     title: "【小薰】遊戲冷知識",
     type: "shorts",
     video: "https://www.youtube.com/shorts/7FflMgthsSo"
   },
+  // 原來台灣跟香港….
   {
-    title: "【小薰】日常",
+    title: "【小薰】社群高互動話題",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=iyAL3j9F2B4"
   },
+  // 西門町隨便走走🤤結果找到超讚的餐廳❤️
   {
     title: "【小薰】VLOG",
     type: "shorts",
     video: "https://youtube.com/shorts/mL9wyiPDpts"
   },
-  {
-    title: "【小薰】日常",
-    type: "shorts",
-    video: "https://www.youtube.com/watch?v=vEIBt6b1zlo"
-  },
+  // 學長帶我來台中一日遊🥹 EP1
   {
     title: "【小薰】VLOG",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=Nrzfs8fkpkM"
   },
+
+
   {
-    //茉茉
-    title: "VTuber",
+    title: "【VTuber白銀茉茉】",
     type: "shorts",
     video: "https://youtube.com/shorts/dhOUNMoysvw?feature=share"
   },
   {
-    //茉茉
-    title: "VTuber",
+    title: "【VTuber白銀茉茉】",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=87j0_bLR8Uc"
   },
   {
-    //茉茉
-    title: "VTuber",
+    title: "【VTuber白銀茉茉】",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=K0btja-xNAk"
   },
   {
-    //茉茉
-    title: "VTuber",
+    title: "【VTuber白銀茉茉】",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=ZJy6sdwU7nE"
   },
   {
-    //茉茉
-    title: "VTuber",
+    title: "【VTuber白銀茉茉】",
     type: "shorts",
     video: "https://www.youtube.com/watch?v=YN2ejvDgBDE"
   },
+
+
   {
     title: "Annin Miru 杏仁ミル 實況精華",
     type: "fan art",
@@ -306,41 +361,57 @@ function renderWorks(filter = "all") {
     let badgeClass = "";
     let badgeText = "";
 
-    if (w.title.includes("環島")) {
+    // 偵測指定的影片 ID (網址 shorts/ 後面，或 watch?v= 後面的那串代碼)
+    if (
+      w.video.includes("8eFvm6aG_n0")
+    ) {
       // 爆發力企劃 (粉紅)
       badgeClass = "badge-pink";
-      badgeText = "16天產出 41支短片";
-    } 
-    else if (w.type === "education" || w.title.includes("政府") || w.title.includes("教育")|| w.title.includes("芎林")) {
+      badgeText = "環島企劃流量擔當";
+    }
+    // 如果有其他想要獨立標示的影片，也可以繼續往下加
+    else if (w.video.includes("AA5LrthTwjs?si")) {
+      badgeClass = "badge-pink";
+      badgeText = "節奏與視覺擔當";
+    }
+    else if (w.video.includes("GSXm3VIHM8s?si")) {
+      badgeClass = "badge-pink";
+      badgeText = "環島企劃最有趣的一支";
+    }
+    else if (w.video.includes("VLcXHIPyauM?si")) {
+      badgeClass = "badge-pink";
+      badgeText = "節奏及Hook";
+    }
+    else if (w.type === "education" || w.title.includes("政府") || w.title.includes("教育") || w.title.includes("芎林")) {
       // 公家/教育機關背書 (金色)
       badgeClass = "badge-gold";
       badgeText = "官方指定合作";
-    } 
+    }
     else if (w.type === "ad" || w.title.includes("工商")) {
       // 品牌合作 (紫色)
       badgeClass = "badge-purple";
       badgeText = "品牌工商企劃";
-    } 
+    }
     else if (w.type === "documentary") {
       // 紀錄片 (綠色)
       badgeClass = "badge-green";
       badgeText = "深度專題紀錄";
-    } 
+    }
     else if (w.type === "PV" || w.type === "short film") {
       // 微電影與 PV (藍色)
       badgeClass = "badge-blue";
       badgeText = "高質感影像製作";
-    } 
+    }
     else if (w.type === "game clip") {
       // 遊戲精華 (橘色)
       badgeClass = "badge-orange";
       badgeText = "高留存節奏剪輯";
-    } 
+    }
     else if (w.type === "game tutorial") {
       // 教學與說書 (紅色)
       badgeClass = "badge-red";
       badgeText = "高流量系列";
-    } 
+    }
     else if (w.type === "VLOG") {
       // VLOG (湖水綠)
       badgeClass = "badge-teal";
@@ -519,7 +590,7 @@ window.addEventListener('DOMContentLoaded', () => {
     typewriter.textContent = '';
     typewriter.classList.add('typing-cursor'); // 加上閃爍游標
     let i = 0;
-    
+
     function typing() {
       if (i < text.length) {
         typewriter.textContent += text.charAt(i);
@@ -532,7 +603,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }, 5000);
       }
     }
-    
+
     // 等待 GSAP 大標題進場差不多後 (約 1.2秒)，再開始打字
     setTimeout(typing, 1200);
   }
@@ -547,12 +618,12 @@ if (document.querySelector('.works-grid')) {
 // 首頁按鈕點擊進入作品集
 const homeBtn = document.querySelector('.home-btn');
 if (homeBtn) {
-  homeBtn.addEventListener('click', function(e) {
+  homeBtn.addEventListener('click', function (e) {
     e.preventDefault();
-    
+
     // 為了防止使用者狂點，點擊後先暫時禁用按鈕
     this.style.pointerEvents = 'none';
-    
+
     // 1. 移除首頁狀態，讓背後的粒子特效提早一拍開始浮現
     document.body.classList.remove('show-intro');
 
@@ -575,37 +646,37 @@ if (homeBtn) {
       const transition = document.getElementById('page-transition');
       setTimeout(() => {
         gsap.to(transition, {
-          y: 0, 
-          duration: 0.6, 
+          y: 0,
+          duration: 0.6,
           ease: "power2.inOut",
           onComplete: () => {
-            
+
             // 4. 黑幕蓋滿時，在背後偷偷切換頁面
             document.querySelectorAll('.section-page').forEach(page => {
               page.style.display = 'none';
             });
             document.querySelector('.portfolio.section-page').style.display = 'block';
             document.querySelector('.main-nav').style.display = 'flex';
-            
+
             // 確保導覽列的「作品」按鈕呈現高亮
             document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
             const portfolioTab = document.querySelector('.main-nav a[data-section="portfolio"]');
             if (portfolioTab) portfolioTab.classList.add('active');
-            
+
             // 滾動回最上方
             window.scrollTo(0, 0);
-            
+
             // 5. 黑幕絲滑拉起，正式進入作品集
             gsap.to(transition, {
-              y: '-100%', 
-              duration: 0.6, 
+              y: '-100%',
+              duration: 0.6,
               ease: "power2.inOut",
               onComplete: () => {
-                homeBtn.style.pointerEvents = 'auto'; 
+                homeBtn.style.pointerEvents = 'auto';
                 gsap.set(['.intro .avatar', '.intro h1', '.typewriter', '.home-btn'], { clearProps: 'all' });
               }
             });
-            
+
             // 6. 補上失去的進場特效：作品集專屬的「錯落浮現動畫」
             // 讓標題、按鈕、作品網格，在黑幕拉開時有層次地向上升起
             gsap.fromTo('.portfolio h2', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.1 });
@@ -623,18 +694,18 @@ const logoLink = document.querySelector('.logo-link');
 if (logoLink) {
   logoLink.addEventListener('click', function (e) {
     e.preventDefault();
-    document.body.classList.add('show-intro'); 
-    document.body.classList.remove('site-entered'); 
-    
+    document.body.classList.add('show-intro');
+    document.body.classList.remove('site-entered');
+
     // 【新增】回到首頁時，清除所有導覽列按鈕的高亮狀態
     document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
 
     const transition = document.getElementById('page-transition');
-    
+
     // 1. 黑幕絲滑拉下
     gsap.to(transition, {
       y: 0, duration: 0.6, ease: "power2.inOut", onComplete: () => {
-        
+
         // 2. 隱藏所有內部區塊，準備顯示首頁
         document.querySelectorAll('.section-page').forEach(page => {
           page.style.display = 'none';
@@ -642,7 +713,7 @@ if (logoLink) {
         const intro = document.querySelector('header.intro.section-page');
         const nav = document.querySelector('.main-nav');
         nav.style.display = 'none'; // 隱藏導覽列
-        
+
         // 3. 確保畫面回到最上方
         window.scrollTo(0, 0);
 
@@ -656,7 +727,7 @@ if (logoLink) {
           y: '-100%', duration: 0.6, ease: "power2.inOut",
           onStart: () => {
             intro.style.display = 'flex';
-            
+
             // 重新播放首頁的漸次進場動畫
             if (window.gsap) {
               const tl = gsap.timeline();
@@ -679,7 +750,7 @@ if (document.querySelectorAll('.main-nav a').length) {
       if (this.classList.contains('logo-link')) return;
       const section = this.getAttribute('data-section');
       if (section) {
-        
+
         // 【關鍵修復】點擊導覽列時，更新按鈕的高亮 (active) 狀態
         document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
         this.classList.add('active');

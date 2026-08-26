@@ -88,6 +88,8 @@ section {
   max-width: 900px;
   margin: 4em auto 3em auto;
   padding: 0 1.2em;
+  position: relative; /* 建立層級，讓區塊浮起來 */
+  z-index: 2; /* 確保內容蓋在粒子背景(0)之上，但低於頂部導覽列(10) */
 }
 /* 預設隱藏內部區塊，後續交由 JS 分頁切換控制 */
 section.section-page { display: none; }
