@@ -5,49 +5,59 @@
   <meta name="google-site-verification" content="x-dWU1nd6pZHYJQe_gpcJN-ocVQ26d4TSPXsbuWdeQ4" />
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>JBwhite 剪輯師作品集｜Storytelling Through Editing</title>
   <meta name="description" content="JBwhite 剪輯師，專業自媒體影片剪輯、遊戲精華、VLOG、PV、工商影片等作品展示與服務介紹。">
   <meta name="keywords" content="剪輯, 作品集, 遊戲精華, VLOG, PV, 工商影片, 自媒體, 影片剪輯, JBwhite">
   <meta name="author" content="JBwhite">
-  
+
   <link rel="icon" href="public/images/avatar.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;600;700;800&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="src/css/style.css" />
   <link rel="stylesheet" href="src/css/glitch.css" />
-  
-  <!-- 預先載入字型 -->
-  <link rel="preload" href="public/fonts/HONORSANSTC-REGULAR.TTF" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="public/fonts/SOURCEHANSERIFTC-REGULAR.OTF" as="font" type="font/otf" crossorigin>
-  
-  <!-- 外部腳本統一使用 defer 不阻塞渲染，並調整相依順序 -->
+
+  <!-- 外部腳本統一使用 defer 不阻塞渲染 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://unpkg.com/scrollreveal" defer></script>
-  <script src="particles.js" defer></script>
   <script src="src/js/main.js" defer></script>
 
   <!-- SEO / Open Graph 設定 -->
   <meta property="og:title" content="JBwhite 剪輯師作品集｜Storytelling Through Editing">
   <meta property="og:description" content="JBwhite 剪輯師，專業自媒體影片剪輯、遊戲精華、VLOG、PV、工商影片等作品展示與服務介紹。">
-  <meta property="og:image" content="public/images/avatar.png">
+  <meta property="og:image" content="https://j-bwhite-portfolio-02.vercel.app/public/images/JBwhite_thumbnail.png">
   <meta property="og:url" content="https://j-bwhite-portfolio-02.vercel.app/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_TW">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="JBwhite 剪輯師作品集｜Storytelling Through Editing">
   <meta name="twitter:description" content="JBwhite 剪輯師，專業自媒體影片剪輯、遊戲精華、VLOG、PV、工商影片等作品展示與服務介紹。">
-  <meta name="twitter:image" content="public/images/avatar.png">
+  <meta name="twitter:image" content="https://j-bwhite-portfolio-02.vercel.app/public/images/JBwhite_thumbnail.png">
   <link rel="canonical" href="https://j-bwhite-portfolio-02.vercel.app/" />
 </head>
 
-  <body class="show-intro">
-  <!-- 背景粒子特效 (改為 100dvh 解決手機網址列跳動問題) -->
-  <div id="particles-js" style="position:fixed;z-index:0;width:100vw;height:100dvh;top:0;left:0;"></div>
+<body class="show-intro">
+  <script>
+    (function () {
+      try {
+        var ret = sessionStorage.getItem('jbwhite_return_section');
+        if (ret) {
+          document.body.classList.remove('show-intro');
+          document.body.classList.add('has-direct-hash', 'return-curtain-active');
+        } else if (window.location.hash) {
+          history.replaceState(null, '', window.location.pathname);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <!-- 聚光燈暗色刻度網格互動背景 -->
+  <canvas id="spotlight-grid-canvas" aria-hidden="true"></canvas>
 
   <!-- 頂部導覽列 -->
   <nav class="main-nav">
     <a href="#intro" class="logo-link" data-section="intro" aria-label="回到首頁" tabindex="0">
       <img src="public/images/avatar.png" alt="JBwhite LOGO頭像">
-      <span class="logo-text">JBwhite 自媒體剪輯師</span>
+      <span class="logo-text">JBwhite</span><span class="logo-sub">自媒體剪輯師</span>
     </a>
     <div class="nav-links">
       <a href="#portfolio" data-section="portfolio" aria-label="作品展示" tabindex="0">作品</a>
@@ -68,83 +78,90 @@
         <img src="public/images/avatar.png" alt="JBwhite 剪輯師 LOGO 頭像">
       </div>
       <h1 class="glitch-text">Hi, 我是 JBwhite</h1>
+      <div class="rec-indicator" aria-hidden="true">
+        <span class="rec-dot"></span>
+        <span>STORYTELLING THROUGH EDITING</span>
+      </div>
       <p class="typewriter">自媒體剪輯師，熱愛分享並紀錄當下的故事</p>
-      <button class="home-btn" style="margin-top:2em;" tabindex="0">進入作品集</button>
+      <button class="home-btn" tabindex="0">進入作品集 →</button>
     </header>
 
     <!-- 作品區塊 -->
     <section class="portfolio section-page" data-section="portfolio" id="portfolio" aria-label="精選作品展示">
-      <h2>精選作品展示（定期更新）</h2>
-      <div class="filters">
-        <button data-filter="all" class="active">全部</button>
-        <button data-filter="game clip">遊戲精華</button>
-        <button data-filter="shorts">短影音</button>
-        <button data-filter="PV">PV</button>
-        <button data-filter="game tutorial">遊戲教學/說書</button>
-        <button data-filter="VLOG">VLOG</button>
-        <button data-filter="documentary">紀錄片</button>
-        <button data-filter="short film">微電影</button>
-        <button data-filter="education">教育單位合作</button>
-        <button data-filter="daily">日常</button>
-        <button data-filter="ad">工商影片</button>
-        <button data-filter="fan art">二創影片</button>
+      <!-- 置頂精選代表作 -->
+      <div class="featured-block">
+        <div class="section-header-row">
+          <span class="rec-pill"><span class="rec-dot"></span> FEATURED</span>
+          <h2>精選代表作</h2>
+        </div>
+        <div class="featured-grid"></div>
       </div>
-      <!-- 作品網格，內容由 main.js 動態生成 -->
-      <div class="works-grid"></div>
+
+      <!-- 完整作品集與精簡分類 -->
+      <div class="all-works-block">
+        <h2 class="all-works-title">完整作品集（定期更新）</h2>
+        <div class="filters">
+          <button data-filter="all" class="active">全部</button>
+          <button data-filter="gaming">遊戲 / VTuber 精華</button>
+          <button data-filter="shorts">短影音 Shorts</button>
+          <button data-filter="commercial">工商 / PV</button>
+          <button data-filter="vlog">VLOG / 專題</button>
+        </div>
+        <div class="works-grid"></div>
+      </div>
     </section>
 
-    <!-- 技能區塊 -->
+    <!-- 技能區塊（移除進度條，直接展示核心強項與範例圖） -->
     <section class="skills section-page" data-section="skills" id="skills" aria-label="技能介紹">
-      <h2>技能</h2>
+      <h2>核心專長與服務</h2>
       <div class="skills-list">
         <div class="skill-card">
-          <img src="public/images/skill-filmora.png" alt="Filmora 剪輯軟體圖示" class="skill-icon" loading="lazy">
-          <div class="skill-info">
-            <h3>Filmora</h3>
-            <div class="bar">
-              <div class="fill" style="width: 90%"></div>
-            </div>
+          <div class="skill-card-top">
+            <img src="public/images/skill-filmora.png" alt="Filmora 剪輯軟體圖示" class="skill-icon" loading="lazy" title="點擊放大預覽">
+            <span class="skill-tag">主力工具</span>
           </div>
-          <div class="skill-desc-text">這是我主力的剪輯軟體，擅長以敘事手法還有情緒鋪陳構築每一個片段。透過具有張力的畫面編排，引導觀眾的視線，讓影片充滿帶入感並提高留存率</div>
+          <h3>Filmora 敘事與節奏剪輯</h3>
+          <p class="skill-desc">這是我主力的剪輯軟體，擅長以敘事手法與情緒鋪陳構築每一個片段，搭配快節奏跳剪、動態字卡與 BGM 卡點，引導觀眾視線並提高留存率。</p>
         </div>
+
         <div class="skill-card">
-          <img src="public/images/skill-plan.png" alt="企劃腳本發想圖示" class="skill-icon" loading="lazy">
-          <div class="skill-info">
-            <h3>企劃腳本發想</h3>
-            <div class="bar">
-              <div class="fill" style="width: 85%"></div>
-            </div>
+          <div class="skill-card-top">
+            <img src="public/images/skill-plan.png" alt="企劃腳本發想圖示" class="skill-icon" loading="lazy" title="點擊放大預覽">
+            <span class="skill-tag skill-tag-gold">商業企劃</span>
           </div>
-          <div class="skill-desc-text">這支腳本是為 SurfShark 的工商影片所撰寫，主打一個絲滑的鬼轉銜接，由我與實況主小薰共同發想與企劃。</div>
+          <h3>企劃腳本發想</h3>
+          <p class="skill-desc">這支腳本是為 SurfShark 的工商影片所撰寫，主打一個絲滑的鬼轉銜接，由我與實況主小薰共同發想與企劃。</p>
         </div>
+
         <div class="skill-card">
-          <img src="public/images/skill-thumb.jpg" alt="新北寶可夢路跑封面設計圖示" class="skill-icon" loading="lazy">
-          <div class="skill-info">
-            <h3>Thumbnail Design</h3>
-            <div class="bar">
-              <div class="fill" style="width: 70%"></div>
-            </div>
+          <div class="skill-card-top">
+            <img src="public/images/skill-thumb.jpg" alt="新北寶可夢路跑封面設計圖示" class="skill-icon" loading="lazy" title="點擊放大預覽">
+            <span class="skill-tag">視覺構圖</span>
           </div>
-          <div class="skill-desc-text">這張封面是我為「新北寶可夢路跑」活動拍攝專案所設計的。每支影片都會討論封面的發想與構圖，確保視覺與內容完美契合。</div>
+          <h3>Thumbnail Design</h3>
+          <p class="skill-desc">這張封面是我為「新北寶可夢路跑」活動拍攝專案所設計的。每支影片都會討論封面的發想與構圖，確保視覺與內容完美契合。</p>
         </div>
       </div>
     </section>
 
-    <!-- 創作者區塊 -->
+    <!-- 創作者區塊（原色頭像 + 合作項目說明） -->
     <section class="brands section-page" data-section="brands" id="brands" aria-label="合作的創作者">
       <h2>合作の創作者</h2>
       <div class="brands-list">
-        <a href="https://www.youtube.com/@MGLTVKaoruAoi0224/featured" class="brand-card" target="_blank" aria-label="創作者1 YouTube 頻道" tabindex="0">
+        <a href="https://www.youtube.com/@MGLTVKaoruAoi0224/featured" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="蒼井薰 YouTube 頻道" tabindex="0">
           <img src="public/images/電次COS02.jpg" alt="蒼井薰" class="brand-avatar" loading="lazy">
           <h3 class="brand-name">蒼井薰</h3>
+          <p class="brand-role">長期合作 · 遊戲精華 / Shorts / 品牌工商 / VLOG</p>
         </a>
-        <a href="https://www.youtube.com/@birbirds" class="brand-card" target="_blank" aria-label="創作者2 YouTube 頻道" tabindex="0">
+        <a href="https://www.youtube.com/@birbirds" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="鳥鳥 YouTube 頻道" tabindex="0">
           <img src="public/images/鳥鳥.png" alt="鳥鳥" class="brand-avatar" loading="lazy">
           <h3 class="brand-name">鳥鳥</h3>
+          <p class="brand-role">PTCG 卡牌開箱 · 遊戲精華剪輯</p>
         </a>
-        <a href="https://www.youtube.com/@Shirogane_momo" class="brand-card" target="_blank" aria-label="創作者3 YouTube 頻道" tabindex="0">
+        <a href="https://www.youtube.com/@Shirogane_momo" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="白銀茉茉 YouTube 頻道" tabindex="0">
           <img src="public/images/白銀茉茉01.jpg" alt="白銀茉茉" class="brand-avatar silver-avatar" loading="lazy">
           <h3 class="brand-name">白銀茉茉</h3>
+          <p class="brand-role">VTuber 直播精華 · 短影音 Shorts</p>
         </a>
       </div>
     </section>
@@ -153,52 +170,50 @@
     <section class="about section-page" data-section="about" id="about" aria-label="關於我">
       <div class="about-content">
         <div class="avatar-hover-wrap" style="position:relative;display:inline-block;">
-          <div class="avatar-tooltip" style="display:none;position:absolute;left:50%;top:0;transform:translateX(-50%) translateY(-110%);background:rgba(24,26,27,0.96);color:#6EC1E4;font-size:1.08em;padding:0.5em 1.2em;border-radius:8px;box-shadow:0 2px 12px #6EC1E4aa;white-space:nowrap;z-index:20;">
+          <div class="avatar-tooltip" style="display:none;position:absolute;left:50%;top:0;transform:translateX(-50%) translateY(-110%);background:rgba(14,16,20,0.96);color:#38BDF8;font-size:1.05em;padding:0.5em 1.2em;border-radius:8px;border:1px solid rgba(56,189,248,0.35);box-shadow:0 4px 16px rgba(0,0,0,0.5);white-space:nowrap;z-index:20;">
             看板娘形象(´-ω-`)
           </div>
           <img src="public/images/rat2.0_.png" alt="JBwhite 剪輯師頭像" class="about-avatar" id="about-avatar" loading="lazy">
         </div>
         <div class="about-text">
           <h3>JBwhite｜自媒體剪輯師</h3>
-          <p>嗨，我是 JBwhite，一位熱愛分享與紀錄當下的剪輯師，同時也是影像創作者。擁有兩年專業剪輯經驗，我喜歡用畫面說故事，讓觀眾沉浸其中。透過強烈的視覺渲染與節奏掌控，讓每一個瞬間都能吸引觀眾目光、留下深刻印象。</p>
+          <p>嗨，我是 JBwhite，一位熱愛分享與紀錄當下的自媒體剪輯師。擁有三年專業剪輯經驗，平常也很喜歡看直播，熟悉實況與 VTuber 圈的節奏與梗點；擅長快節奏剪輯、音效搭配、大量關鍵幀動態效果與迷因素材穿插，透過畫面張力與節奏掌控，讓每個瞬間都能抓住觀眾目光、拉高留存率。</p>
           <p>過去我也有一年的自媒體經營經驗（2015-2016），那時和國中同學一起經營 Twitch，專注於遊戲直播，並將精華片段上傳至 YouTube。當時我們主打國外市場，頻道因遊戲漏洞與彩蛋內容而爆紅，累積了大量流量與寶貴經驗。</p>
-          <ul>
-            <div class="about-stats-grid">
-              <div class="stat-box">
-                <h4 class="stat-num">2<span>+</span></h4>
-                <p>年專業剪輯經驗</p>
-              </div>
-              <div class="stat-box">
-                <h4 class="stat-num">120<span>W+</span></h4>
-                <p>單支最高觀看次數</p>
-              </div>
-              <div class="stat-box">
-                <h4 class="stat-num">300<span>+</span></h4>
-                <p>商業與精華作品產出</p>
-              </div>
+
+          <div class="about-stats-grid">
+            <div class="stat-box">
+              <h4 class="stat-num">3<span>+</span></h4>
+              <p>年專業剪輯經驗</p>
             </div>
+            <div class="stat-box">
+              <h4 class="stat-num">120<span>W+</span></h4>
+              <p>單支最高觀看次數</p>
+            </div>
+            <div class="stat-box">
+              <h4 class="stat-num">300<span>+</span></h4>
+              <p>商業與精華作品產出</p>
+            </div>
+          </div>
 
-            <ul class="about-service-list">
-              <li>
-                <span class="icon">🛠️</span>
-                <div><b>專業軟體：</b>Filmora (極度熟練)</div>
-              </li>
-              <li>
-                <span class="icon">🎬</span>
-                <div><b>服務內容：</b>長短影音剪輯、影片拍攝、腳本企劃協助發想</div>
-              </li>
-              <li>
-                <span class="icon">🤝</span>
-                <div><b>合作經驗：</b>多位 VTuber、YouTuber 及品牌工商</div>
-              </li>
-            </ul>
-
-            <!-- 將理念獨立成引言區塊 -->
-            <blockquote class="about-quote-block">
-              "Storytelling Through Editing"<br>
-              用剪輯說故事，讓每個瞬間都值得被記錄
-            </blockquote>
+          <ul class="about-service-list">
+            <li>
+              <span class="icon">🛠️</span>
+              <div><b>專業軟體：</b>Filmora（極度熟練）</div>
+            </li>
+            <li>
+              <span class="icon">🎬</span>
+              <div><b>服務內容：</b>長短影音剪輯、影片拍攝、腳本企劃協助發想</div>
+            </li>
+            <li>
+              <span class="icon">🤝</span>
+              <div><b>合作經驗：</b>多位 VTuber、YouTuber 及品牌工商</div>
+            </li>
           </ul>
+
+          <blockquote class="about-quote-block">
+            "Storytelling Through Editing"<br>
+            用剪輯說故事，讓每個瞬間都值得被記錄
+          </blockquote>
         </div>
       </div>
     </section>
@@ -213,12 +228,12 @@
           <div class="quote-desc">
             <div>適合：Vtuber 精華、遊戲實況、Vlog、攻略教學等</div>
             <div>影片長度：8 - 15 分鐘</div>
-            <div>交付時間：7 - 14 天</div>
+            <div>交付時間：5 - 12 天</div>
             <ul>
-              <li>✔ 敘事架構與節奏編排</li>
-              <li>✔ Intro 吸睛開場設計</li>
-              <li>✔ 全字幕與綜藝字卡</li>
-              <li>✔ BGM 卡點與迷因音效設計</li>
+              <li>敘事架構與節奏編排</li>
+              <li>Intro 吸睛開場設計</li>
+              <li>全字幕與字卡</li>
+              <li>BGM卡點與迷因素材搭配</li>
             </ul>
           </div>
         </div>
@@ -230,10 +245,10 @@
             <div>影片長度：60 秒內</div>
             <div>交付時間：2 - 3 天</div>
             <ul>
-              <li>✔ 網感節奏快剪</li>
-              <li>✔ 前 3 秒 Hook 編排</li>
-              <li>✔ 動態字幕與特效</li>
-              <li>✔ 迷因素材穿插</li>
+              <li>快節奏剪輯</li>
+              <li>Hook 編排</li>
+              <li>動態字幕與特效</li>
+              <li>迷因素材搭配</li>
             </ul>
           </div>
         </div>
@@ -242,31 +257,58 @@
           <p>🔷 <b>合作備註</b></p>
           <ul>
             <li><b>報價評估：</b>實際報價將依毛片長度、素材複雜度（如需代過 VOD 找精華）進行最終確認。</li>
-            <li><b>修改規範：</b>專案均包含 2 次免費大修（粗剪階段）與 1 次微調（精剪階段）。</li>
+            <li><b>修改規範：</b>專案均包含 2 次免費大修（粗剪階段）與 1 ~ 2 次微調（精剪階段）。</li>
             <li><b>急件服務：</b>若需 短影音 24H 內 / 長影音 3-5 天內交付，將視檔期酌收 30% - 50% 急件費。</li>
             <li><b>請款流程：</b>一般委託預收 50% 訂金排入檔期；企業外包或長期合作，可另議請款與月結流程。</li>
           </ul>
         </div>
       </div>
 
-      <!-- CTA 按鈕與表單 -->
-      <h2>聯絡我</h2>
-      <p style="text-align: center; color: #E3E6EB; margin-bottom: 1.5em;">歡迎填寫表單或透過社群平台私訊洽談，期待與您一同打造更棒的作品！</p>
+      <!-- 聯絡卡片容器 -->
+      <div class="contact-box">
+        <h2>聯絡我</h2>
+        <p class="contact-subtitle">歡迎透過社群平台私訊洽談，或直接填寫下方表單，期待與您一同打造更棒的作品！</p>
 
-      <!-- 表單 -->
-      <form id="my-form" action="https://formspree.io/f/xnndngvz" method="POST" class="contact-form">
-        <label for="name" style="display:none;">您的稱呼：</label>
-        <input type="text" name="name" id="name" placeholder="您的稱呼" required />
+        <div class="contact-social-links">
+          <button type="button" class="social-btn social-btn-discord" id="copy-discord-btn" data-discord="jbwhite1537">
+            <span class="discord-label">💬 複製 Discord ID：<strong>jbwhite1537</strong></span>
+            <span class="copy-pill">點我複製</span>
+          </button>
+          <div class="contact-social-subgrid">
+            <a href="https://www.youtube.com/@JBwhite1537" target="_blank" rel="noopener noreferrer" class="social-btn">
+              📺 YouTube 頻道
+            </a>
+            <a href="mailto:a0903380975@gmail.com" class="social-btn">
+              📧 直接寄信
+            </a>
+            <a href="resume.html" class="social-btn resume-link">
+              📄 線上履歷
+            </a>
+          </div>
+        </div>
+        <p id="copy-discord-status" class="copy-status" aria-live="polite"></p>
 
-        <label for="email" style="display:none;">您的 Email：</label>
-        <input type="email" name="email" id="email" placeholder="您的 Email" required />
+        <div class="contact-divider"><span>或填寫需求表單</span></div>
 
-        <label for="message" style="display:none;">訊息內容：</label>
-        <textarea name="message" id="message" rows="5" placeholder="請簡述您的專案需求..." required style="resize:vertical;"></textarea>
+        <form id="my-form" action="https://formspree.io/f/xnndngvz" method="POST" class="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name" style="display:none;">您的稱呼：</label>
+              <input type="text" name="name" id="name" placeholder="您的稱呼" required />
+            </div>
+            <div class="form-field">
+              <label for="email" style="display:none;">您的 Email：</label>
+              <input type="email" name="email" id="email" placeholder="您的 Email" required />
+            </div>
+          </div>
 
-        <button id="my-form-button" type="submit" class="cta-button">發送訊息 🚀</button>
-        <p id="my-form-status" style="text-align:center; color:#00d2d3; margin-top:10px;"></p>
-      </form>
+          <label for="message" style="display:none;">訊息內容：</label>
+          <textarea name="message" id="message" rows="5" placeholder="請簡述您的專案需求（例如：影片類型、毛片長度、預計交付日）..." required style="resize:vertical;"></textarea>
+
+          <button id="my-form-button" type="submit" class="cta-button">發送訊息 🚀</button>
+          <p id="my-form-status" style="text-align:center; color:#38BDF8; margin-top:10px;"></p>
+        </form>
+      </div>
     </section>
   </main>
 
@@ -279,7 +321,7 @@
   </div>
 
   <!-- 轉場遮罩 -->
-  <div id="page-transition" style="pointer-events:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:#181A1B; z-index:9999; transform:translateY(-100%);">
+  <div id="page-transition" style="pointer-events:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:#0E1014; z-index:9999; transform:translateY(-100%);">
   </div>
 
   <div id="img-preview-lightbox" class="img-preview-lightbox hidden">
@@ -289,103 +331,6 @@
   <footer>
     <p>© 2026 JBwhite. All rights reserved.</p>
   </footer>
-
-  <!-- 頁面底部專用內部樣式 (處理預覽燈箱) -->
-  <style>
-    .img-preview-lightbox {
-      position: fixed;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(24, 26, 27, 0.92);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.35s;
-    }
-
-    .img-preview-lightbox.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .img-preview-lightbox img {
-      max-width: 60vw;
-      max-height: 70vh;
-      border-radius: 18px;
-      box-shadow: 0 8px 48px #6EC1E4cc, 0 2px 12px #000a;
-      animation: imgPopIn 0.5s cubic-bezier(.77, 0, .18, 1);
-    }
-
-    @keyframes imgPopIn {
-      0% { opacity: 0; transform: scale(0.7) rotate(-3deg); }
-      60% { opacity: 1; transform: scale(1.08) rotate(2deg); }
-      100% { opacity: 1; transform: scale(1) rotate(0); }
-    }
-  </style>
-
-  <!-- 頁面底部專用內部腳本 (處理表單與預覽) -->
-  <script>
-    window.addEventListener('DOMContentLoaded', function () {
-      const previewBox = document.getElementById('img-preview-lightbox');
-      const previewImg = previewBox.querySelector('img');
-      document.querySelectorAll('.skill-icon').forEach(img => {
-        img.addEventListener('click', function (e) {
-          previewImg.src = this.src;
-          previewBox.classList.add('show');
-          previewBox.classList.remove('hidden');
-          e.stopPropagation();
-        });
-      });
-      previewBox.addEventListener('click', function () {
-        previewBox.classList.remove('show');
-        setTimeout(() => previewBox.classList.add('hidden'), 350);
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && previewBox.classList.contains('show')) {
-          previewBox.classList.remove('show');
-          setTimeout(() => previewBox.classList.add('hidden'), 350);
-        }
-      });
-    });
-
-    var form = document.getElementById("my-form");
-    if (form) {
-      async function handleSubmit(event) {
-        event.preventDefault();
-        var status = document.getElementById("my-form-status");
-        var data = new FormData(event.target);
-        fetch(event.target.action, {
-          method: form.method,
-          body: data,
-          headers: {
-            'Accept': 'application/json'
-          }
-        }).then(response => {
-          if (response.ok) {
-            status.innerHTML = "感謝您的留言！我們已收到您的訊息。";
-            form.reset();
-            setTimeout(() => { status.innerHTML = ""; }, 3000);
-          } else {
-            response.json().then(data => {
-              if (Object.hasOwn(data, 'errors')) {
-                status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-              } else {
-                status.innerHTML = "送出失敗，請稍後再試。"
-              }
-            })
-          }
-        }).catch(error => {
-          status.innerHTML = "送出失敗，請稍後再試。"
-        });
-      }
-      form.addEventListener("submit", handleSubmit)
-    }
-  </script>
 </body>
 
 </html>

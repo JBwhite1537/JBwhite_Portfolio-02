@@ -3,362 +3,747 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
-  <title>JBwhite 履歷 | 自媒體剪輯師</title>
-  <meta name="description" content="專業剪輯師 JBwhite 履歷 - 專注於自媒體內容創作，擅長影片剪輯、企劃發想與視覺設計。">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>JBwhite 線上履歷｜自媒體剪輯師</title>
+  <meta name="description" content="JBwhite 自媒體剪輯師線上履歷：3 年以上剪輯經驗，主力 Filmora，擅長快節奏遊戲精華、VTuber 短影音、音效卡點與品牌工商企劃。">
   <link rel="icon" href="public/images/avatar.png" type="image/png">
-  <link rel="stylesheet" href="src/css/style.css" />
-  <link rel="stylesheet" href="src/css/glitch.css" />
-  <link rel="preload" href="public/fonts/HONORSANSTC-REGULAR.TTF" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="public/fonts/SOURCEHANSERIFTC-REGULAR.OTF" as="font" type="font/otf" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-base: #0E1014;
+      --bg-card: #161920;
+      --bg-elevated: #1C2029;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-cyan: rgba(56, 189, 248, 0.35);
+      --text-main: #F4F4F5;
+      --text-sub: #CBD5E1;
+      --text-muted: #9CA3AF;
+      --cyan: #38BDF8;
+      --rec: #FF4D5A;
+      --gold: #E5B869;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
     body {
-      background: #181A1B;
-      color: #fff;
-      font-family: 'Source Han Serif TC', serif;
-      line-height: 1.6;
       margin: 0;
       padding: 0;
+      background-color: var(--bg-base);
+      background-image:
+        radial-gradient(circle at 18% 12%, rgba(56, 189, 248, 0.09), transparent 42%),
+        radial-gradient(circle at 84% 78%, rgba(229, 184, 105, 0.06), transparent 42%),
+        linear-gradient(rgba(148, 163, 184, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.035) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 42px 42px, 42px 42px;
+      color: var(--text-main);
+      font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .resume-section {
-      padding: 2em;
-      margin: 2em 0;
-      background: #1E2021;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* 進場黑幕過場（與作品集主站一致） */
+    .resume-curtain {
+      position: fixed;
+      inset: 0;
+      background: #0E1014;
+      z-index: 9999;
+      pointer-events: none;
+      animation: curtainReveal 0.55s cubic-bezier(.77, 0, .18, 1) forwards;
     }
 
-    .resume-header {
-      text-align: center;
-      margin-bottom: 2em;
-      position: relative;
+    @keyframes curtainReveal {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100%); }
     }
 
-    .resume-avatar {
-      width: 120px;
-      height: 120px;
+    .resume-curtain.curtain-exit {
+      animation: curtainCover 0.45s cubic-bezier(.77, 0, .18, 1) forwards;
+    }
+
+    @keyframes curtainCover {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(0); }
+    }
+
+    /* 頂部操作列 */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75em 2em;
+      background: rgba(14, 16, 20, 0.84);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .top-bar-left, .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75em;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45em;
+      padding: 0.5em 1.15em;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      font-family: inherit;
+    }
+
+    .nav-btn-ghost {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .nav-btn-ghost:hover {
+      background: rgba(56, 189, 248, 0.14);
+      border-color: var(--border-cyan);
+      color: var(--cyan);
+    }
+
+    .nav-btn-primary {
+      background: var(--cyan);
+      color: #0E1014;
+      border: 1px solid var(--cyan);
+    }
+
+    .nav-btn-primary:hover {
+      background: #0EA5E9;
+      border-color: #0EA5E9;
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(56, 189, 248, 0.35);
+    }
+
+    /* 主容器 */
+    .resume-container {
+      max-width: 960px;
+      margin: 2.2em auto 4em auto;
+      padding: 0 1.4em;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6em;
+      animation: fadeUpIn 0.65s cubic-bezier(.22, 1, .36, 1) 0.18s both;
+    }
+
+    @keyframes fadeUpIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: rgba(22, 25, 32, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 2em 2.2em;
+      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.42);
+      backdrop-filter: blur(8px);
+    }
+
+    /* Hero 個人簡介區 */
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+    }
+
+    .hero-avatar {
+      width: 108px;
+      height: 108px;
       border-radius: 50%;
-      margin: 0 auto 1em;
-      border: 3px solid #6EC1E4;
-      box-shadow: 0 0 20px rgba(110, 193, 228, 0.3);
+      border: 2.5px solid var(--cyan);
+      box-shadow: 0 0 24px rgba(56, 189, 248, 0.25);
+      object-fit: cover;
+      flex-shrink: 0;
     }
 
-    .highlight-box {
-      background: #232526;
-      border: 1px solid #6EC1E4;
-      padding: 1.5em;
-      border-radius: 8px;
-      margin: 1em 0;
+    .hero-info {
+      flex: 1;
+      min-width: 0;
     }
 
-    .highlight-box h3 {
-      color: #6EC1E4;
-      margin-bottom: 0.5em;
-      font-size: 1.2em;
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 0.45em;
     }
 
+    .rec-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--rec);
+      box-shadow: 0 0 8px var(--rec);
+      display: inline-block;
+    }
+
+    .hero-title-row {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.7em;
+      margin-bottom: 0.55em;
+    }
+
+    .hero-title-row h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-role {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--cyan);
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 2px 12px;
+      border-radius: 999px;
+    }
+
+    .hero-bio {
+      margin: 0;
+      color: var(--text-sub);
+      font-size: 0.96rem;
+      line-height: 1.8;
+    }
+
+    /* 戰績數據條（5% 香檳金） */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1em;
-      margin: 1.5em 0;
+      margin-top: 1.8em;
+      padding-top: 1.5em;
+      border-top: 1px solid var(--border);
     }
 
     .stat-item {
+      background: rgba(14, 16, 20, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 1.05em 1em;
       text-align: center;
-      padding: 1em;
-      background: #232526;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .stat-number {
-      font-size: 2em;
-      color: #6EC1E4;
-      font-weight: bold;
-      margin-bottom: 0.2em;
+      font-family: 'JetBrains Mono', 'Noto Sans TC', monospace;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1.15;
+    }
+
+    .stat-number span {
+      font-size: 1.1rem;
+      color: #fff;
     }
 
     .stat-label {
-      color: #888;
-      font-size: 0.9em;
+      margin-top: 0.35em;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
-    .experience-card {
-      background: #232526;
-      padding: 1.5em;
-      margin: 1em 0;
-      border-radius: 8px;
-      border-left: 4px solid #6EC1E4;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* 區塊標題 */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.65em;
+      margin: 0 0 1.25em 0;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.05em;
     }
 
-    .experience-card h3 {
-      color: #6EC1E4;
-      margin-bottom: 0.5em;
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 1.1em;
+      border-radius: 4px;
+      background: var(--cyan);
+      display: inline-block;
+    }
+
+    /* 經歷時間軸卡片 */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+    }
+
+    .exp-card {
+      background: rgba(14, 16, 20, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-left: 3px solid var(--cyan);
+      border-radius: 12px;
+      padding: 1.4em 1.6em;
+    }
+
+    .exp-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5em;
+      margin-bottom: 0.7em;
     }
 
-    .experience-card .date {
-      color: #888;
-      font-size: 0.9em;
+    .exp-header h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
     }
 
-    .achievement-tag {
-      display: inline-block;
-      background: rgba(110, 193, 228, 0.2);
-      color: #6EC1E4;
-      padding: 0.3em 0.8em;
-      border-radius: 20px;
-      font-size: 0.9em;
-      margin: 0.3em;
+    .exp-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--gold);
+      background: rgba(229, 184, 105, 0.12);
+      border: 1px solid rgba(229, 184, 105, 0.3);
+      padding: 2px 10px;
+      border-radius: 999px;
     }
 
-    .skill-grid {
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45em;
+      margin-bottom: 0.85em;
+    }
+
+    .tag-pill {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--cyan);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 2px 10px;
+      border-radius: 999px;
+    }
+
+    .exp-list {
+      margin: 0;
+      padding-left: 1.2em;
+      color: var(--text-sub);
+      font-size: 0.94rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45em;
+    }
+
+    .exp-list b {
+      color: #fff;
+    }
+
+    /* 核心專長三欄卡片（無進度條，乾淨呈現） */
+    .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5em;
-      margin-top: 2em;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1em;
     }
 
-    .skill-item {
-      background: #232526;
-      padding: 1.5em;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    .skill-box {
+      background: rgba(14, 16, 20, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 12px;
+      padding: 1.35em 1.3em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6em;
     }
 
-    .skill-item h4 {
-      color: #6EC1E4;
-      margin-bottom: 0.5em;
-    }
-
-    .contact-info {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1em;
-      margin-top: 2em;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .contact-item {
+    .skill-box-head {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 0.5em;
-      color: #6EC1E4;
+    }
+
+    .skill-box h3 {
+      margin: 0;
+      font-size: 1.02rem;
+      color: #fff;
+    }
+
+    .skill-badge {
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      color: var(--cyan);
+      background: rgba(56, 189, 248, 0.12);
+    }
+
+    .skill-badge-gold {
+      color: var(--gold);
+      background: rgba(229, 184, 105, 0.14);
+    }
+
+    .skill-box p {
+      margin: 0;
+      font-size: 0.89rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+    }
+
+    /* 合作創作者與代表案型精簡列 */
+    .collab-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1em;
+    }
+
+    .collab-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.85em;
+      background: rgba(14, 16, 20, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 12px;
+      padding: 0.9em 1.1em;
       text-decoration: none;
-      padding: 0.8em 1.2em;
-      background: #232526;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      font-size: 0.95em;
-      transition: all 0.3s ease;
+      transition: all 0.22s ease;
     }
 
-    .contact-item:hover {
+    .collab-pill:hover {
+      border-color: var(--border-cyan);
       transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    @media print {
-      body {
-        background: white;
-        color: black;
-      }
-
-      .resume-section {
-        background: white;
-        box-shadow: none;
-        border: 1px solid #ddd;
-      }
-
-      .highlight-box,
-      .experience-card,
-      .skill-item,
-      .stat-item {
-        background: white;
-        box-shadow: none;
-        border: 1px solid #ddd;
-      }
-
-      .stat-number,
-      .experience-card h3,
-      .skill-item h4,
-      .highlight-box h3 {
-        color: #333;
-      }
-
-      .achievement-tag {
-        background: #f5f5f5;
-        color: #333;
-      }
-
-      .contact-item {
-        background: white;
-        color: #333;
-        border: 1px solid #ddd;
-      }
+    .collab-pill img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(56, 189, 248, 0.65);
+      flex-shrink: 0;
     }
 
+    .collab-meta strong {
+      display: block;
+      font-size: 0.95rem;
+      color: #fff;
+    }
+
+    .collab-meta span {
+      font-size: 0.79rem;
+      color: var(--text-muted);
+    }
+
+    /* 聯絡方式 */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85em;
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6em;
+      padding: 0.9em 1.2em;
+      background: rgba(14, 16, 20, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 12px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.22s ease;
+    }
+
+    .contact-btn:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      transform: translateY(-2px);
+    }
+
+    .contact-btn-discord {
+      background: rgba(88, 101, 242, 0.16);
+      border-color: rgba(88, 101, 242, 0.55);
+      color: #E0E3FF;
+    }
+
+    .contact-btn-discord:hover {
+      background: #5865F2;
+      border-color: #5865F2;
+      color: #fff;
+    }
+
+    .contact-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .contact-btn-discord:hover .contact-sub {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .copy-feedback {
+      margin: 0.8em 0 0 0;
+      min-height: 1.3em;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--cyan);
+    }
+
+    /* 手機版 RWD */
     @media (max-width: 768px) {
-      .resume-section {
-        padding: 1em;
-      }
+      .top-bar { padding: 0.7em 1em; }
+      .card { padding: 1.5em 1.25em; }
+      .hero-grid { flex-direction: column; text-align: center; gap: 1.2em; }
+      .hero-title-row { justify-content: center; }
+      .stats-grid, .skills-grid, .collab-row, .contact-grid { grid-template-columns: 1fr; }
+    }
 
-      .stats-grid {
-        grid-template-columns: 1fr;
+    /* 列印 / 匯出 PDF 專用乾淨白底樣式 */
+    @media print {
+      .top-bar, .resume-curtain, .copy-feedback { display: none !important; }
+      body { background: #fff !important; color: #111 !important; }
+      .resume-container { margin: 0; max-width: 100%; gap: 1em; animation: none; }
+      .card, .stat-item, .exp-card, .skill-box, .collab-pill, .contact-btn {
+        background: #fff !important;
+        color: #111 !important;
+        border: 1px solid #d1d5db !important;
+        box-shadow: none !important;
+        break-inside: avoid;
       }
-
-      .skill-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-info {
-        grid-template-columns: 1fr;
-      }
+      .hero-title-row h1, .section-title, .exp-header h3, .skill-box h3, .collab-meta strong, .exp-list b { color: #111 !important; }
+      .hero-bio, .exp-list, .skill-box p, .stat-label, .collab-meta span, .contact-sub { color: #374151 !important; }
+      .stat-number, .exp-date, .hero-role, .tag-pill, .skill-badge { color: #0369a1 !important; background: #f0f9ff !important; border-color: #bae6fd !important; }
     }
   </style>
 </head>
 
 <body>
-  <main>
-    <section class="resume-section" id="about">
-      <div class="resume-header">
-        <img src="public/images/avatar.png" alt="JBwhite 剪輯師頭像" class="resume-avatar">
-        <h1>JBwhite</h1>
-        <p>自媒體剪輯師 / 內容創作者</p>
-      </div>
-      <div class="highlight-box">
-        <h3>✨ 核心優勢</h3>
-        <p>擅長以敘事手法串聯畫面，透過強烈的視覺渲染與節奏掌控，讓每個作品都能吸引觀眾目光、留下深刻印象。專注於自媒體內容創作，為創作者打造獨特的視覺風格。</p>
-        <div style="margin-top: 1em; text-align: center;">
-          <a href="https://j-bwhite-portfolio-02.vercel.app/" target="_blank" class="contact-item" style="display: inline-flex; align-items: center; gap: 0.5em; background: #6EC1E4; color: #181A1B; font-weight: bold;">
-            <span>🎬 查看作品集網站 (j-bwhite-portfolio-02.vercel.app)</span>
-          </a>
+  <!-- 進場黑幕過場 -->
+  <div class="resume-curtain" aria-hidden="true"></div>
+
+  <!-- 頂部操作列 -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <a href="index.html" class="nav-btn nav-btn-ghost" id="back-to-portfolio">← 返回作品集</a>
+    </div>
+    <div class="top-bar-right">
+      <button type="button" class="nav-btn nav-btn-primary" onclick="window.print()">🖨️ 列印 / 存成 PDF</button>
+    </div>
+  </header>
+
+  <main class="resume-container">
+    <!-- 個人摘要與核心戰績 -->
+    <section class="card">
+      <div class="hero-grid">
+        <img src="public/images/avatar.png" alt="JBwhite 剪輯師 LOGO 頭像" class="hero-avatar">
+        <div class="hero-info">
+          <div class="hero-kicker"><span class="rec-dot"></span>STORYTELLING THROUGH EDITING</div>
+          <div class="hero-title-row">
+            <h1>JBwhite</h1>
+            <span class="hero-role">自媒體剪輯師 / 遊戲＆VTuber 精華</span>
+          </div>
+          <p class="hero-bio">
+            擁有三年以上專業剪輯經驗，主力使用 <strong>Filmora</strong>。平常非常喜歡看直播，熟悉實況主與 VTuber 圈的梗點與觀眾節奏；擅長<strong>快節奏剪輯、音效卡點搭配、大量關鍵幀動態效果與迷因素材穿插</strong>，能從好幾小時的實況裡抓出最好笑、最有看點的片段，剪成節奏順暢的精華長片和短影音。
+          </p>
         </div>
       </div>
+
       <div class="stats-grid">
         <div class="stat-item">
-          <div class="stat-number">4+</div>
+          <div class="stat-number">3<span>+</span></div>
           <div class="stat-label">年專業剪輯經驗</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">3+</div>
-          <div class="stat-label">合作創作者</div>
+          <div class="stat-number">120<span>W+</span></div>
+          <div class="stat-label">單支最高觀看次數</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">100+</div>
-          <div class="stat-label">作品產出</div>
+          <div class="stat-number">300<span>+</span></div>
+          <div class="stat-label">商業與精華作品產出</div>
         </div>
       </div>
     </section>
 
-    <section class="resume-section" id="experience">
-      <h2>工作經驗</h2>
-      <div class="experience-card">
-        <h3>
-          自媒體剪輯師
-          <span class="date">2022 - 至今</span>
-        </h3>
-        <div class="achievement-tags">
-          <span class="achievement-tag">Vtuber 精華</span>
-          <span class="achievement-tag">工商影片</span>
-          <span class="achievement-tag">PV 製作</span>
-        </div>
-        <ul>
-          <li>為多位 Vtuber 和 YouTuber 製作精華影片，平均觀看時長提升 30%</li>
-          <li>負責影片企劃、腳本發想、拍攝和後期製作，確保內容品質與時效性</li>
-          <li>製作工商影片、PV、遊戲實況精華等內容，創作者滿意度達 95%</li>
-          <li>擅長運用 Filmora 進行高品質剪輯，一週平均產出 2-4 支 Shorts，每月產出 2 部長片</li>
-        </ul>
-      </div>
-      <div class="experience-card">
-        <h3>
-          自媒體剪輯師 / 內容創作者
-          <span class="date">2015 - 2016</span>
-        </h3>
-        <div class="achievement-tags">
-          <span class="achievement-tag">遊戲精華</span>
-          <span class="achievement-tag">內容創作</span>
-          <span class="achievement-tag">幕前幕後</span>
-        </div>
-        <ul>
-          <li>加入已有基礎的遊戲實況團隊，擔任剪輯師與幕前角色，協助頻道成長</li>
-          <li>負責製作遊戲精華影片，單支影片最高觀看次數達 120 萬，為頻道帶來顯著流量</li>
-          <li>專注於遊戲漏洞與彩蛋內容的剪輯，建立獨特的內容風格</li>
-          <li>參與幕前演出，與主創者共同經營社群，累積寶貴的內容創作經驗</li>
-        </ul>
+    <!-- 剪輯經歷 -->
+    <section class="card">
+      <h2 class="section-title">剪輯與創作經歷</h2>
+      <div class="timeline">
+        <article class="exp-card">
+          <div class="exp-header">
+            <h3>獨立自媒體剪輯師（JBwhite）</h3>
+            <span class="exp-date">2022 – 至今</span>
+          </div>
+          <div class="tag-row">
+            <span class="tag-pill">VTuber / 實況精華</span>
+            <span class="tag-pill">高節奏 Shorts</span>
+            <span class="tag-pill">品牌工商企劃</span>
+            <span class="tag-pill">活動 PV / 紀錄片</span>
+          </div>
+          <ul class="exp-list">
+            <li>長期與多位 YouTuber、VTuber 合作，負責<strong>遊戲實況精華、短影音 Shorts、VLOG 與開箱日常</strong>後製，穩定維持每週 2–4 支短影音與每月多支長片產出。</li>
+            <li>善用 <strong>Filmora 大量關鍵幀動態效果、留白、BGM 卡點與迷因素材搭配</strong>強化影片張力，兼顧高資訊密度與觀看流暢度。</li>
+            <li>協助創作者共同發想<strong>品牌工商腳本與絲滑鬼轉銜接</strong>（如 SurfShark 等商業合作案），並承接教育單位與地方活動官方紀錄影片製作。</li>
+          </ul>
+        </article>
+
+        <article class="exp-card">
+          <div class="exp-header">
+            <h3>遊戲頻道剪輯師 / 幕前共同創作者</h3>
+            <span class="exp-date">2015 – 2016</span>
+          </div>
+          <div class="tag-row">
+            <span class="tag-pill">海外市場操作</span>
+            <span class="tag-pill">單支 120 萬觀看</span>
+            <span class="tag-pill">Twitch 實況精華</span>
+          </div>
+          <ul class="exp-list">
+            <li>與團隊共同經營 Twitch 遊戲直播與 YouTube 精華頻道，主打國外觀眾市場。</li>
+            <li>專注挖掘遊戲漏洞與彩蛋題材，透過緊湊剪輯節奏打造爆紅影片，<strong>單支最高突破 120 萬次觀看</strong>，累積深厚的經驗與觀眾留存直覺。</li>
+          </ul>
+        </article>
       </div>
     </section>
 
-    <section class="resume-section" id="skills">
-      <h2>專業技能</h2>
-      <div class="skill-grid">
-        <div class="skill-item">
-          <h4>影片剪輯</h4>
-          <div class="bar">
-            <div class="fill" style="width: 90%"></div>
+    <!-- 核心專長 -->
+    <section class="card">
+      <h2 class="section-title">核心專長與服務項目</h2>
+      <div class="skills-grid">
+        <div class="skill-box">
+          <div class="skill-box-head">
+            <h3>Filmora 節奏剪輯</h3>
+            <span class="skill-badge">主力工具</span>
           </div>
-          <p>Filmora</p>
-          <ul style="text-align: left; margin-top: 1em;">
-            <li>注重剪輯細節</li>
-            <li>節奏掌控</li>
-            <li>特效製作</li>
-          </ul>
+          <p>擅長長短影音敘事結構、前 3 秒 Hook 設計、大量關鍵幀動態效果、BGM 音效卡點與迷因素材穿插，放大實況與 VTuber 魅力。</p>
         </div>
-        <div class="skill-item">
-          <h4>企劃發想</h4>
-          <div class="bar">
-            <div class="fill" style="width: 85%"></div>
+        <div class="skill-box">
+          <div class="skill-box-head">
+            <h3>工商腳本與企劃</h3>
+            <span class="skill-badge skill-badge-gold">商業合作</span>
           </div>
-          <p>腳本撰寫、內容規劃</p>
-          <ul style="text-align: left; margin-top: 1em;">
-            <li>內容企劃</li>   
-            <li>腳本撰寫</li>
-            <li>創意發想</li>
-          </ul>
+          <p>能參與業配與企劃前期發想，設計自然不尷尬的絲滑鬼轉橋段，協助創作者兼顧品牌需求與粉絲觀感。</p>
         </div>
-        <div class="skill-item">
-          <h4>視覺設計</h4>
-          <div class="bar">
-            <div class="fill" style="width: 75%"></div>
+        <div class="skill-box">
+          <div class="skill-box-head">
+            <h3>封面構圖與視覺</h3>
+            <span class="skill-badge">點擊優化</span>
           </div>
-          <p>Filmora</p>
-          <ul style="text-align: left; margin-top: 1em;">
-            <li>封面設計</li>
-          </ul>
+          <p>依每支影片主題規劃吸睛封面構圖與字體層次，確保縮圖風格、標題與正片開場Hook一致。</p>
         </div>
       </div>
     </section>
 
-    <section class="resume-section" id="contact">
-      <h2>聯絡方式</h2>
-      <div class="contact-info">
-        <a href="https://j-bwhite-portfolio-02.vercel.app/" target="_blank" class="contact-item">
+    <!-- 合作創作者 -->
+    <section class="card">
+      <h2 class="section-title">主要合作創作者</h2>
+      <div class="collab-row">
+        <a href="https://www.youtube.com/@MGLTVKaoruAoi0224/featured" target="_blank" rel="noopener noreferrer" class="collab-pill">
+          <img src="public/images/電次COS02.jpg" alt="蒼井薰">
+          <div class="collab-meta">
+            <strong>蒼井薰</strong>
+            <span>精華 · Shorts · 工商 · VLOG</span>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/@birbirds" target="_blank" rel="noopener noreferrer" class="collab-pill">
+          <img src="public/images/鳥鳥.png" alt="鳥鳥">
+          <div class="collab-meta">
+            <strong>鳥鳥</strong>
+            <span>PTCG 開箱 · 遊戲精華</span>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/@Shirogane_momo" target="_blank" rel="noopener noreferrer" class="collab-pill">
+          <img src="public/images/白銀茉茉01.jpg" alt="白銀茉茉">
+          <div class="collab-meta">
+            <strong>白銀茉茉</strong>
+            <span>VTuber 精華 · Shorts</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 聯絡方式 -->
+    <section class="card">
+      <h2 class="section-title">聯絡與委託洽談</h2>
+      <div class="contact-grid">
+        <button type="button" class="contact-btn contact-btn-discord" id="copy-discord-btn" data-discord="jbwhite1537">
+          <span>💬 Discord（點我複製）</span>
+          <span class="contact-sub">jbwhite1537</span>
+        </button>
+        <a href="mailto:a0903380975@gmail.com" class="contact-btn">
+          <span>📧 Email 寄信</span>
+          <span class="contact-sub">a0903380975@gmail.com</span>
+        </a>
+        <a href="https://j-bwhite-portfolio-02.vercel.app/" target="_blank" rel="noopener noreferrer" class="contact-btn">
           <span>🎬 作品集網站</span>
-          <span style="color: #888; font-size: 0.9em;">(j-bwhite-portfolio-02.vercel.app)</span>
+          <span class="contact-sub">j-bwhite-portfolio-02.vercel.app</span>
         </a>
-        <a href="mailto:a0903380975@gmail.com" class="contact-item">
-          <span>📧 Email</span>
-          <span style="color: #888; font-size: 0.9em;">(a0903380975@gmail.com)</span>
-        </a>
-        <a href="https://www.youtube.com/@JBwhite1537" target="_blank" class="contact-item">
-          <span>📺 YouTube</span>
-          <span style="color: #888; font-size: 0.9em;">(@JBwhite1537)</span>
-        </a>
-        <a href="discord://users/jbwhite1537" class="contact-item">
-          <span>💬 Discord</span>
-          <span style="color: #888; font-size: 0.9em;">(jbwhite1537)</span>
+        <a href="https://www.youtube.com/@JBwhite1537" target="_blank" rel="noopener noreferrer" class="contact-btn">
+          <span>📺 YouTube 頻道</span>
+          <span class="contact-sub">@JBwhite1537</span>
         </a>
       </div>
+      <p id="copy-feedback" class="copy-feedback" aria-live="polite"></p>
     </section>
   </main>
+
+  <script>
+    // 返回作品集平滑黑幕過場（帶入一次性返回標記，重整則回到首頁）
+    const backBtn = document.getElementById('back-to-portfolio');
+    const curtain = document.querySelector('.resume-curtain');
+    if (backBtn) {
+      backBtn.addEventListener('click', function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+        e.preventDefault();
+        try { sessionStorage.setItem('jbwhite_return_section', 'contact'); } catch {}
+        if (curtain) {
+          curtain.classList.add('curtain-exit');
+          setTimeout(() => { window.location.href = 'index.html'; }, 440);
+        } else {
+          window.location.href = 'index.html';
+        }
+      });
+    }
+
+    // Discord 一鍵複製
+    const copyBtn = document.getElementById('copy-discord-btn');
+    const feedback = document.getElementById('copy-feedback');
+    if (copyBtn && feedback) {
+      copyBtn.addEventListener('click', async () => {
+        const id = copyBtn.getAttribute('data-discord') || 'jbwhite1537';
+        try {
+          await navigator.clipboard.writeText(id);
+          feedback.textContent = `已複製 Discord ID：${id}，歡迎直接私訊洽談！`;
+        } catch {
+          feedback.textContent = `請手動複製 Discord ID：${id}`;
+        }
+        setTimeout(() => { feedback.textContent = ''; }, 3500);
+      });
+    }
+  </script>
 </body>
 
-</html> 
+</html>

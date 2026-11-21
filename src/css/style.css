@@ -1,19 +1,3 @@
-@font-face {
-  font-family: '思源黑體';
-  src: url('../../public/fonts/HONORSANSTC-REGULAR.TTF') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: '思源明體';
-  src: url('../../public/fonts/SOURCEHANSERIFTC-REGULAR.OTF') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* ========================================== */
 /* 基礎設定 */
 /* ========================================== */
@@ -44,9 +28,9 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #181A1B;
-  color: #E3E6EB;
-  font-family: '思源黑體', '思源明體', sans-serif;
+  background: #0E1014;
+  color: #F4F4F5;
+  font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
   font-weight: 400;
   letter-spacing: 0.03em;
   overflow-x: hidden;
@@ -62,8 +46,8 @@ h1,
 h2,
 h3,
 .work-title {
-  color: #6EC1E4;
-  font-family: '思源明體', '思源黑體', sans-serif;
+  color: #38BDF8;
+  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
   font-weight: 700;
   margin-bottom: 0.5em;
   letter-spacing: 0.08em;
@@ -99,7 +83,7 @@ section.section-page { display: none; }
 header.intro {
   text-align: center;
   padding: 3em 1em 2em 1em;
-  background: linear-gradient(180deg, #23272A 60%, transparent 100%);
+  background: linear-gradient(180deg, #161920 60%, transparent 100%);
 }
 
 header.intro.section-page {
@@ -109,7 +93,7 @@ header.intro.section-page {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(180deg, #23272A 60%, transparent 100%);
+  background: linear-gradient(180deg, #161920 60%, transparent 100%);
 }
 
 .intro.section-page>*:not(.intro-bg-thumb) {
@@ -121,14 +105,14 @@ header.intro.section-page {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 3px solid #6EC1E4;
-  box-shadow: 0 0 24px #6EC1E4aa;
+  border: 3px solid #38BDF8;
+  box-shadow: 0 0 24px #38BDF8aa;
   margin-bottom: 1em;
 }
 
 .typewriter {
   font-size: 1.2em;
-  color: #E3E6EB;
+  color: #F4F4F5;
   margin-top: 1em;
   min-height: 2em;
   background: transparent;
@@ -138,7 +122,7 @@ header.intro.section-page {
 /* 新增：高級質感的閃爍游標 */
 .typing-cursor::after {
   content: '|';
-  color: #6EC1E4;
+  color: #38BDF8;
   margin-left: 4px;
   animation: blinkCursor 1s step-end infinite;
 }
@@ -176,18 +160,16 @@ header.intro.section-page {
   display: block;
   opacity: 0.6;
   transition: opacity 0.4s;
-  /* 加入下面這行，創造電影感的緩慢推進效果 */
+  /* 電影感的緩慢推進效果 */
   animation: kenBurnsBg 20s ease-out infinite alternate;
+}
 
-  /* 在下方補上動畫關鍵格 */
-  @keyframes kenBurnsBg {
-    0% {
-      transform: scale(1);
-    }
-
-    100% {
-      transform: scale(1.12);
-    }
+@keyframes kenBurnsBg {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.12);
   }
 }
 
@@ -230,7 +212,7 @@ header.intro.section-page {
   top: 0;
   z-index: 10;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
-  border-bottom: 3px solid rgba(110, 193, 228, 0.6);
+  border-bottom: 3px solid rgba(56, 189, 248, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   animation: navSlideDown 0.8s cubic-bezier(.77, 0, .18, 1) both;
@@ -263,7 +245,7 @@ header.intro.section-page {
 }
 
 .main-nav a {
-  color: #E3E6EB;
+  color: #F4F4F5;
   text-decoration: none;
   font-size: 1.2em;
   padding: 0.7em 1.6em;
@@ -285,7 +267,7 @@ header.intro.section-page {
   top: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #6EC1E4 0%, #23272A 100%);
+  background: linear-gradient(90deg, #38BDF8 0%, #161920 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: -1;
@@ -294,9 +276,9 @@ header.intro.section-page {
 .main-nav a:hover {
   color: #fff;
   transform: translateY(-3px) scale(1.05);
-  text-shadow: 0 0 16px rgba(110, 193, 228, 0.8);
-  box-shadow: 0 4px 20px rgba(110, 193, 228, 0.3);
-  background: rgba(110, 193, 228, 0.1);
+  text-shadow: 0 0 16px rgba(56, 189, 248, 0.8);
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+  background: rgba(56, 189, 248, 0.1);
 }
 
 .main-nav a:hover::before {
@@ -304,9 +286,9 @@ header.intro.section-page {
 }
 
 .main-nav a.active {
-  background: linear-gradient(90deg, #6EC1E4 0%, #23272A 100%);
+  background: linear-gradient(90deg, #38BDF8 0%, #161920 100%);
   color: #fff;
-  box-shadow: 0 4px 20px rgba(110, 193, 228, 0.4);
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
 }
 
 @keyframes navItemFadeIn {
@@ -338,29 +320,29 @@ header.intro.section-page {
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  border: 3px solid #6EC1E4;
+  border: 3px solid #38BDF8;
   transition: all 0.3s ease;
 }
 
 .logo-link:hover img {
   transform: scale(1.15);
-  box-shadow: 0 0 36px rgba(110, 193, 228, 0.8);
+  box-shadow: 0 0 36px rgba(56, 189, 248, 0.8);
 }
 
 .logo-text {
-  color: #6EC1E4;
+  color: #38BDF8;
   font-size: 1.4em;
   font-weight: 600;
   letter-spacing: 0.08em;
   transition: all 0.3s ease;
-  font-family: '思源明體', '思源黑體', sans-serif;
+  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
   text-transform: none;
   /* 加入這一行，解除強制大寫 */
 }
 
 .logo-link:hover .logo-text {
   color: #fff;
-  text-shadow: 0 0 24px rgba(110, 193, 228, 0.8);
+  text-shadow: 0 0 24px rgba(56, 189, 248, 0.8);
   transform: translateX(2px);
 }
 
@@ -368,7 +350,7 @@ header.intro.section-page {
 /* 按鈕共用樣式 */
 /* ========================================== */
 button {
-  font-family: '思源黑體', '思源明體', sans-serif;
+  font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
   font-weight: 500;
 }
 
@@ -377,26 +359,26 @@ button {
 .about-more-btn,
 .quote-btn {
   display: inline-block;
-  background: #6EC1E4;
-  color: #23272A;
+  background: #38BDF8;
+  color: #161920;
   font-weight: 600;
   border: none;
   border-radius: 6px;
   padding: 0.9em 2em;
   font-size: 1.2em;
-  box-shadow: 0 2px 12px #6EC1E4aa;
+  box-shadow: 0 2px 12px #38BDF8aa;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
 .home-btn:hover, .cta-button:hover, .about-more-btn:hover, .quote-btn:hover {
-  background: #23272A;
-  color: #6EC1E4;
+  background: #161920;
+  color: #38BDF8;
   /* 柔和的霓虹光暈 */
-  box-shadow: 0 0 20px rgba(110, 193, 228, 0.4), inset 0 0 10px rgba(110, 193, 228, 0.1);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4), inset 0 0 10px rgba(56, 189, 248, 0.1);
   /* 縮小放大比例，1.04 會比 1.08 看起來更沉穩 */
   transform: scale(1.04); 
-  text-shadow: 0 0 8px rgba(110, 193, 228, 0.6);
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
 }
 
 .cta-button {
@@ -426,14 +408,14 @@ section#portfolio {
   border-radius: 16px;
   padding: 1.5em;
   /* 2. 稍微加大外框的內距，讓按鈕有呼吸空間 */
-  border: 1px solid rgba(110, 193, 228, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.1);
   transition: all 0.3s ease;
 }
 
 .filters button {
   background: rgba(24, 26, 27, 0.8);
-  color: #6EC1E4;
-  border: 1px solid rgba(110, 193, 228, 0.3);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: 24px;
   padding: 0.8em 1.8em;
   /* 放大內距，讓按鈕變飽滿 (上下 0.8em，左右 1.8em) */
@@ -446,14 +428,14 @@ section#portfolio {
   overflow: hidden;
   opacity: 1;
   letter-spacing: 0.03em;
-  box-shadow: 0 2px 12px rgba(110, 193, 228, 0.2);
+  box-shadow: 0 2px 12px rgba(56, 189, 248, 0.2);
 }
 
 .filters button.active,
 .filters button:hover {
   color: #fff;
-  border-color: #6EC1E4;
-  text-shadow: 0 0 8px rgba(110, 193, 228, 0.6);
+  border-color: #38BDF8;
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
   transform: translateY(-2px);
 }
 
@@ -467,19 +449,19 @@ section#portfolio {
 .work {
   max-width: 360px;
   width: 100%;
-  background: #23272A;
+  background: #161920;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   position: relative;
   transition: all 0.3s cubic-bezier(.77, 0, .18, 1);
-  border: 1px solid rgba(110, 193, 228, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.1);
 }
 
 .work:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 8px 32px rgba(110, 193, 228, 0.2);
+  box-shadow: 0 8px 32px rgba(56, 189, 248, 0.2);
 }
 
 .work img {
@@ -602,7 +584,7 @@ section#portfolio {
 }
 
 .overlay p {
-  color: #6EC1E4;
+  color: #38BDF8;
   font-size: 0.85rem;
   margin: 0;
   transform: translateY(20px);
@@ -672,7 +654,7 @@ section#skills h2 {
   width: 100%;
   max-width: none;
   margin: 0;
-  background: #23272A;
+  background: #161920;
   border-radius: 12px;
   box-shadow: 0 4px 24px #000a;
   padding: 2em 1.5em;
@@ -682,7 +664,7 @@ section#skills h2 {
 }
 
 .skill-card:hover {
-  box-shadow: 0 8px 32px #6EC1E4aa, 0 4px 24px #000a;
+  box-shadow: 0 8px 32px #38BDF8aa, 0 4px 24px #000a;
   transform: translateY(-2px) scale(1.015);
 }
 
@@ -708,7 +690,7 @@ section#skills h2 {
 }
 
 .skill-card span {
-  color: #6EC1E4;
+  color: #38BDF8;
   font-weight: 600;
   font-size: 1.15em;
   margin-bottom: 0.3em;
@@ -716,7 +698,7 @@ section#skills h2 {
 
 .skill-card .bar {
   width: 85%;
-  background: #181A1B;
+  background: #0E1014;
   border-radius: 8px;
   height: 12px;
   margin-top: 0.5em;
@@ -724,7 +706,7 @@ section#skills h2 {
 }
 
 .fill {
-  background: linear-gradient(90deg, #6EC1E4 60%, #23272A 100%);
+  background: linear-gradient(90deg, #38BDF8 60%, #161920 100%);
   height: 100%;
   border-radius: 8px;
   transition: width 1s cubic-bezier(.77, 0, .18, 1);
@@ -775,7 +757,7 @@ section#skills h2 {
   bottom: 10px;
   right: 15px;
   font-size: 0.75rem;
-  color: rgba(110, 193, 228, 0.6);
+  color: rgba(56, 189, 248, 0.6);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -817,9 +799,9 @@ section#brands h2 {
   min-width: 0;
   margin: 0;
   padding: 2.5em 2em;
-  background: linear-gradient(120deg, #23272A 80%, #6EC1E4 120%);
+  background: linear-gradient(120deg, #161920 80%, #38BDF8 120%);
   border-radius: 28px;
-  box-shadow: 0 4px 32px #000a, 0 0 0 #6EC1E4;
+  box-shadow: 0 4px 32px #000a, 0 0 0 #38BDF8;
   text-decoration: none;
   transition: box-shadow 0.3s, transform 0.18s cubic-bezier(.77, 0, .18, 1), background 0.3s;
   position: relative;
@@ -828,8 +810,8 @@ section#brands h2 {
 
 .brand-card:hover,
 .brand-card:focus {
-  box-shadow: 0 8px 32px #6EC1E4cc, 0 2px 16px #000a;
-  background: linear-gradient(120deg, #23272A 60%, #6EC1E4 140%);
+  box-shadow: 0 8px 32px #38BDF8cc, 0 2px 16px #000a;
+  background: linear-gradient(120deg, #161920 60%, #38BDF8 140%);
   transform: translateY(-8px) scale(1.09) rotate(-1deg);
   z-index: 2;
 }
@@ -842,10 +824,10 @@ section#brands h2 {
   object-fit: cover;
   display: block;
   flex-shrink: 0;
-  box-shadow: 0 2px 12px #6EC1E4aa, 0 0 0 #fff;
-  border: 3px solid #6EC1E4;
+  box-shadow: 0 2px 12px #38BDF8aa, 0 0 0 #fff;
+  border: 3px solid #38BDF8;
   margin-bottom: 0.7em;
-  background: #181A1B;
+  background: #0E1014;
   transition: box-shadow 0.3s, border 0.3s, transform 0.25s cubic-bezier(.77, 0, .18, 1), filter 0.35s cubic-bezier(.77, 0, .18, 1);
   filter: grayscale(0.7) brightness(0.85) saturate(0.7);
 }
@@ -853,12 +835,12 @@ section#brands h2 {
 .brand-card:hover .brand-avatar {
   transform: scale(1.45) rotate(-4deg);
   filter: brightness(1.35) saturate(1.25);
-  box-shadow: 0 0 32px #6EC1E4cc, 0 2px 12px #fff8;
+  box-shadow: 0 0 32px #38BDF8cc, 0 2px 12px #fff8;
   border: 3.5px solid #fff;
 }
 
 .brand-name {
-  color: #6EC1E4;
+  color: #38BDF8;
   font-size: 1.13em;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -878,9 +860,9 @@ section#brands h2 {
   display: none;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(120deg, #23272A 80%, #181A1B 100%);
+  background: linear-gradient(120deg, #161920 80%, #0E1014 100%);
   border-radius: 18px;
-  box-shadow: 0 4px 32px #6EC1E420;
+  box-shadow: 0 4px 32px #38BDF820;
   padding: 3em 2em 2.5em 2em;
   margin-top: 2em;
 }
@@ -897,7 +879,7 @@ section#brands h2 {
   width: 240px;
   height: 320px;
   border-radius: 12px;
-  box-shadow: 0 0 24px #6EC1E4aa;
+  box-shadow: 0 0 24px #38BDF8aa;
   margin-right: 1.5em;
   object-fit: cover;
   transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
@@ -906,7 +888,7 @@ section#brands h2 {
 
 .about-avatar:not(.no-hover):hover {
   transform: scale(1.05) rotate(-2deg);
-  box-shadow: 0 0 32px #6EC1E4cc, 0 0 16px #fff8;
+  box-shadow: 0 0 32px #38BDF8cc, 0 0 16px #fff8;
   filter: brightness(1.1) saturate(1.2);
 }
 
@@ -916,7 +898,7 @@ section#brands h2 {
 }
 
 .about-text h3 {
-  color: #6EC1E4;
+  color: #38BDF8;
   font-size: 1.25em;
   margin-bottom: 0.7em;
 }
@@ -924,7 +906,7 @@ section#brands h2 {
 .about-text ul {
   margin: 1em 0 1.2em 1.2em;
   list-style: disc;
-  color: #E3E6EB;
+  color: #F4F4F5;
   font-size: 1em;
 }
 
@@ -939,7 +921,7 @@ section#brands h2 {
 
 .stat-box {
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(110, 193, 228, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.2);
   border-radius: 12px;
   /* 縮小左右內距，讓文字有更多空間延伸 */
   padding: 1.2em 0.5em;
@@ -951,14 +933,14 @@ section#brands h2 {
 
 .stat-box:hover {
   transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(110, 193, 228, 0.15);
-  background: rgba(110, 193, 228, 0.05);
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.15);
+  background: rgba(56, 189, 248, 0.05);
 }
 
 .stat-num {
   /* 數字稍微再放大一點，讓視覺焦點更強 */
   font-size: 2.2rem;
-  color: #6EC1E4;
+  color: #38BDF8;
   margin: 0 0 2px 0;
   font-weight: 800;
   line-height: 1;
@@ -973,32 +955,14 @@ section#brands h2 {
 .stat-box p {
   margin: 0;
   font-size: 0.9rem;
-  color: #E3E6EB;
+  color: #F4F4F5;
   white-space: nowrap;
   /* 絕對不允許換行 */
   letter-spacing: 0.05em;
   /* 稍微拉開字距，增加質感 */
 }
 
-.stat-box {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(110, 193, 228, 0.2);
-  border-radius: 12px;
-  padding: 15px 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.stat-num {
-  font-size: 2rem;
-  color: #6EC1E4;
-  margin: 0 0 5px 0;
-  font-weight: 800;
-}
-
-.stat-num span {
-  font-size: 1.2rem;
-  color: #fff;
-}
 
 /* 升級服務清單 UI - 修復手機版折行問題 */
 .about-service-list {
@@ -1017,7 +981,7 @@ section#brands h2 {
   padding: 12px 16px;
   /* 稍微加寬內距，讓閱讀體驗更舒服 */
   border-radius: 6px;
-  border-left: 3px solid #6EC1E4;
+  border-left: 3px solid #38BDF8;
   line-height: 1.6;
 }
 
@@ -1039,9 +1003,9 @@ section#brands h2 {
   /* 讓文字變為純白，更亮眼 */
   text-align: center;
   /* 改用精緻的漸層背景與陰影，做出卡片浮雕感 */
-  background: linear-gradient(120deg, rgba(24, 26, 27, 0.8), rgba(110, 193, 228, 0.15));
+  background: linear-gradient(120deg, rgba(24, 26, 27, 0.8), rgba(56, 189, 248, 0.15));
   border-radius: 12px;
-  border: 1px solid rgba(110, 193, 228, 0.3);
+  border: 1px solid rgba(56, 189, 248, 0.3);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   line-height: 1.8;
   letter-spacing: 0.05em;
@@ -1054,61 +1018,149 @@ section#brands h2 {
 /* 報價與聯絡 (Contact) */
 /* ========================================== */
 .quote-section {
-  max-width: 600px;
-  margin: 3em auto 2em auto;
-  background: linear-gradient(120deg, #23272A 80%, #6EC1E4 120%);
+  max-width: 660px;
+  margin: 2.5em auto 2.5em auto;
+  background: rgba(35, 39, 42, 0.92);
+  border: 1px solid rgba(56, 189, 248, 0.22);
   border-radius: 18px;
-  box-shadow: 0 4px 32px #000a;
-  padding: 2.2em 1.5em 1.5em 1.5em;
-  color: #E3E6EB;
+  box-shadow: 0 8px 36px rgba(0, 0, 0, 0.55);
+  padding: 2.2em 2em 1.8em 2em;
+  color: #F4F4F5;
+  backdrop-filter: blur(8px);
 }
 
 .quote-section h2 {
-  color: #6EC1E4;
+  color: #38BDF8;
   text-align: center;
   letter-spacing: 0.08em;
+  margin-top: 0;
+  margin-bottom: 1.2em;
 }
 
 .quote-card {
-  background: #181A1B;
-  border-radius: 12px;
-  margin-bottom: 1.5em;
-  padding: 1.2em 1em;
+  background: rgba(24, 26, 27, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.14);
+  border-radius: 14px;
+  margin-bottom: 1.4em;
+  padding: 1.4em 1.5em;
 }
 
 .quote-card h3 {
-  color: #6EC1E4;
+  color: #38BDF8;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-top: 0;
 }
 
 .quote-card .price {
-  background: #6EC1E4;
-  color: #fff;
+  background: linear-gradient(135deg, #38BDF8, #0EA5E9);
+  color: #0E1014;
+  font-weight: 800;
   border-radius: 8px;
-  padding: 0.2em 0.8em;
+  padding: 0.2em 0.85em;
 }
 
 .quote-note {
-  background: #23272A;
-  border-radius: 10px;
-  padding: 1em 1.2em;
-  color: #6EC1E4;
+  background: rgba(24, 26, 27, 0.72);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-left: 3px solid #38BDF8;
+  border-radius: 12px;
+  padding: 1.3em 1.5em;
+  color: #D5DBE3;
+}
+
+.quote-note p {
+  margin: 0 0 0.8em 0;
+  color: #38BDF8;
+  font-size: 1.05em;
+}
+
+.quote-note ul {
+  margin: 0;
+  padding-left: 1.25em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55em;
+}
+
+.quote-note li {
+  line-height: 1.7;
+  color: #D5DBE3;
+}
+
+.quote-note li b {
+  color: #38BDF8;
+}
+
+.contact-box {
+  max-width: 660px;
+  margin: 0 auto 3em auto;
+  background: rgba(35, 39, 42, 0.92);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: 18px;
+  box-shadow: 0 8px 36px rgba(0, 0, 0, 0.55);
+  padding: 2.2em 2em 2em 2em;
+  backdrop-filter: blur(8px);
+}
+
+.contact-box h2 {
+  text-align: center;
+  color: #38BDF8;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-size: 1.7em;
+  letter-spacing: 0.1em;
+}
+
+.contact-subtitle {
+  text-align: center;
+  color: #C9D1D9;
+  margin: 0 auto 1.6em auto;
+  font-size: 0.96em;
+  line-height: 1.7;
+}
+
+.contact-divider {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin: 0.6em 0 1.4em 0;
+  color: #8B949E;
+  font-size: 0.88em;
+}
+
+.contact-divider::before,
+.contact-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(56, 189, 248, 0.2);
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  max-width: 400px;
+  max-width: 100%;
   margin: 0 auto;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+
+.form-field input {
+  width: 100%;
 }
 
 .contact-form input,
 .contact-form textarea {
-  background: #23272A;
-  color: #E3E6EB;
-  border: 1px solid transparent;
+  background: rgba(24, 26, 27, 0.9);
+  color: #F4F4F5;
+  border: 1px solid rgba(56, 189, 248, 0.2);
   border-radius: 8px;
   padding: 12px 16px;
   transition: all 0.3s ease;
@@ -1117,8 +1169,8 @@ section#brands h2 {
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: #6EC1E4;
-  background: #181A1B;
+  border-color: #38BDF8;
+  background: #0E1014;
 }
 
 .clibo-iframe {
@@ -1131,8 +1183,8 @@ section#brands h2 {
 }
 
 footer {
-  background: #23272A;
-  color: #6EC1E4;
+  background: #161920;
+  color: #38BDF8;
   text-align: center;
   padding: 1em 0 0.5em 0;
 }
@@ -1202,7 +1254,7 @@ footer {
   width: 100%;
   height: 100%;
   border-radius: 12px;
-  box-shadow: 0 0 32px rgba(110, 193, 228, 0.5);
+  box-shadow: 0 0 32px rgba(56, 189, 248, 0.5);
   background: #000;
 }
 
@@ -1214,23 +1266,23 @@ footer {
   width: 48px;
   height: 48px;
   background: rgba(35, 39, 42, 0.9);
-  border: 1px solid rgba(110, 193, 228, 0.4);
+  border: 1px solid rgba(56, 189, 248, 0.4);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2.2rem;
-  color: #6EC1E4;
+  color: #38BDF8;
   cursor: pointer;
   z-index: 100000;
   transition: all 0.3s cubic-bezier(.77, 0, .18, 1);
 }
 
 .lightbox .close:hover {
-  background: #6EC1E4;
-  color: #181A1B;
+  background: #38BDF8;
+  color: #0E1014;
   transform: rotate(90deg) scale(1.1);
-  box-shadow: 0 0 24px rgba(110, 193, 228, 0.6);
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.6);
 }
 
 /* ========================================== */
@@ -1310,7 +1362,7 @@ footer {
     padding: 0.8em 1em;
     gap: 0.8em;
     justify-content: flex-start;
-    border-top: 1px solid rgba(110, 193, 228, 0.15);
+    border-top: 1px solid rgba(56, 189, 248, 0.15);
     /* 加一條分隔線增加質感 */
   }
 
@@ -1477,4 +1529,756 @@ footer {
     width: 80px !important;
     height: 80px !important;
   }
+}
+
+/* ========================================== */
+/* 快速聯絡社群按鈕 & 技能圖片預覽燈箱 */
+/* ========================================== */
+.contact-social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85em;
+  width: 100%;
+  margin: 0 auto 0.5em auto;
+}
+
+.contact-social-subgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85em;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  padding: 0.8em 1em;
+  border-radius: 10px;
+  background: rgba(24, 26, 27, 0.85);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  text-decoration: none;
+  font-size: 0.94em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.social-btn:hover {
+  background: #38BDF8;
+  color: #0E1014;
+  border-color: #38BDF8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
+}
+
+.social-btn-discord {
+  width: 100%;
+  justify-content: space-between;
+  padding: 0.95em 1.3em;
+  background: rgba(88, 101, 242, 0.18);
+  border: 1px solid rgba(88, 101, 242, 0.65);
+  color: #E0E3FF;
+  font-size: 0.98em;
+}
+
+.social-btn-discord .copy-pill {
+  font-size: 0.8em;
+  padding: 0.25em 0.75em;
+  border-radius: 999px;
+  background: rgba(88, 101, 242, 0.35);
+  color: #fff;
+  transition: background 0.25s ease;
+}
+
+.social-btn-discord:hover {
+  background: #5865F2;
+  border-color: #5865F2;
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(88, 101, 242, 0.45);
+}
+
+.social-btn-discord:hover .copy-pill {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+@media (max-width: 600px) {
+  .quote-section,
+  .contact-box {
+    padding: 1.5em 1.2em;
+  }
+  .contact-social-subgrid,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .social-btn-discord {
+    flex-direction: column;
+    gap: 0.45em;
+  }
+}
+
+.copy-status {
+  text-align: center;
+  min-height: 1.4em;
+  margin: 0 0 1em 0;
+  font-size: 0.92em;
+  color: #00d2d3;
+}
+
+.img-preview-lightbox {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(24, 26, 27, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s;
+}
+
+.img-preview-lightbox.hidden {
+  display: none;
+}
+
+.img-preview-lightbox.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.img-preview-lightbox img {
+  max-width: 80vw;
+  max-height: 75vh;
+  border-radius: 18px;
+  box-shadow: 0 8px 48px #38BDF8cc, 0 2px 12px #000a;
+  animation: imgPopIn 0.45s cubic-bezier(.77, 0, .18, 1);
+}
+
+@keyframes imgPopIn {
+  0% { opacity: 0; transform: scale(0.7) rotate(-3deg); }
+  60% { opacity: 1; transform: scale(1.06) rotate(1.5deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+
+/* ========================================== */
+/* V3.2 視覺升級：60-25-10-5 配色分工與元件優化 */
+/* 60% 霧黑 #0E1014 / #161920 | 25% 電競青 #38BDF8 | 10% REC紅 #FF4D5A | 5% 香檳金 #E5B869 */
+/* ========================================== */
+:root {
+  --bg-base: #0E1014;
+  --bg-card: #161920;
+  --text-main: #F4F4F5;
+  --text-muted: #9CA3AF;
+  --accent-cyan: #38BDF8;
+  --accent-rec: #FF4D5A;
+  --accent-gold: #E5B869;
+}
+
+h1, h2, h3 {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--text-main);
+}
+
+/* 首頁 REC 攝影機狀態指示 */
+.rec-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  color: var(--accent-rec);
+  background: rgba(255, 77, 90, 0.12);
+  border: 1px solid rgba(255, 77, 90, 0.35);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 1.4em;
+}
+
+.rec-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-rec);
+  box-shadow: 0 0 10px var(--accent-rec);
+  display: inline-block;
+  animation: recBlink 1.6s ease-in-out infinite;
+}
+
+@keyframes recBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* 精選代表作區塊 */
+.featured-block {
+  margin-bottom: 3.2em;
+}
+
+.section-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 1.4em;
+}
+
+.section-header-row h2 {
+  margin: 0;
+  font-size: 1.75em;
+  color: var(--text-main);
+}
+
+.rec-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent-rec);
+  background: rgba(255, 77, 90, 0.14);
+  border: 1px solid rgba(255, 77, 90, 0.4);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.all-works-title {
+  text-align: center;
+  font-size: 1.55em;
+  color: var(--text-main);
+  margin-bottom: 0.5em;
+}
+
+.featured-grid,
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5em;
+  justify-items: stretch;
+}
+
+/* 作品卡片：常駐顯示標題與標籤（手機與電腦皆一目了然） */
+.work {
+  max-width: none;
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.work:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 12px 32px rgba(56, 189, 248, 0.16);
+}
+
+.work-thumb-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #090b0f;
+}
+
+.work-thumb-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.work:hover .work-thumb-wrap img {
+  transform: scale(1.06);
+}
+
+.work-play-hint {
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 16, 20, 0.42);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.work-play-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.92);
+  color: #0E1014;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 800;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.5);
+}
+
+.work:hover .work-play-hint {
+  opacity: 1;
+}
+
+.work-info {
+  padding: 13px 15px 15px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.work-info h3 {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.work-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--accent-cyan);
+  opacity: 0.9;
+}
+
+/* Badge 嚴格收斂到 4 種語意色 */
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  border-radius: 999px;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+.work:hover .badge {
+  opacity: 1;
+  transform: none;
+}
+
+.badge-rec {
+  background: var(--accent-rec);
+  color: #FFFFFF;
+}
+
+.badge-gold {
+  background: var(--accent-gold);
+  color: #0E1014;
+}
+
+.badge-cyan {
+  background: rgba(14, 16, 20, 0.86);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(56, 189, 248, 0.55);
+}
+
+.badge-muted {
+  background: rgba(14, 16, 20, 0.82);
+  color: #D1D5DB;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 技能卡：移除進度條與隱藏遮罩，直接常駐顯示說明 */
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8em;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  align-items: flex-start;
+  text-align: left;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.8em 1.6em;
+  cursor: default;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.skill-card::before {
+  display: none !important;
+}
+
+.skill-card:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 10px 32px rgba(56, 189, 248, 0.14);
+  transform: translateY(-4px);
+}
+
+.skill-card-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1em;
+}
+
+.skill-icon {
+  width: 68px;
+  height: 68px;
+  margin: 0;
+  border-radius: 12px;
+  cursor: zoom-in;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-icon:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
+}
+
+.skill-tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.skill-tag-gold {
+  color: var(--accent-gold);
+  background: rgba(229, 184, 105, 0.12);
+  border-color: rgba(229, 184, 105, 0.35);
+}
+
+.skill-card h3 {
+  margin: 0 0 0.6em 0;
+  font-size: 1.15em;
+  color: var(--text-main);
+}
+
+.skill-desc {
+  margin: 0;
+  font-size: 0.93em;
+  line-height: 1.72;
+  color: #CBD5E1;
+}
+
+/* 合作創作者：原色頭像 + 合作項目說明 */
+.brands-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
+  max-width: 1000px;
+  margin: 0 auto 3em auto;
+}
+
+.brand-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2.2em 1.5em;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.38);
+}
+
+.brand-card:hover,
+.brand-card:focus {
+  background: #1c212b;
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 12px 32px rgba(56, 189, 248, 0.18);
+  transform: translateY(-6px);
+}
+
+.brand-avatar {
+  filter: none !important;
+  border: 3px solid rgba(56, 189, 248, 0.75);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+}
+
+.brand-card:hover .brand-avatar {
+  transform: scale(1.08);
+  filter: brightness(1.06) !important;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.45);
+}
+
+.brand-name {
+  color: var(--text-main);
+  font-size: 1.2em;
+  margin: 0.4em 0 0.35em 0;
+}
+
+.brand-role {
+  margin: 0;
+  font-size: 0.85em;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.55;
+}
+
+/* 5% 香檳金：戰績數字與報價金額 */
+.stat-num {
+  font-family: 'JetBrains Mono', 'Noto Sans TC', monospace;
+  color: var(--accent-gold);
+}
+
+.stat-num span {
+  color: #F4F4F5;
+}
+
+.quote-card .price {
+  font-family: 'JetBrains Mono', 'Noto Sans TC', monospace;
+  background: linear-gradient(135deg, #E5B869, #CFA04E);
+  color: #0E1014;
+  font-weight: 800;
+}
+
+/* 主按鈕統一使用電競青 #38BDF8 */
+.home-btn,
+.cta-button {
+  background: var(--accent-cyan);
+  color: #0E1014;
+  font-weight: 700;
+  box-shadow: 0 4px 18px rgba(56, 189, 248, 0.35);
+}
+
+.home-btn:hover,
+.cta-button:hover {
+  background: #0EA5E9;
+  color: #FFFFFF;
+  box-shadow: 0 6px 24px rgba(56, 189, 248, 0.5);
+}
+
+.filters button.active {
+  background: var(--accent-cyan);
+  color: #0E1014;
+  border-color: var(--accent-cyan);
+  text-shadow: none;
+}
+
+@media (max-width: 900px) {
+  .featured-grid,
+  .works-grid,
+  .skills-list,
+  .brands-list {
+    grid-template-columns: 1fr !important;
+    gap: 1.25em;
+  }
+}
+
+
+/* ========================================== */
+/* V3.3 導覽列、首頁開頭與版面寬度精修 */
+/* ========================================== */
+
+/* 1. 版面寬度微調，減少大螢幕左右過多留白 */
+section {
+  max-width: 1080px;
+  margin: 2.4em auto 3em auto;
+}
+
+section#portfolio {
+  max-width: 1240px;
+}
+
+section#skills,
+section#brands {
+  max-width: 1140px;
+}
+
+section#about {
+  max-width: 960px;
+}
+
+/* 2. 現代簡約毛玻璃導覽列（取代原本厚重漸層方塊） */
+.main-nav {
+  background: rgba(14, 16, 20, 0.82) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0.72em 2.2em !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45) !important;
+}
+
+.logo-link {
+  gap: 0.7em !important;
+  margin-right: 1em !important;
+}
+
+.logo-link img {
+  height: 40px !important;
+  width: 40px !important;
+  border: 2px solid rgba(56, 189, 248, 0.7) !important;
+}
+
+.logo-text {
+  font-family: 'Noto Sans TC', sans-serif !important;
+  font-size: 1.15em !important;
+  font-weight: 800 !important;
+  color: #F4F4F5 !important;
+  letter-spacing: 0.04em !important;
+}
+
+.logo-sub {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 0.82em;
+  font-weight: 500;
+  color: #9CA3AF;
+  padding-left: 0.65em;
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  letter-spacing: 0.05em;
+}
+
+.main-nav .nav-links {
+  gap: 0.5em !important;
+}
+
+.main-nav a:not(.logo-link) {
+  font-family: 'Noto Sans TC', sans-serif !important;
+  font-size: 0.94em !important;
+  font-weight: 500 !important;
+  color: #CBD5E1 !important;
+  padding: 0.5em 1.15em !important;
+  border-radius: 999px !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: 0.04em !important;
+}
+
+.main-nav a:not(.logo-link)::before {
+  display: none !important;
+}
+
+.main-nav a:not(.logo-link):hover {
+  color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  transform: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.main-nav a:not(.logo-link).active {
+  background: rgba(56, 189, 248, 0.14) !important;
+  color: #38BDF8 !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.15) !important;
+}
+
+/* 3. 首頁 Hero 視覺收斂與協調感優化 */
+header.intro.section-page {
+  min-height: 100dvh;
+  padding: 2em 1.5em;
+  position: relative;
+}
+
+.intro-bg-thumb::after {
+  background: radial-gradient(circle at center, rgba(14, 16, 20, 0.72) 0%, rgba(14, 16, 20, 0.92) 72%, rgba(14, 16, 20, 0.98) 100%) !important;
+}
+
+.intro .avatar img {
+  width: 112px;
+  height: 112px;
+  border: 2.5px solid rgba(56, 189, 248, 0.85);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 22px rgba(56, 189, 248, 0.28);
+  margin-bottom: 1.1em;
+}
+
+.intro h1 {
+  font-size: 2.35em;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 0.35em 0;
+  letter-spacing: 0.04em;
+}
+
+.rec-indicator {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 0 1.1em 0 !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.16em !important;
+  color: #9CA3AF !important;
+}
+
+.intro .typewriter {
+  font-size: 1.08em;
+  color: #D1D5DB;
+  margin: 0 0 2em 0;
+  min-height: 1.8em;
+}
+
+.home-btn {
+  border-radius: 999px !important;
+  padding: 0.82em 2.3em !important;
+  font-size: 1.05em !important;
+  letter-spacing: 0.06em;
+  margin-top: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .main-nav {
+    padding: 0.7em 0 0 0 !important;
+  }
+  .logo-sub {
+    display: none;
+  }
+  .main-nav .nav-links {
+    padding: 0.55em 1em !important;
+    gap: 0.45em !important;
+  }
+}
+
+/* ========================================== */
+/* V3.4 聚光燈暗色刻度網格背景 */
+/* ========================================== */
+#spotlight-grid-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+body.show-intro #spotlight-grid-canvas {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* 直接透過 Hash 進入或重整分頁時，完全避免閃現首頁開頭 */
+body.has-direct-hash header.intro.section-page {
+  display: none !important;
+}
+
+/* 從線上履歷返回時，第一幀先由黑幕蓋滿，再交由 JS 拉起，零閃屏銜接 */
+body.return-curtain-active #page-transition {
+  transform: translateY(0) !important;
 }

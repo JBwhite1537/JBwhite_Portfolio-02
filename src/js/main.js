@@ -1,461 +1,140 @@
-// 作品資料（可自行擴充）
-const works = [
-  {
-    title: "【VTuber白銀茉茉】新衣裝精華",
-    type: "game clip",
-    video: "https://youtu.be/fYsgIFCZYG8?si=Tf6-l9Zfl_q0XzLZ"
-  },
-  {
-    title: "明新科大企業訂單式教學精華",
-    type: "education",
-    video: "https://youtu.be/dkUi44ap3rc"
-  },
-  {
-    title: "芎林113花啦嗶啵踩街",
-    type: "VLOG",
-    video: "https://youtu.be/aSjO7ZXCDo8"
-  },
-  {
-    title: "信託有愛徵影活動",
-    type: "short film",
-    video: "https://youtu.be/1-jj6QtlC6s"
-  },
-  {
-    title: "太魯閣生態紀錄片",
-    type: "documentary",
-    video: "https://youtu.be/KmQ8KaXMz1k"
-  },
-  {
-    title: "綠島生態紀錄片",
-    type: "documentary",
-    video: "https://youtu.be/trn-TVT_S2g"
-  },
-  // PEAK
-  {
-    title: "【VTuber白銀茉茉】遊戲精華",
-    type: "game clip",
-    video: "https://youtu.be/oImiKDPyX-I?si=lelfddHaaE6UI4uj"
-  },
-  // 熱風競技場
-  {
-    title: "【鳥鳥】遊戲精華",
-    type: "game clip",
-    video: "https://youtu.be/NSIlAAM77fU?si=QP7rwTI72_aqc9F4"
-  },
-  // 【小薰精華】觀眾：「我要小優」，小薰：「不，你要水蓮」｜寶可夢大師EX
-  {
-    title: "【小薰】遊戲精華",
-    type: "game clip",
-    video: "https://youtu.be/tenM8oQgjws?si=dssyfsIyK5H0C9L_"
-  },
+// =========================================================================
+// 作品資料來源設定：
+// 1. 若未來想用 Google 試算表當免寫程式後台：
+//    在 Google 試算表建立欄位：title, category, video, badge, badgeColor, tags, featured
+//    點選「檔案 → 共用 → 發佈到網路 → 選 CSV」，把網址貼進下方引號內即可！
+//    以後改試算表，網站不用重新部署就會即時更新。
+// 2. 若留空，會自動讀取 public/works.json（純資料檔，直接改 JSON 即可更新）。
+// =========================================================================
+const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSiFORqCMp3lArGZHenKVMSzmw_3hMd54XdjJR-5u-jyptXEf8LukxZUj47jQ6UAX3QYGWIgwJC1p65/pub?output=csv";
 
+const FALLBACK_WORKS = [{"title": "【小薰】這是免費的嗎？｜2026 環島企劃", "category": "shorts", "badge": "環島企劃流量擔當", "badgeColor": "rec", "tags": "#短影音 #網感快剪", "featured": true, "video": "https://www.youtube.com/shorts/8eFvm6aG_n0"}, {"title": "【VTuber白銀茉茉】新衣裝精華", "category": "gaming", "badge": "VTuber 精選精華", "badgeColor": "rec", "tags": "#VTuber #遊戲精華 #節奏掌控", "featured": true, "video": "https://youtu.be/fYsgIFCZYG8?si=Tf6-l9Zfl_q0XzLZ"}, {"title": "【小薰】SurfShark 工商", "category": "commercial", "badge": "品牌工商企劃", "badgeColor": "gold", "tags": "#工商 #腳本企劃", "featured": true, "video": "https://youtu.be/aGefWu5xptg?si=-Ffgdpz2lHyfS16I"}, {"title": "【小薰】麥塊共用血量！剪輯師死我也會死", "category": "gaming", "badge": "高留存節奏剪輯", "badgeColor": "cyan", "tags": "#遊戲精華 #節奏掌控", "featured": true, "video": "https://youtu.be/S-ERW0v1V3o?si=CUDxJ2NtcsauvYM-"}, {"title": "【小薰】2025 加班台 PV", "category": "commercial", "badge": "高質感影像製作", "badgeColor": "cyan", "tags": "#PV #情緒鋪陳", "featured": true, "video": "https://www.youtube.com/watch?v=mcYxWT44KXk"}, {"title": "明新科大企業訂單式教學精華", "category": "vlog", "badge": "官方指定合作", "badgeColor": "gold", "tags": "#教育合作 #活動紀錄", "featured": true, "video": "https://youtu.be/dkUi44ap3rc"}, {"title": "【VTuber白銀茉茉】PEAK 遊戲精華", "category": "gaming", "badge": "高留存節奏剪輯", "badgeColor": "cyan", "tags": "#VTuber #遊戲精華", "featured": false, "video": "https://youtu.be/oImiKDPyX-I?si=lelfddHaaE6UI4uj"}, {"title": "【鳥鳥】熱風競技場開箱精華｜PTCG", "category": "gaming", "badge": "高留存節奏剪輯", "badgeColor": "cyan", "tags": "#PTCG #遊戲精華", "featured": false, "video": "https://youtu.be/NSIlAAM77fU?si=QP7rwTI72_aqc9F4"}, {"title": "【小薰】我要小優？不，你要水蓮｜寶可夢大師EX", "category": "gaming", "badge": "高留存節奏剪輯", "badgeColor": "cyan", "tags": "#長影音 #遊戲精華", "featured": false, "video": "https://youtu.be/tenM8oQgjws?si=dssyfsIyK5H0C9L_"}, {"title": "【小薰】獻祭觀眾生命抽週年珠貝｜寶可夢大師EX", "category": "gaming", "badge": "高留存節奏剪輯", "badgeColor": "cyan", "tags": "#長影音 #遊戲精華", "featured": false, "video": "https://youtu.be/hWbcUfx75Y4?si=PV2CH19o1yEbkYUk"}, {"title": "【小薰】稀有卡直接被觀眾 NTR｜PTCG Pocket", "category": "gaming", "badge": "高留存節奏剪輯", "badgeColor": "cyan", "tags": "#PTCG #遊戲精華", "featured": false, "video": "https://youtu.be/fmAI5NDf_kE?si=eynEPfLrlR374faG"}, {"title": "【小薰】抽不到密勒頓怒喊退坑｜寶可夢大師EX", "category": "gaming", "badge": "高留存節奏剪輯", "badgeColor": "cyan", "tags": "#長影音 #遊戲精華", "featured": false, "video": "https://www.youtube.com/watch?v=KK8jmO-_7Wk"}, {"title": "【小薰】故勒頓又是保底大崩潰｜寶可夢大師EX", "category": "gaming", "badge": "高留存節奏剪輯", "badgeColor": "cyan", "tags": "#長影音 #遊戲精華", "featured": false, "video": "https://www.youtube.com/watch?v=X0opK-UPz_M"}, {"title": "【鳥鳥】太晶慶典 ex 剛入坑就歐氣爆棚｜PTCG", "category": "gaming", "badge": "高留存節奏剪輯", "badgeColor": "cyan", "tags": "#PTCG #遊戲精華", "featured": false, "video": "https://www.youtube.com/watch?v=9WfLA5YfGQU"}, {"title": "【JBwhite】個人遊戲精華 #1", "category": "gaming", "badge": "高留存節奏剪輯", "badgeColor": "cyan", "tags": "#遊戲精華 #節奏掌控", "featured": false, "video": "https://youtu.be/3ulbOsmoN2Y"}, {"title": "【JBwhite】個人遊戲精華 #2", "category": "gaming", "badge": "高留存節奏剪輯", "badgeColor": "cyan", "tags": "#遊戲精華 #節奏掌控", "featured": false, "video": "https://youtu.be/jGydqjonqHQ"}, {"title": "【JBwhite】個人遊戲精華 #3", "category": "gaming", "badge": "高留存節奏剪輯", "badgeColor": "cyan", "tags": "#遊戲精華 #節奏掌控", "featured": false, "video": "https://youtu.be/Fw4QBGg5KdY"}, {"title": "【小薰】遊戲教學 / 說書 #1", "category": "gaming", "badge": "高流量系列", "badgeColor": "rec", "tags": "#遊戲教學 #說書剪輯", "featured": false, "video": "https://youtu.be/1ha60NATVUw?si=IkZJCBf73jcrxIVb"}, {"title": "【小薰】遊戲教學 / 說書 #2", "category": "gaming", "badge": "高流量系列", "badgeColor": "rec", "tags": "#遊戲教學 #說書剪輯", "featured": false, "video": "https://youtu.be/1oM8SEM0Pog?si=09Lf5K3h9mmk8SCv"}, {"title": "Annin Miru 杏仁ミル 實況精華 #1", "category": "gaming", "badge": "創意社群二創", "badgeColor": "cyan", "tags": "#VTuber #社群二創", "featured": false, "video": "https://youtu.be/SmZvl_R8fHI"}, {"title": "Annin Miru 杏仁ミル 實況精華 #2", "category": "gaming", "badge": "創意社群二創", "badgeColor": "cyan", "tags": "#VTuber #社群二創", "featured": false, "video": "https://youtu.be/cfStM6di-eo"}, {"title": "【小薰】緋紅之心 工商", "category": "commercial", "badge": "品牌工商企劃", "badgeColor": "gold", "tags": "#工商 #企劃腳本", "featured": false, "video": "https://youtu.be/mBV0bVURXYU?si=r6FgZyJ8EEXfe2Cb"}, {"title": "【小薰】未頌者之歌 工商", "category": "commercial", "badge": "品牌工商企劃", "badgeColor": "gold", "tags": "#工商 #企劃腳本", "featured": false, "video": "https://www.youtube.com/watch?v=DBtyK4-nEA4"}, {"title": "【小薰】女神異聞錄 工商", "category": "commercial", "badge": "品牌工商企劃", "badgeColor": "gold", "tags": "#工商 #企劃腳本", "featured": false, "video": "https://youtu.be/J7VZype94NM?si=W2ctSuiuskobzxLy"}, {"title": "【小薰】跟阿啾超荒唐做任務｜2026 環島企劃", "category": "shorts", "badge": "節奏與視覺擔當", "badgeColor": "rec", "tags": "#短影音 #網感快剪", "featured": false, "video": "https://youtube.com/shorts/AA5LrthTwjs?si=0SLhKRc0bMR69WCO"}, {"title": "【小薰】一輩子乒乓球｜2026 環島企劃", "category": "shorts", "badge": "環島企劃最有趣的一支", "badgeColor": "rec", "tags": "#短影音 #網感快剪", "featured": false, "video": "https://youtube.com/shorts/GSXm3VIHM8s?si=vyUE1uyzPM-_WLTJ"}, {"title": "【小薰】Xpark 海豹也太可愛｜2026 環島企劃", "category": "shorts", "badge": "節奏及 Hook", "badgeColor": "rec", "tags": "#短影音 #Hook編排", "featured": false, "video": "https://youtube.com/shorts/VLcXHIPyauM?si=eABKu1XIHJ5zzECm"}, {"title": "【小薰】PTCG 不考慮取消色違卡嗎？", "category": "shorts", "badge": "高節奏迷因", "badgeColor": "cyan", "tags": "#短影音 #迷因精華", "featured": false, "video": "https://youtube.com/shorts/zz91sRLu-1I?si=1DnwuoRxueotcx5n"}, {"title": "【小薰】罵歸罵，DeNA 的狗還是要當", "category": "shorts", "badge": "社群話題", "badgeColor": "cyan", "tags": "#短影音 #遊戲話題", "featured": false, "video": "https://youtube.com/shorts/MBWLsq7zUzs?si=DEhUHqbQ9qJi5o56"}, {"title": "【小薰】為什麼要在合池放這個啦！", "category": "shorts", "badge": "情緒鋪陳爆發", "badgeColor": "cyan", "tags": "#短影音 #節奏快剪", "featured": false, "video": "https://youtube.com/shorts/8K2sI4g7UmY?si=XHrKTobiImPmI8S_"}, {"title": "【小薰】爆肌蚊的設計由來｜迷因精華", "category": "shorts", "badge": "實況迷因", "badgeColor": "cyan", "tags": "#短影音 #迷因精華", "featured": false, "video": "https://youtube.com/shorts/6quoaJrWN8c?si=y8LiV6zNX-1zbGPh"}, {"title": "【小薰】新楓之谷真的很好玩", "category": "shorts", "badge": "話題遊戲", "badgeColor": "cyan", "tags": "#短影音 #網感快剪", "featured": false, "video": "https://youtube.com/shorts/I8VMeDhysds?si=BEcKiY304tBeRMLy"}, {"title": "【小薰】這就是 NS2 卡帶的味道嗎？", "category": "shorts", "badge": "高互動話題", "badgeColor": "cyan", "tags": "#短影音 #社群話題", "featured": false, "video": "https://youtube.com/shorts/p2-hSWemuYI?si=pj1DN1NVJrjYaAYg"}, {"title": "【小薰】寶可夢第一位被配音的角色！", "category": "shorts", "badge": "遊戲冷知識", "badgeColor": "cyan", "tags": "#短影音 #知識快剪", "featured": false, "video": "https://www.youtube.com/shorts/7FflMgthsSo"}, {"title": "【小薰】原來台灣跟香港差這麼多…", "category": "shorts", "badge": "高互動話題", "badgeColor": "cyan", "tags": "#短影音 #生活話題", "featured": false, "video": "https://www.youtube.com/watch?v=iyAL3j9F2B4"}, {"title": "【小薰】西門町隨便走走挖到寶｜VLOG", "category": "shorts", "badge": "短影音 VLOG", "badgeColor": "cyan", "tags": "#短影音 #VLOG", "featured": false, "video": "https://youtube.com/shorts/mL9wyiPDpts"}, {"title": "【小薰】學長帶我台中一日遊 EP.1｜VLOG", "category": "shorts", "badge": "短影音 VLOG", "badgeColor": "cyan", "tags": "#短影音 #VLOG", "featured": false, "video": "https://www.youtube.com/watch?v=Nrzfs8fkpkM"}, {"title": "【VTuber白銀茉茉】短影音精華 #1", "category": "shorts", "badge": "VTuber 短影音", "badgeColor": "cyan", "tags": "#VTuber #短影音", "featured": false, "video": "https://youtube.com/shorts/dhOUNMoysvw?feature=share"}, {"title": "【VTuber白銀茉茉】短影音精華 #2", "category": "shorts", "badge": "VTuber 短影音", "badgeColor": "cyan", "tags": "#VTuber #短影音", "featured": false, "video": "https://www.youtube.com/watch?v=87j0_bLR8Uc"}, {"title": "【VTuber白銀茉茉】短影音精華 #3", "category": "shorts", "badge": "VTuber 短影音", "badgeColor": "cyan", "tags": "#VTuber #短影音", "featured": false, "video": "https://www.youtube.com/watch?v=K0btja-xNAk"}, {"title": "【VTuber白銀茉茉】短影音精華 #4", "category": "shorts", "badge": "VTuber 短影音", "badgeColor": "cyan", "tags": "#VTuber #短影音", "featured": false, "video": "https://www.youtube.com/watch?v=ZJy6sdwU7nE"}, {"title": "【VTuber白銀茉茉】短影音精華 #5", "category": "shorts", "badge": "VTuber 短影音", "badgeColor": "cyan", "tags": "#VTuber #短影音", "featured": false, "video": "https://www.youtube.com/watch?v=YN2ejvDgBDE"}, {"title": "芎林113花啦嗶啵踩街", "category": "vlog", "badge": "官方指定合作", "badgeColor": "gold", "tags": "#VLOG #活動紀錄", "featured": false, "video": "https://youtu.be/aSjO7ZXCDo8"}, {"title": "信託有愛徵影活動", "category": "vlog", "badge": "高質感微電影", "badgeColor": "cyan", "tags": "#微電影 #敘事剪輯", "featured": false, "video": "https://youtu.be/1-jj6QtlC6s"}, {"title": "太魯閣生態紀錄片", "category": "vlog", "badge": "深度專題紀錄", "badgeColor": "muted", "tags": "#長影音 #生態紀錄片", "featured": false, "video": "https://youtu.be/KmQ8KaXMz1k"}, {"title": "綠島生態紀錄片", "category": "vlog", "badge": "深度專題紀錄", "badgeColor": "muted", "tags": "#長影音 #生態紀錄片", "featured": false, "video": "https://youtu.be/trn-TVT_S2g"}, {"title": "【小薰】從健身房到斯巴達障礙賽｜VLOG", "category": "vlog", "badge": "生活風格紀錄", "badgeColor": "muted", "tags": "#VLOG #生活紀錄", "featured": false, "video": "https://youtu.be/lgTRdQt9St4?si=TlOq4ObqJjZrwpJb"}, {"title": "【小薰】帶著皮卡丘參加寶可夢路跑｜VLOG", "category": "vlog", "badge": "生活風格紀錄", "badgeColor": "muted", "tags": "#VLOG #生活紀錄", "featured": false, "video": "https://www.youtube.com/watch?v=PgZMgh9h-BE"}, {"title": "【小薰】直飛香港找觀眾吃飯 EP.1｜VLOG", "category": "vlog", "badge": "生活風格紀錄", "badgeColor": "muted", "tags": "#VLOG #旅遊紀錄", "featured": false, "video": "https://www.youtube.com/watch?v=Wi11SPpYlgo"}, {"title": "【小薰】寶可夢路跑大師組物資開箱", "category": "vlog", "badge": "輕鬆日常剪輯", "badgeColor": "muted", "tags": "#開箱 #日常", "featured": false, "video": "https://youtu.be/uvOvOteMv_0?si=NeLJBNhzzrDzLjCC"}, {"title": "【小薰】觀眾生日禮物大開箱", "category": "vlog", "badge": "輕鬆日常剪輯", "badgeColor": "muted", "tags": "#開箱 #日常", "featured": false, "video": "https://youtu.be/MHfAz1EPZZ4?si=11CGfv2XTKINJ2-B"}, {"title": "【小薰】焦慮症後的兩年，謝謝你們", "category": "vlog", "badge": "敘事訪談", "badgeColor": "muted", "tags": "#日常 #情緒敘事", "featured": false, "video": "https://youtu.be/cAGsGPFqJHU?si=aHdGmnktCmgHkPDF"}, {"title": "【小薰】冰結+威士忌！岡山椅子王的誕生", "category": "vlog", "badge": "輕鬆日常剪輯", "badgeColor": "muted", "tags": "#日常 #娛樂精華", "featured": false, "video": "https://youtu.be/_M2psR1h96A?si=-s6k--H6jIKFXdN1"}, {"title": "【小薰】岡山 Motel 總統套房開箱｜加班台精華", "category": "vlog", "badge": "輕鬆日常剪輯", "badgeColor": "muted", "tags": "#日常 #開箱", "featured": false, "video": "https://youtu.be/eJC9GhnIYUI?si=mQXy0ew4QWPsjVxt"}];
 
-  //【小薰精華】麥塊！但是共用"血量"🤣剪輯師死掉我也會死掉👻觀眾還出任務搞我們
-  {
-    title: "【小薰】遊戲精華",
-    type: "game clip",
-    video: "https://youtu.be/S-ERW0v1V3o?si=CUDxJ2NtcsauvYM-"
-  },
-
-  //【小薰精華】獻祭觀眾的生命🤣效果拔群！週年珠貝輕鬆到手❤️｜寶可夢大師EX
-  {
-    title: "【小薰】遊戲精華",
-    type: "game clip",
-    video: "https://youtu.be/hWbcUfx75Y4?si=PV2CH19o1yEbkYUk"
-  },
-  // 【小薰精華】隔壁狂開稀有卡，直接被觀眾NTR🫠...│PTCG Pocket
-  {
-    title: "【小薰】遊戲精華",
-    type: "game clip",
-    video: "https://youtu.be/fmAI5NDf_kE?si=eynEPfLrlR374faG"
-  },
-
-  // 【小薰精華】我抽一堆主角🔥就是抽不到密勒頓！？官方想逼我退坑吧😡｜寶可夢大師EX
-  {
-    title: "【小薰】遊戲精華",
-    type: "game clip",
-    video: "https://www.youtube.com/watch?v=KK8jmO-_7Wk"
-  },
-  // 【小薰精華】又是保底😱故勒頓完全不給面子！這機率我一定告啦😡│寶可夢大師EX
-  {
-    title: "【小薰】遊戲精華",
-    type: "game clip",
-    video: "https://www.youtube.com/watch?v=X0opK-UPz_M"
-  },
-  // 剛入坑開卡包 就有良好的開盒體驗 PTCG | 太晶慶典ex | 寶可夢集換式卡牌 | 鳥鳥 🐦 (by.JBwhite)
-  {
-    title: "【鳥鳥】遊戲精華",
-    type: "game clip",
-    video: "https://www.youtube.com/watch?v=9WfLA5YfGQU"
-  },
-
-  {
-    title: "【JBwhite】遊戲精華",
-    type: "game clip",
-    video: "https://youtu.be/3ulbOsmoN2Y"
-  },
-  {
-    title: "【JBwhite】遊戲精華",
-    type: "game clip",
-    video: "https://youtu.be/jGydqjonqHQ"
-  },
-  {
-    title: "【JBwhite】遊戲精華",
-    type: "game clip",
-    video: "https://youtu.be/Fw4QBGg5KdY"
-  },
-
-  {
-    title: "【小薰】2025加班台PV",
-    type: "PV",
-    video: "https://www.youtube.com/watch?v=mcYxWT44KXk"
-  },
-  {
-    title: "【小薰】緋紅之心 工商",
-    type: "ad",
-    video: "https://youtu.be/mBV0bVURXYU?si=r6FgZyJ8EEXfe2Cb"
-  },
-  {
-    title: "【小薰】SurfShark 工商",
-    type: "ad",
-    video: "https://youtu.be/aGefWu5xptg?si=-Ffgdpz2lHyfS16I"
-  },
-  {
-    title: "【小薰】未頌者之歌 工商",
-    type: "ad",
-    video: "https://www.youtube.com/watch?v=DBtyK4-nEA4"
-  },
-  {
-    title: "【小薰】女神異聞錄 工商",
-    type: "ad",
-    video: "https://youtu.be/J7VZype94NM?si=W2ctSuiuskobzxLy"
-  },
-  {
-    title: "【小薰】遊戲教學/說書",
-    type: "game tutorial",
-    video: "https://youtu.be/1ha60NATVUw?si=IkZJCBf73jcrxIVb"
-  },
-  {
-    title: "【小薰】遊戲教學/說書",
-    type: "game tutorial",
-    video: "https://youtu.be/1oM8SEM0Pog?si=09Lf5K3h9mmk8SCv"
-  },
-  // 開箱寶可夢路跑大師訓練組物資！這個CP值太高了啦❤️路卡利歐背包真的超級好看🥵
-  {
-    title: "【小薰】日常",
-    type: "daily",
-    video: "https://youtu.be/uvOvOteMv_0?si=NeLJBNhzzrDzLjCC"
-  },
-  // 【小薰精華】開箱觀眾送的生日禮物！居然有人送「猛1愛愛大禮包」🥵...
-  {
-    title: "【小薰】日常",
-    type: "daily",
-    video: "https://youtu.be/MHfAz1EPZZ4?si=11CGfv2XTKINJ2-B"
-  },
-  // 【小薰精華】焦慮症後的兩年，謝謝你們！我想說的話，都在這部影片了
-  {
-    title: "【小薰】日常",
-    type: "daily",
-    video: "https://youtu.be/cAGsGPFqJHU?si=aHdGmnktCmgHkPDF"
-  },
-  //【小薰精華】冰結+威士忌到底能多瘋🍺？岡山椅子王的誕生💥
-  {
-    title: "【小薰】日常",
-    type: "daily",
-    video: "https://youtu.be/_M2psR1h96A?si=-s6k--H6jIKFXdN1"
-  },
-  // 【小薰精華】真的洗澡直播了🥵開箱岡山最屌Motel，居然入住到總統套房...│加班台精華
-  {
-    title: "【小薰】日常",
-    type: "daily",
-    video: "https://youtu.be/eJC9GhnIYUI?si=mQXy0ew4QWPsjVxt"
-  },
-  // 【小薰】從健身房到斯巴達障礙賽：我挑戰了最艱難的挑戰😱！
-  {
-    title: "【小薰】VLOG",
-    type: "VLOG",
-    video: "https://youtu.be/lgTRdQt9St4?si=TlOq4ObqJjZrwpJb"
-  },
-  // 帶著"皮卡丘(?)"參加寶可夢路跑🥇攝影師跑到差點鼠掉🤣
-  {
-    title: "【小薰】VLOG",
-    type: "VLOG",
-    video: "https://www.youtube.com/watch?v=PgZMgh9h-BE"
-  },
-  // 觀眾在直播轉盤轉到"和我吃飯"…結果人在香港🤣直接飛過去找他！│香港之旅EP.1
-  {
-    title: "【小薰】VLOG",
-    type: "VLOG",
-    video: "https://www.youtube.com/watch?v=Wi11SPpYlgo"
-  },
-
-
-  // shorts
-  // 這是免費的嗎？ 流量擔當（數據最好的一支）
-  {
-    title: "【小薰】2026 加班台環島企劃",
-    type: "shorts",
-    video: "https://www.youtube.com/shorts/8eFvm6aG_n0"
-  },
-  // 跟阿啾一起超荒唐做任務，阿啾還幫我減班:)  節奏與視覺擔當（剪得最炫的一支）
-  {
-    title: "【小薰】2026 加班台環島企劃",
-    type: "shorts",
-    video: "https://youtube.com/shorts/AA5LrthTwjs?si=0SLhKRc0bMR69WCO"
-  },
-  // 一輩子乒乓球 故事與互動擔當（企劃最有趣的一支）
-  {
-    title: "【小薰】2026 加班台環島企劃",
-    type: "shorts",
-    video: "https://youtube.com/shorts/GSXm3VIHM8s?si=vyUE1uyzPM-_WLTJ"
-  },
-  // Xpark的海豹會不會太可愛了🦭 節奏極快/鉤子最強的一支
-  {
-    title: "【小薰】2026 加班台環島企劃",
-    type: "shorts",
-    video: "https://youtube.com/shorts/VLcXHIPyauM?si=eABKu1XIHJ5zzECm"
-  },
-
-
-  // PTCG真的不考慮取消色違卡嗎？
-  {
-    title: "【小薰】高節奏迷因精華",
-    type: "shorts",
-    video: "https://youtube.com/shorts/zz91sRLu-1I?si=1DnwuoRxueotcx5n"
-  },
-  // 罵歸罵，但DeNA的狗還是要當
-  {
-    title: "【小薰】遊戲社群話題",
-    type: "shorts",
-    video: "https://youtube.com/shorts/MBWLsq7zUzs?si=DEhUHqbQ9qJi5o56"
-  },
-  // 為什麼要在合池放這個啦!! 
-  {
-    title: "【小薰】情緒鋪陳與爆發",
-    type: "shorts",
-    video: "https://youtube.com/shorts/8K2sI4g7UmY?si=XHrKTobiImPmI8S_"
-  },
-  // 爆肌蚊的設計由來
-  {
-    title: "【小薰】實況迷因精華",
-    type: "shorts",
-    video: "https://youtube.com/shorts/6quoaJrWN8c?si=y8LiV6zNX-1zbGPh"
-  },
-  // 新楓之谷真的很好玩😊
-  {
-    title: "【小薰】話題熱潮遊戲",
-    type: "shorts",
-    video: "https://youtube.com/shorts/I8VMeDhysds?si=BEcKiY304tBeRMLy"
-  },
-  // 這就是NS2卡帶的味道嗎🤨? 
-  {
-    title: "【小薰】社群高互動話題",
-    type: "shorts",
-    video: "https://youtube.com/shorts/p2-hSWemuYI?si=pj1DN1NVJrjYaAYg"
-  },
-  // 這是第一個在寶可夢遊戲被配音的角色！
-  {
-    title: "【小薰】遊戲冷知識",
-    type: "shorts",
-    video: "https://www.youtube.com/shorts/7FflMgthsSo"
-  },
-  // 原來台灣跟香港….
-  {
-    title: "【小薰】社群高互動話題",
-    type: "shorts",
-    video: "https://www.youtube.com/watch?v=iyAL3j9F2B4"
-  },
-  // 西門町隨便走走🤤結果找到超讚的餐廳❤️
-  {
-    title: "【小薰】VLOG",
-    type: "shorts",
-    video: "https://youtube.com/shorts/mL9wyiPDpts"
-  },
-  // 學長帶我來台中一日遊🥹 EP1
-  {
-    title: "【小薰】VLOG",
-    type: "shorts",
-    video: "https://www.youtube.com/watch?v=Nrzfs8fkpkM"
-  },
-
-
-  {
-    title: "【VTuber白銀茉茉】",
-    type: "shorts",
-    video: "https://youtube.com/shorts/dhOUNMoysvw?feature=share"
-  },
-  {
-    title: "【VTuber白銀茉茉】",
-    type: "shorts",
-    video: "https://www.youtube.com/watch?v=87j0_bLR8Uc"
-  },
-  {
-    title: "【VTuber白銀茉茉】",
-    type: "shorts",
-    video: "https://www.youtube.com/watch?v=K0btja-xNAk"
-  },
-  {
-    title: "【VTuber白銀茉茉】",
-    type: "shorts",
-    video: "https://www.youtube.com/watch?v=ZJy6sdwU7nE"
-  },
-  {
-    title: "【VTuber白銀茉茉】",
-    type: "shorts",
-    video: "https://www.youtube.com/watch?v=YN2ejvDgBDE"
-  },
-
-
-  {
-    title: "Annin Miru 杏仁ミル 實況精華",
-    type: "fan art",
-    video: "https://youtu.be/SmZvl_R8fHI"
-  },
-  {
-    title: "Annin Miru 杏仁ミル 實況精華",
-    type: "fan art",
-    video: "https://youtu.be/cfStM6di-eo"
-  },
-];
+let works = FALLBACK_WORKS;
 window.works = works;
 
+function extractYouTubeId(videoUrl) {
+  try {
+    const url = new URL(videoUrl);
+    if (url.hostname.includes('youtu.be')) {
+      return url.pathname.slice(1, 12);
+    }
+    if (url.hostname.includes('youtube.com')) {
+      if (url.pathname.includes('/shorts/')) {
+        return url.pathname.split('/shorts/')[1].slice(0, 11);
+      }
+      return url.searchParams.get('v') || '';
+    }
+  } catch {
+    return '';
+  }
+  return '';
+}
 
-// 動態產生作品縮圖
-function renderWorks(filter = "all") {
-  const grid = document.querySelector('.works-grid');
+// 簡易 CSV 解析（供 Google Sheets 發佈的 CSV 使用）
+function parseCSV(text) {
+  const lines = text.trim().split(/\r?\n/);
+  if (lines.length < 2) return [];
+  const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+  return lines.slice(1).map(line => {
+    const values = line.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g) || [];
+    const obj = {};
+    headers.forEach((h, idx) => {
+      const raw = (values[idx] || '').trim().replace(/^"|"$/g, '').replace(/""/g, '"');
+      obj[h] = h === 'featured' ? raw.toLowerCase() === 'true' : raw;
+    });
+    return obj;
+  }).filter(item => item.title && item.video);
+}
 
-  // 定義一個產生單一作品 HTML 的輔助函數，確保兩次渲染的結構完全一樣
-  function createWorkElement(w) {
-    const div = document.createElement('div');
-    div.className = 'work';
-    div.setAttribute('data-video', w.video);
-
-    // 取得 YouTube ID
-    let ytId = '';
-    try {
-      const url = new URL(w.video);
-      if (url.hostname.includes('youtu.be')) {
-        ytId = url.pathname.slice(1, 12);
-      } else if (url.hostname.includes('youtube.com')) {
-        if (url.pathname.includes('/shorts/')) {
-          ytId = url.pathname.split('/shorts/')[1].slice(0, 11);
-        } else {
-          ytId = url.searchParams.get('v');
+async function loadWorksData() {
+  try {
+    if (GOOGLE_SHEET_CSV_URL) {
+      const res = await fetch(GOOGLE_SHEET_CSV_URL);
+      if (res.ok) {
+        const parsed = parseCSV(await res.text());
+        if (parsed.length) {
+          works = parsed;
+          window.works = works;
+          return;
         }
       }
-    } catch { }
-
-    let thumbUrl = ytId ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg` : 'public/images/default-thumb.jpg';
-
-    // 根據不同的分類給予不同的 #標籤說明
-    let tags = "";
-    if (w.type === "game clip") tags = "#長影音 #遊戲精華 #節奏掌控";
-    else if (w.type === "shorts") tags = "#短影音 #網感快剪";
-    else if (w.type === "documentary") tags = "#長影音 #生態紀錄片";
-    else if (w.type === "ad") tags = "#工商 #企劃腳本";
-    else if (w.type === "VLOG") tags = "#VLOG #生活紀錄";
-    else tags = "#影片剪輯";
-
-    // 戰績 Badge 判斷與分類
-    let badgeHtml = "";
-    let badgeClass = "";
-    let badgeText = "";
-
-    // 偵測指定的影片 ID (網址 shorts/ 後面，或 watch?v= 後面的那串代碼)
-    if (
-      w.video.includes("8eFvm6aG_n0")
-    ) {
-      // 爆發力企劃 (粉紅)
-      badgeClass = "badge-pink";
-      badgeText = "環島企劃流量擔當";
     }
-    // 如果有其他想要獨立標示的影片，也可以繼續往下加
-    else if (w.video.includes("AA5LrthTwjs?si")) {
-      badgeClass = "badge-pink";
-      badgeText = "節奏與視覺擔當";
+    const res = await fetch('public/works.json');
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data) && data.length) {
+        works = data;
+        window.works = works;
+      }
     }
-    else if (w.video.includes("GSXm3VIHM8s?si")) {
-      badgeClass = "badge-pink";
-      badgeText = "環島企劃最有趣的一支";
-    }
-    else if (w.video.includes("VLcXHIPyauM?si")) {
-      badgeClass = "badge-pink";
-      badgeText = "節奏及Hook";
-    }
-    else if (w.type === "education" || w.title.includes("政府") || w.title.includes("教育") || w.title.includes("芎林")) {
-      // 公家/教育機關背書 (金色)
-      badgeClass = "badge-gold";
-      badgeText = "官方指定合作";
-    }
-    else if (w.type === "ad" || w.title.includes("工商")) {
-      // 品牌合作 (紫色)
-      badgeClass = "badge-purple";
-      badgeText = "品牌工商企劃";
-    }
-    else if (w.type === "documentary") {
-      // 紀錄片 (綠色)
-      badgeClass = "badge-green";
-      badgeText = "深度專題紀錄";
-    }
-    else if (w.type === "PV" || w.type === "short film") {
-      // 微電影與 PV (藍色)
-      badgeClass = "badge-blue";
-      badgeText = "高質感影像製作";
-    }
-    else if (w.type === "game clip") {
-      // 遊戲精華 (橘色)
-      badgeClass = "badge-orange";
-      badgeText = "高留存節奏剪輯";
-    }
-    else if (w.type === "game tutorial") {
-      // 教學與說書 (紅色)
-      badgeClass = "badge-red";
-      badgeText = "高流量系列";
-    }
-    else if (w.type === "VLOG") {
-      // VLOG (湖水綠)
-      badgeClass = "badge-teal";
-      badgeText = "生活風格紀錄";
-    }
-    else if (w.type === "daily") {
-      // 日常 (質感灰)
-      badgeClass = "badge-gray";
-      badgeText = "輕鬆日常剪輯";
-    }
-    else if (w.type === "fan art") {
-      // 二創 (青綠色)
-      badgeClass = "badge-cyan";
-      badgeText = "創意社群二創";
-    }
-
-    // 只有在有賦予文字時，才生成 Badge HTML
-    if (badgeText !== "") {
-      badgeHtml = `<span class="badge ${badgeClass}">${badgeText}</span>`;
-    }
-
-    // 組裝 HTML 結構
-    div.innerHTML = `
-      <img src="${thumbUrl}" alt="${w.title}">
-      ${badgeHtml}
-      <div class="overlay">
-          <h3>${w.title}</h3>
-          <p>${tags}</p>
-      </div>
-    `;
-    return div;
+  } catch {
+    // 本地直接雙擊開啟 HTML 時自動使用內建資料
   }
+}
 
-  // 先讓舊內容做向右伸展淡出動畫
+function createWorkElement(w) {
+  const div = document.createElement('div');
+  div.className = 'work';
+  div.setAttribute('data-video', w.video);
+  div.setAttribute('data-category', w.category || 'gaming');
+
+  const ytId = extractYouTubeId(w.video);
+  const thumbUrl = ytId
+    ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`
+    : 'public/images/JBwhite_thumbnail.png';
+
+  const badgeColorMap = {
+    rec: 'badge-rec',
+    gold: 'badge-gold',
+    cyan: 'badge-cyan',
+    muted: 'badge-muted'
+  };
+  const badgeClass = badgeColorMap[w.badgeColor] || 'badge-cyan';
+  const badgeHtml = w.badge ? `<span class="badge ${badgeClass}">${w.badge}</span>` : '';
+  const tags = w.tags || '#影片剪輯';
+
+  div.innerHTML = `
+    <div class="work-thumb-wrap">
+      <img src="${thumbUrl}" alt="${w.title}" loading="lazy">
+      ${badgeHtml}
+      <div class="work-play-hint" aria-hidden="true">
+        <span class="work-play-circle">▶</span>
+      </div>
+    </div>
+    <div class="work-info">
+      <h3>${w.title}</h3>
+      <p>${tags}</p>
+    </div>
+  `;
+  return div;
+}
+
+function renderFeatured() {
+  const featuredGrid = document.querySelector('.featured-grid');
+  if (!featuredGrid) return;
+  const featuredItems = works.filter(w => w.featured);
+  featuredGrid.innerHTML = '';
+  featuredItems.forEach(w => featuredGrid.appendChild(createWorkElement(w)));
+  bindWorkClicks(featuredGrid);
+}
+
+function renderWorks(filter = "all") {
+  const grid = document.querySelector('.works-grid');
+  if (!grid) return;
+
+  const populate = () => {
+    grid.innerHTML = '';
+    works
+      .filter(w => filter === "all" || w.category === filter)
+      .forEach(w => grid.appendChild(createWorkElement(w)));
+    bindWorkClicks(grid);
+  };
+
   if (grid.children.length > 0) {
     grid.classList.add('works-transition-out');
     setTimeout(() => {
-      grid.innerHTML = '';
-      works.filter(w => filter === "all" || w.type === filter)
-        .forEach(w => {
-          grid.appendChild(createWorkElement(w));
-        });
-      addWorkEvents();
-      // 新內容向右伸展淡入動畫
+      populate();
       grid.classList.remove('works-transition-out');
       grid.classList.add('works-transition-in');
       setTimeout(() => {
@@ -465,65 +144,41 @@ function renderWorks(filter = "all") {
     return;
   }
 
-  // 首次渲染直接顯示
-  grid.innerHTML = '';
-  works.filter(w => filter === "all" || w.type === filter)
-    .forEach(w => {
-      grid.appendChild(createWorkElement(w));
-    });
-  addWorkEvents();
+  populate();
 }
 
-// 作品 hover 動畫與點擊燈箱
-function addWorkEvents() {
-  document.querySelectorAll('.works-grid .work').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-      gsap.to(item, { scale: 1.05, filter: 'brightness(1.2)', duration: 0.3 });
-    });
-    item.addEventListener('mouseleave', () => {
-      gsap.to(item, { scale: 1, filter: 'none', duration: 0.3 });
-    });
+function bindWorkClicks(scopeEl) {
+  scopeEl.querySelectorAll('.work').forEach(item => {
     item.addEventListener('click', () => {
       const videoSrc = item.getAttribute('data-video');
+      const isShorts = item.getAttribute('data-category') === 'shorts' || videoSrc.includes('/shorts/');
       const lightbox = document.getElementById('lightbox');
       const content = lightbox.querySelector('.lightbox-content');
       const container = lightbox.querySelector('.video-container');
-      // 取得 YouTube 影片 ID
-      const ytMatch = videoSrc.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([\w-]+)/);
-      // 判斷是否短影音
-      let isShorts = false;
-      const worksArr = Array.from(document.querySelectorAll('.works-grid .work'));
-      const idx = worksArr.indexOf(item);
-      if (window.works && window.works[idx] && window.works[idx].type === 'shorts') {
-        isShorts = true;
-      }
-      // 設定 lightbox 尺寸 class
+      const ytId = extractYouTubeId(videoSrc);
+
       container.classList.remove('vertical-video', 'horizontal-video');
-      if (isShorts) {
-        container.classList.add('vertical-video');
-      } else {
-        container.classList.add('horizontal-video');
-      }
-      if (ytMatch) {
-        const ytId = ytMatch[1];
-        container.innerHTML = `<iframe width="${isShorts ? 768 : 1366}" height="${isShorts ? 1366 : 768}" src="https://www.youtube.com/embed/${ytId}?autoplay=1" frameborder="0" allowfullscreen></iframe>`;
+      container.classList.add(isShorts ? 'vertical-video' : 'horizontal-video');
+
+      if (ytId) {
+        container.innerHTML = `<iframe width="${isShorts ? 768 : 1366}" height="${isShorts ? 1366 : 768}" src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
       } else {
         container.innerHTML = '影片連結格式錯誤';
       }
+
       lightbox.classList.remove('hidden');
-      gsap.fromTo(lightbox, { opacity: 0 }, { opacity: 1, duration: 0.3 });
-      gsap.fromTo(content, { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: 'back.out(1.7)' });
+      if (window.gsap) {
+        gsap.fromTo(lightbox, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+        gsap.fromTo(content, { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: 'back.out(1.7)' });
+      }
     });
   });
 }
 
 // 濾鏡按鈕互動
 if (document.querySelectorAll('.filters button').length) {
-  // 確保"全部"按鈕預設被選中
   const allButton = document.querySelector('.filters button[data-filter="all"]');
-  if (allButton) {
-    allButton.classList.add('active');
-  }
+  if (allButton) allButton.classList.add('active');
 
   document.querySelectorAll('.filters button').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -540,6 +195,11 @@ if (document.querySelector('.lightbox .close')) {
   const lightbox = document.getElementById('lightbox');
   const content = lightbox.querySelector('.lightbox-content');
   const closeLightbox = () => {
+    if (!window.gsap) {
+      lightbox.classList.add('hidden');
+      lightbox.querySelector('.video-container').innerHTML = '';
+      return;
+    }
     gsap.to(content, {
       scale: 0.7,
       opacity: 0,
@@ -560,80 +220,28 @@ if (document.querySelector('.lightbox .close')) {
     });
   };
   document.querySelector('.lightbox .close').addEventListener('click', closeLightbox);
-  // 點擊遮罩區域關閉
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) closeLightbox();
   });
-  // 按 ESC 關閉
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) closeLightbox();
   });
 }
 
-// 首頁電影級進場與打字機動畫
-// ==========================================
-window.addEventListener('DOMContentLoaded', () => {
-  const introSection = document.querySelector('.intro.section-page');
-  const typewriter = document.querySelector('.typewriter');
-
-  if (introSection && window.gsap) {
-    // 1. GSAP 錯落漸顯進場 (頭像先出 -> 標題浮現 -> 按鈕浮現)
-    const tl = gsap.timeline();
-    tl.fromTo('.intro .avatar', { y: 40, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: 'power3.out', delay: 0.2 })
-      .fromTo('.intro h1', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.8')
-      .fromTo('.home-btn', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.6');
-  }
-
-  // 2. 打字機質感優化 (配合進場節奏，只打一次並留著游標閃爍)
-  if (typewriter) {
-    const text = typewriter.textContent;
-    typewriter.textContent = '';
-    typewriter.classList.add('typing-cursor'); // 加上閃爍游標
-    let i = 0;
-
-    function typing() {
-      if (i < text.length) {
-        typewriter.textContent += text.charAt(i);
-        i++;
-        setTimeout(typing, 90); // 稍微放慢打字速度，更有從容的自信感
-      } else {
-        // 打字結束後，5秒後將游標隱藏，讓畫面完全乾淨
-        setTimeout(() => {
-          typewriter.classList.remove('typing-cursor');
-        }, 5000);
-      }
-    }
-
-    // 等待 GSAP 大標題進場差不多後 (約 1.2秒)，再開始打字
-    setTimeout(typing, 1200);
-  }
-});
-
-// 初始渲染
-if (document.querySelector('.works-grid')) {
-  renderWorks();
-}
-
-// 首頁按鈕點擊進入作品集
-// 首頁按鈕點擊進入作品集
+// 首頁按鈕點擊進入作品集（轉場速度維持原本設定）
 const homeBtn = document.querySelector('.home-btn');
 if (homeBtn) {
   homeBtn.addEventListener('click', function (e) {
     e.preventDefault();
-
-    // 為了防止使用者狂點，點擊後先暫時禁用按鈕
     this.style.pointerEvents = 'none';
-
-    // 1. 移除首頁狀態，讓背後的粒子特效提早一拍開始浮現
     document.body.classList.remove('show-intro');
 
-    // 2. 首頁元素：用 GSAP 讓元素錯落向上淡出
     if (window.gsap) {
-      gsap.to(['.intro .avatar', '.intro h1', '.typewriter', '.home-btn'], {
+      gsap.to(['.intro .rec-indicator', '.intro .avatar', '.intro h1', '.typewriter', '.home-btn'], {
         y: -40,
         opacity: 0,
         duration: 0.6,
-        stagger: 0.1, // 每個元素間隔 0.1 秒離開
+        stagger: 0.1,
         ease: 'power2.in'
       });
       gsap.to('.intro-bg-thumb img', {
@@ -642,7 +250,6 @@ if (homeBtn) {
         ease: 'power2.inOut'
       });
 
-      // 3. 過場黑幕：改用 GSAP 絲滑拉下
       const transition = document.getElementById('page-transition');
       setTimeout(() => {
         gsap.to(transition, {
@@ -650,85 +257,72 @@ if (homeBtn) {
           duration: 0.6,
           ease: "power2.inOut",
           onComplete: () => {
-
-            // 4. 黑幕蓋滿時，在背後偷偷切換頁面
             document.querySelectorAll('.section-page').forEach(page => {
               page.style.display = 'none';
             });
             document.querySelector('.portfolio.section-page').style.display = 'block';
             document.querySelector('.main-nav').style.display = 'flex';
 
-            // 確保導覽列的「作品」按鈕呈現高亮
             document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
             const portfolioTab = document.querySelector('.main-nav a[data-section="portfolio"]');
             if (portfolioTab) portfolioTab.classList.add('active');
 
-            // 滾動回最上方
             window.scrollTo(0, 0);
 
-            // 5. 黑幕絲滑拉起，正式進入作品集
             gsap.to(transition, {
               y: '-100%',
               duration: 0.6,
               ease: "power2.inOut",
               onComplete: () => {
                 homeBtn.style.pointerEvents = 'auto';
-                gsap.set(['.intro .avatar', '.intro h1', '.typewriter', '.home-btn'], { clearProps: 'all' });
+                gsap.set(['.intro .rec-indicator', '.intro .avatar', '.intro h1', '.typewriter', '.home-btn'], { clearProps: 'all' });
               }
             });
 
-            // 6. 補上失去的進場特效：作品集專屬的「錯落浮現動畫」
-            // 讓標題、按鈕、作品網格，在黑幕拉開時有層次地向上升起
-            gsap.fromTo('.portfolio h2', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.1 });
+            gsap.fromTo('.featured-block', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.1 });
             gsap.fromTo('.filters', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.2 });
             gsap.fromTo('.works-grid', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.3 });
           }
         });
-      }, 500); // 配合首頁元素退場的時間，提早一點點拉下黑幕
+      }, 500);
     }
   });
 }
 
-// LOGO點擊回首頁（遮罩轉場，首頁跟遮罩一起進場）
+// LOGO 點擊回首頁（轉場速度維持原本設定）
 const logoLink = document.querySelector('.logo-link');
 if (logoLink) {
   logoLink.addEventListener('click', function (e) {
     e.preventDefault();
+    document.body.classList.remove('has-direct-hash');
     document.body.classList.add('show-intro');
-    document.body.classList.remove('site-entered');
-
-    // 【新增】回到首頁時，清除所有導覽列按鈕的高亮狀態
+    history.replaceState(null, '', window.location.pathname);
     document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
 
     const transition = document.getElementById('page-transition');
-
-    // 1. 黑幕絲滑拉下
     gsap.to(transition, {
-      y: 0, duration: 0.6, ease: "power2.inOut", onComplete: () => {
-
-        // 2. 隱藏所有內部區塊，準備顯示首頁
+      y: 0,
+      duration: 0.6,
+      ease: "power2.inOut",
+      onComplete: () => {
         document.querySelectorAll('.section-page').forEach(page => {
           page.style.display = 'none';
         });
         const intro = document.querySelector('header.intro.section-page');
         const nav = document.querySelector('.main-nav');
-        nav.style.display = 'none'; // 隱藏導覽列
-
-        // 3. 確保畫面回到最上方
+        nav.style.display = 'none';
         window.scrollTo(0, 0);
 
-        // 4. 【關鍵修復】清除首頁所有元素的隱藏狀態 (包含剛才漏掉的背景圖 .intro-bg-thumb img)
         if (window.gsap) {
-          gsap.set(['.intro .avatar', '.intro h1', '.typewriter', '.home-btn', '.intro-bg-thumb img'], { clearProps: 'all' });
+          gsap.set(['.intro .rec-indicator', '.intro .avatar', '.intro h1', '.typewriter', '.home-btn', '.intro-bg-thumb img'], { clearProps: 'all' });
         }
 
-        // 5. 黑幕拉起，並讓首頁元素再次帥氣浮現
         gsap.to(transition, {
-          y: '-100%', duration: 0.6, ease: "power2.inOut",
+          y: '-100%',
+          duration: 0.6,
+          ease: "power2.inOut",
           onStart: () => {
             intro.style.display = 'flex';
-
-            // 重新播放首頁的漸次進場動畫
             if (window.gsap) {
               const tl = gsap.timeline();
               tl.fromTo('.intro .avatar', { y: 40, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: 'power3.out', delay: 0.2 })
@@ -742,260 +336,339 @@ if (logoLink) {
   });
 }
 
-// 偽多頁式切換：導覽列切換時只顯示對應區塊（所有按鈕都只用遮罩動畫）
+// 導覽列切換區塊（轉場速度維持原本設定）
 if (document.querySelectorAll('.main-nav a').length) {
   document.querySelectorAll('.main-nav a').forEach(link => {
     link.addEventListener('click', function (e) {
-      // 排除 logo-link
       if (this.classList.contains('logo-link')) return;
       const section = this.getAttribute('data-section');
-      if (section) {
+      if (!section) return;
 
-        // 【關鍵修復】點擊導覽列時，更新按鈕的高亮 (active) 狀態
-        document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
-        this.classList.add('active');
+      document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
+      this.classList.add('active');
 
-        // 移除 body.show-about 控制，統一用 display 控制顯示
-        if (section !== 'intro') {
-          document.body.classList.remove('show-intro'); // <== 補上這行，確保在其他頁面時都會顯示粒子
-          e.preventDefault();
-          const transition = document.getElementById('page-transition');
-          gsap.to(transition, {
-            y: 0, duration: 0.4, ease: "power2.in", onComplete: () => {
-              window.scrollTo({ top: 0, behavior: 'auto' }); // 加入這行重置滾動條
-              document.querySelectorAll('.section-page').forEach(page => {
-                if (page.getAttribute('data-section') === section) {
-                  // about 區塊用 flex，其他用 block
-                  if (section === 'about') {
-                    page.style.display = 'flex';
-                    // 重新綁定 about-more-btn 互動
-                    const moreBtn = document.querySelector('.about-more-btn');
-                    const qaBox = document.querySelector('.about-qa');
-                    if (moreBtn && qaBox) {
-                      moreBtn.onclick = null;
-                      moreBtn.addEventListener('click', function () {
-                        if (qaBox.style.display === 'none' || qaBox.style.display === '') {
-                          qaBox.style.display = 'block';
-                          setTimeout(() => { qaBox.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 200);
-                          moreBtn.textContent = '收合';
-                        } else {
-                          qaBox.style.display = 'none';
-                          moreBtn.textContent = '更多關於我';
-                        }
-                      });
-                    }
-                  } else {
-                    page.style.display = 'block';
-                  }
-                } else {
-                  page.style.display = 'none';
-                }
-              });
-              // nav 顯示/隱藏
-              const nav = document.querySelector('.main-nav');
-              if (nav) {
-                nav.offsetHeight;
-                nav.style.display = 'flex';
+      if (section !== 'intro') {
+        document.body.classList.remove('show-intro', 'has-direct-hash');
+        e.preventDefault();
+        const transition = document.getElementById('page-transition');
+        gsap.to(transition, {
+          y: 0,
+          duration: 0.4,
+          ease: "power2.in",
+          onComplete: () => {
+            window.scrollTo({ top: 0, behavior: 'auto' });
+            document.querySelectorAll('.section-page').forEach(page => {
+              if (page.getAttribute('data-section') === section) {
+                page.style.display = section === 'about' ? 'flex' : 'block';
+              } else {
+                page.style.display = 'none';
               }
-              // 進入作品集時預設高亮「全部」
-              if (section === 'portfolio') {
-                document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
-                const allButton = document.querySelector('.filters button[data-filter="all"]');
-                if (allButton) allButton.classList.add('active');
-              }
-              renderWorks();
-              const grid = document.querySelector('.works-grid');
-              if (grid) grid.offsetHeight;
-              window.dispatchEvent(new Event('resize'));
-              setTimeout(() => {
-                gsap.to(transition, { y: '-100%', duration: 0.5, ease: "power2.out" });
-                // 粒子設定切換
-                particlesJS.load('particles-js', 'public/particles.json', function () { });
-              }, 400);
+            });
+
+            const nav = document.querySelector('.main-nav');
+            if (nav) {
+              nav.offsetHeight;
+              nav.style.display = 'flex';
             }
-          });
-        } else {
-          // intro（首頁）
-          e.preventDefault();
-          document.querySelectorAll('.section-page').forEach(page => {
-            if (page.getAttribute('data-section') === section) {
-              page.style.display = 'flex';
-            } else {
-              page.style.display = 'none';
+
+            if (section === 'portfolio') {
+              document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
+              const allButton = document.querySelector('.filters button[data-filter="all"]');
+              if (allButton) allButton.classList.add('active');
+              renderFeatured();
+              renderWorks('all');
             }
-          });
-          const nav = document.querySelector('.main-nav');
-          nav.style.display = 'none';
-        }
+
+            window.dispatchEvent(new Event('resize'));
+            setTimeout(() => {
+              gsap.to(transition, { y: '-100%', duration: 0.5, ease: "power2.out" });
+            }, 400);
+          }
+        });
       }
     });
   });
 }
 
-window.addEventListener('DOMContentLoaded', function () {
-  if (document.getElementById('particles-js')) {
-    particlesJS.load('particles-js', 'public/particles.json', function () {
-      // 粒子特效載入完成
-    });
-  }
-  document.querySelectorAll('.skill-card').forEach(card => {
-    card.addEventListener('click', function (e) {
-      const isActive = this.classList.contains('show-desc');
-      // 關閉所有
-      document.querySelectorAll('.skill-card').forEach(c => c.classList.remove('show-desc'));
-      // 只在原本沒開啟時才開啟
-      if (!isActive) {
-        this.classList.add('show-desc');
+// DOM 初始化
+window.addEventListener('DOMContentLoaded', async function () {
+  const validSections = ['portfolio', 'skills', 'brands', 'about', 'contact'];
+  let returnSection = '';
+  try {
+    returnSection = sessionStorage.getItem('jbwhite_return_section') || '';
+    if (returnSection) sessionStorage.removeItem('jbwhite_return_section');
+  } catch {}
+  const isDirectSection = validSections.includes(returnSection);
+
+  // 若是從線上履歷點「返回作品集」，直接顯示對應分頁並將黑幕絲滑拉起（重整頁面則一律回首頁）
+  if (isDirectSection) {
+    document.body.classList.remove('show-intro');
+    document.querySelectorAll('.section-page').forEach(page => {
+      if (page.getAttribute('data-section') === returnSection) {
+        page.style.display = returnSection === 'about' ? 'flex' : 'block';
+      } else {
+        page.style.display = 'none';
       }
-      e.stopPropagation();
     });
-  });
-  document.body.addEventListener('click', function () {
-    document.querySelectorAll('.skill-card').forEach(c => c.classList.remove('show-desc'));
-  });
-  // 新增：按下 ESC 關閉 skill-desc-text
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.skill-card').forEach(c => c.classList.remove('show-desc'));
+    const nav = document.querySelector('.main-nav');
+    if (nav) nav.style.display = 'flex';
+    document.querySelectorAll('.main-nav a').forEach(a => {
+      a.classList.toggle('active', a.getAttribute('data-section') === returnSection);
+    });
+    window.scrollTo(0, 0);
+
+    const transition = document.getElementById('page-transition');
+    if (transition && window.gsap) {
+      gsap.set(transition, { y: 0 });
+      document.body.classList.remove('return-curtain-active');
+      requestAnimationFrame(() => {
+        gsap.to(transition, {
+          y: '-100%',
+          duration: 0.55,
+          ease: 'power2.inOut',
+          onComplete: () => {
+            document.body.classList.remove('has-direct-hash');
+          }
+        });
+      });
+    } else {
+      document.body.classList.remove('return-curtain-active', 'has-direct-hash');
     }
-  });
-  // 報價按鈕互動
-  const quoteBtn = document.querySelector('.quote-btn');
-  const cliboEmbed = document.querySelector('.clibo-embed');
-  if (quoteBtn && cliboEmbed) {
-    quoteBtn.addEventListener('click', function () {
-      const isShow = cliboEmbed.classList.contains('show');
-      if (!isShow) {
-        cliboEmbed.classList.add('show');
-        setTimeout(() => {
-          cliboEmbed.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 200);
+  }
+
+  await loadWorksData();
+  renderFeatured();
+  renderWorks('all');
+
+  const introSection = document.querySelector('.intro.section-page');
+  const typewriter = document.querySelector('.typewriter');
+
+  if (!isDirectSection && introSection && window.gsap) {
+    const tl = gsap.timeline();
+    tl.fromTo('.intro .avatar', { y: 40, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: 'power3.out', delay: 0.2 })
+      .fromTo('.intro h1', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.8')
+      .fromTo('.home-btn', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.6');
+  }
+
+  if (!isDirectSection && typewriter) {
+    const text = typewriter.textContent;
+    typewriter.textContent = '';
+    typewriter.classList.add('typing-cursor');
+    let i = 0;
+
+    function typing() {
+      if (i < text.length) {
+        typewriter.textContent += text.charAt(i);
+        i++;
+        setTimeout(typing, 90);
       } else {
-        cliboEmbed.classList.remove('show');
-      }
-    });
-  }
-  // Clibo 報價 iframe 載入完成時移除 skeleton loading
-  const cliboIframe = document.querySelector('.clibo-iframe');
-  if (cliboIframe && cliboEmbed) {
-    cliboIframe.addEventListener('load', function () {
-      cliboEmbed.classList.add('loaded');
-    });
-  }
-
-  // 2. 技能條動畫
-  document.querySelectorAll('.skill-bar').forEach(bar => {
-    const percent = bar.getAttribute('data-percent') || '80';
-    const fill = bar.querySelector('.bar-fill');
-    setTimeout(() => {
-      fill.style.width = percent + '%';
-    }, 600);
-  });
-
-  // 3. 更多關於我 Q&A 展開（主動綁定，確保任何情況都能互動）
-  const moreBtn = document.querySelector('.about-more-btn');
-  const qaBox = document.querySelector('.about-qa');
-  if (moreBtn && qaBox) {
-    moreBtn.onclick = null;
-    moreBtn.addEventListener('click', function () {
-      if (qaBox.style.display === 'none' || qaBox.style.display === '') {
-        qaBox.style.display = 'block';
-        setTimeout(() => { qaBox.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 200);
-        moreBtn.textContent = '收合';
-      } else {
-        qaBox.style.display = 'none';
-        moreBtn.textContent = '更多關於我';
-      }
-    });
-  }
-
-  // 4. 頭像點擊抖動+座右銘
-  const avatar = document.getElementById('about-avatar');
-  const quoteCard = document.getElementById('about-quote-card');
-  const quote = document.getElementById('about-quote');
-  const quotes = [
-    '剪輯，是讓故事發光的魔法。',
-    '得到良好的反饋，是持續創作的動力',
-    '用畫面說故事，讓觀眾感動。',
-    '創作，是與世界對話的方式。',
-    '讓每個瞬間都值得被記錄。',
-    '剪輯，是節奏與情感的藝術。'
-  ];
-  let isAvatarAnimating = false;
-  if (avatar && quote && quoteCard) {
-    avatar.addEventListener('click', function () {
-      if (isAvatarAnimating) return;
-      isAvatarAnimating = true;
-
-      // 暫停 hover 效果
-      avatar.classList.add('no-hover');
-
-      avatar.classList.remove('active');
-      void avatar.offsetWidth; // 觸發 reflow
-      avatar.classList.add('active');
-      const q = quotes[Math.floor(Math.random() * quotes.length)];
-      quote.textContent = q;
-      quoteCard.style.display = 'block';
-      quoteCard.classList.add('show-quote-anim');
-
-      // 點擊時隱藏 tooltip
-      const tooltip = document.querySelector('.avatar-tooltip');
-      if (tooltip) tooltip.style.display = 'none';
-
-      // 在手機版時自動滾動到座右銘位置
-      if (window.innerWidth <= 700) {
         setTimeout(() => {
-          quoteCard.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-          });
-        }, 300);
+          typewriter.classList.remove('typing-cursor');
+        }, 5000);
       }
+    }
+    setTimeout(typing, 1200);
+  }
 
-      setTimeout(() => {
-        quoteCard.classList.remove('show-quote-anim');
-        quoteCard.style.display = 'none';
+  // 聚光燈暗色刻度網格互動背景
+  const gridCanvas = document.getElementById('spotlight-grid-canvas');
+  if (gridCanvas) {
+    const ctx = gridCanvas.getContext('2d');
+    const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const pointer = { x: width * 0.5, y: height * 0.4, tx: width * 0.5, ty: height * 0.4, active: false };
+    let tickCount = 0;
 
-        // 等待動畫完全結束後再恢復 hover 效果
-        setTimeout(() => {
-          avatar.classList.remove('no-hover');
-          isAvatarAnimating = false;
-        }, 300);
-      }, 3200);
+    function resizeGrid() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      gridCanvas.width = Math.round(width * dpr);
+      gridCanvas.height = Math.round(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    window.addEventListener('resize', resizeGrid);
+    window.addEventListener('pointermove', (e) => {
+      pointer.tx = e.clientX;
+      pointer.ty = e.clientY;
+      pointer.active = true;
+    }, { passive: true });
+    window.addEventListener('pointerleave', () => {
+      pointer.active = false;
     });
 
-    avatar.addEventListener('animationend', function () {
-      avatar.classList.remove('active');
+    function renderSpotlightGrid() {
+      if (!document.hidden && !document.body.classList.contains('show-intro')) {
+        tickCount += 1;
+        if (!pointer.active && !reducedMotion) {
+          pointer.tx = width * (0.5 + Math.sin(tickCount * 0.008) * 0.22);
+          pointer.ty = height * (0.42 + Math.cos(tickCount * 0.006) * 0.16);
+        }
+        pointer.x += (pointer.tx - pointer.x) * 0.1;
+        pointer.y += (pointer.ty - pointer.y) * 0.1;
+
+        ctx.clearRect(0, 0, width, height);
+
+        const step = 42;
+        const glowRadius = 260;
+        const glow = ctx.createRadialGradient(pointer.x, pointer.y, 12, pointer.x, pointer.y, glowRadius);
+        glow.addColorStop(0, 'rgba(56, 189, 248, 0.18)');
+        glow.addColorStop(0.5, 'rgba(56, 189, 248, 0.05)');
+        glow.addColorStop(1, 'rgba(14, 16, 20, 0)');
+        ctx.fillStyle = glow;
+        ctx.fillRect(0, 0, width, height);
+
+        ctx.lineWidth = 1;
+        for (let x = 0; x <= width; x += step) {
+          const dx = Math.abs(x - pointer.x);
+          const alpha = dx < 220 ? 0.045 + (1 - dx / 220) * 0.12 : 0.04;
+          ctx.strokeStyle = `rgba(148, 163, 184, ${alpha.toFixed(3)})`;
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, height);
+          ctx.stroke();
+        }
+        for (let y = 0; y <= height; y += step) {
+          const dy = Math.abs(y - pointer.y);
+          const alpha = dy < 220 ? 0.045 + (1 - dy / 220) * 0.12 : 0.04;
+          ctx.strokeStyle = `rgba(148, 163, 184, ${alpha.toFixed(3)})`;
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(width, y);
+          ctx.stroke();
+        }
+
+        const startX = Math.max(0, Math.floor((pointer.x - 190) / step) * step);
+        const endX = Math.min(width, Math.ceil((pointer.x + 190) / step) * step);
+        const startY = Math.max(0, Math.floor((pointer.y - 190) / step) * step);
+        const endY = Math.min(height, Math.ceil((pointer.y + 190) / step) * step);
+
+        for (let x = startX; x <= endX; x += step) {
+          for (let y = startY; y <= endY; y += step) {
+            const dist = Math.hypot(x - pointer.x, y - pointer.y);
+            if (dist < 180) {
+              const intensity = 1 - dist / 180;
+              ctx.fillStyle = `rgba(56, 189, 248, ${(intensity * 0.78).toFixed(3)})`;
+              ctx.beginPath();
+              ctx.arc(x, y, 1.3 + intensity * 1.4, 0, Math.PI * 2);
+              ctx.fill();
+            }
+          }
+        }
+      }
+      requestAnimationFrame(renderSpotlightGrid);
+    }
+
+    resizeGrid();
+    renderSpotlightGrid();
+  }
+
+  // 技能圖示點擊大圖預覽
+  const previewBox = document.getElementById('img-preview-lightbox');
+  if (previewBox) {
+    const previewImg = previewBox.querySelector('img');
+    document.querySelectorAll('.skill-icon').forEach(img => {
+      img.addEventListener('click', function (e) {
+        previewImg.src = this.src;
+        previewBox.classList.remove('hidden');
+        requestAnimationFrame(() => previewBox.classList.add('show'));
+        e.stopPropagation();
+      });
+    });
+    const closePreview = () => {
+      previewBox.classList.remove('show');
+      setTimeout(() => previewBox.classList.add('hidden'), 350);
+    };
+    previewBox.addEventListener('click', closePreview);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && previewBox.classList.contains('show')) closePreview();
     });
   }
 
-  // 頭像 hover 顯示說明
+  // 關於我頭像 hover tooltip
   const avatarWrap = document.querySelector('.avatar-hover-wrap');
   if (avatarWrap) {
     const tooltip = avatarWrap.querySelector('.avatar-tooltip');
     const avatarImg = avatarWrap.querySelector('.about-avatar');
     if (tooltip && avatarImg) {
-      avatarImg.addEventListener('mouseenter', () => {
-        tooltip.style.display = 'block';
-      });
-      avatarImg.addEventListener('mouseleave', () => {
-        tooltip.style.display = 'none';
-      });
-      // 也支援鍵盤 focus
-      avatarImg.addEventListener('focus', () => {
-        tooltip.style.display = 'block';
-      });
-      avatarImg.addEventListener('blur', () => {
-        tooltip.style.display = 'none';
-      });
+      avatarImg.addEventListener('mouseenter', () => { tooltip.style.display = 'block'; });
+      avatarImg.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
+      avatarImg.addEventListener('focus', () => { tooltip.style.display = 'block'; });
+      avatarImg.addEventListener('blur', () => { tooltip.style.display = 'none'; });
     }
   }
-});
 
-window.addEventListener('DOMContentLoaded', () => {
-  const hash = window.location.hash.substring(1);
-  if (hash && hash !== 'intro') {
-    const targetBtn = document.querySelector(`.main-nav a[data-section="${hash}"]`);
-    if (targetBtn) targetBtn.click();
+  // Discord ID 一鍵複製
+  const copyDiscordBtn = document.getElementById('copy-discord-btn');
+  const copyDiscordStatus = document.getElementById('copy-discord-status');
+  if (copyDiscordBtn && copyDiscordStatus) {
+    copyDiscordBtn.addEventListener('click', async () => {
+      const discordId = copyDiscordBtn.getAttribute('data-discord') || 'jbwhite1537';
+      try {
+        await navigator.clipboard.writeText(discordId);
+        copyDiscordStatus.textContent = `已複製 Discord ID：${discordId}，歡迎直接私訊！`;
+      } catch {
+        copyDiscordStatus.textContent = `請手動複製 Discord ID：${discordId}`;
+      }
+      setTimeout(() => {
+        copyDiscordStatus.textContent = '';
+      }, 3500);
+    });
   }
+
+  // 聯絡表單送出
+  const form = document.getElementById("my-form");
+  if (form) {
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+      const status = document.getElementById("my-form-status");
+      const data = new FormData(event.target);
+      try {
+        const response = await fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          status.textContent = "感謝您的留言！我們已收到您的訊息。";
+          form.reset();
+          setTimeout(() => { status.textContent = ""; }, 3500);
+        } else {
+          const resData = await response.json();
+          if (Object.hasOwn(resData, 'errors')) {
+            status.textContent = resData.errors.map(err => err.message).join(", ");
+          } else {
+            status.textContent = "送出失敗，請稍後再試。";
+          }
+        }
+      } catch {
+        status.textContent = "送出失敗，請稍後再試。";
+      }
+    });
+  }
+
+
+  // 線上履歷連結平滑黑幕過場
+  document.querySelectorAll('a.resume-link').forEach(link => {
+    link.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      e.preventDefault();
+      const href = this.getAttribute('href');
+      const transition = document.getElementById('page-transition');
+      if (transition && window.gsap) {
+        gsap.to(transition, {
+          y: 0,
+          duration: 0.45,
+          ease: 'power2.inOut',
+          onComplete: () => { window.location.href = href; }
+        });
+      } else {
+        window.location.href = href;
+      }
+    });
+  });
+
+
 });
