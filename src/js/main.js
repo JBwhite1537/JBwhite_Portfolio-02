@@ -325,9 +325,10 @@ if (logoLink) {
             intro.style.display = 'flex';
             if (window.gsap) {
               const tl = gsap.timeline();
-              tl.fromTo('.intro .avatar', { y: 40, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: 'power3.out', delay: 0.2 })
-                .fromTo('.intro h1', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.8')
-                .fromTo('.home-btn', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.6');
+              tl.fromTo('.intro .avatar', { y: 36, opacity: 0, scale: 0.92 }, { y: 0, opacity: 1, scale: 1, duration: 1.0, ease: 'power3.out', delay: 0.15 })
+                .fromTo('.intro h1', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.85, ease: 'power3.out' }, '-=0.65')
+                .fromTo('.intro .rec-indicator', { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }, '-=0.55')
+                .fromTo('.home-btn', { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.85, ease: 'power3.out' }, '-=0.45');
             }
           }
         });
@@ -436,39 +437,52 @@ window.addEventListener('DOMContentLoaded', async function () {
     }
   }
 
-  await loadWorksData();
-  renderFeatured();
-  renderWorks('all');
-
   const introSection = document.querySelector('.intro.section-page');
   const typewriter = document.querySelector('.typewriter');
 
-  if (!isDirectSection && introSection && window.gsap) {
-    const tl = gsap.timeline();
-    tl.fromTo('.intro .avatar', { y: 40, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: 'power3.out', delay: 0.2 })
-      .fromTo('.intro h1', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.8')
-      .fromTo('.home-btn', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.6');
-  }
+  // 立即啟動首頁進場動畫與打字機（不等 Google 試算表抓完，完全消除閃現完整資訊）
+  if (!isDirectSection && introSection) {
+    if (typewriter) {
+      const text = typewriter.textContent;
+      typewriter.textContent = '';
+      typewriter.style.opacity = '1';
+      typewriter.classList.add('typing-cursor');
+      let i = 0;
 
-  if (!isDirectSection && typewriter) {
-    const text = typewriter.textContent;
-    typewriter.textContent = '';
-    typewriter.classList.add('typing-cursor');
-    let i = 0;
-
-    function typing() {
-      if (i < text.length) {
-        typewriter.textContent += text.charAt(i);
-        i++;
-        setTimeout(typing, 90);
-      } else {
-        setTimeout(() => {
-          typewriter.classList.remove('typing-cursor');
-        }, 5000);
+      function typing() {
+        if (i < text.length) {
+          typewriter.textContent += text.charAt(i);
+          i++;
+          setTimeout(typing, 90);
+        } else {
+          setTimeout(() => {
+            typewriter.classList.remove('typing-cursor');
+          }, 5000);
+        }
       }
+      setTimeout(typing, 900);
     }
-    setTimeout(typing, 1200);
+
+    if (window.gsap) {
+      const tl = gsap.timeline({
+        onStart: () => { document.body.classList.add('intro-animated'); }
+      });
+      tl.fromTo('.intro .avatar', { y: 36, opacity: 0, scale: 0.92 }, { y: 0, opacity: 1, scale: 1, duration: 1.0, ease: 'power3.out', delay: 0.1 })
+        .fromTo('.intro h1', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.85, ease: 'power3.out' }, '-=0.65')
+        .fromTo('.intro .rec-indicator', { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }, '-=0.55')
+        .fromTo('.home-btn', { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.85, ease: 'power3.out' }, '-=0.45');
+    } else {
+      document.body.classList.add('intro-animated');
+    }
+  } else {
+    document.body.classList.add('intro-animated');
   }
+
+  // 在背景非同步載入 Google 試算表作品資料，不阻塞首頁動畫
+  loadWorksData().then(() => {
+    renderFeatured();
+    renderWorks('all');
+  });
 
   // 聚光燈暗色刻度網格互動背景
   const gridCanvas = document.getElementById('spotlight-grid-canvas');

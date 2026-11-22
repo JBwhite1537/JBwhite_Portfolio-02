@@ -2282,3 +2282,12 @@ body.has-direct-hash header.intro.section-page {
 body.return-curtain-active #page-transition {
   transform: translateY(0) !important;
 }
+
+/* 首頁載入初始先隱藏進場元素，避免 GSAP 啟動前閃現完整畫面 */
+body.show-intro:not(.intro-animated) .intro .avatar,
+body.show-intro:not(.intro-animated) .intro h1,
+body.show-intro:not(.intro-animated) .intro .rec-indicator,
+body.show-intro:not(.intro-animated) .intro .typewriter,
+body.show-intro:not(.intro-animated) .intro .home-btn {
+  opacity: 0;
+}
